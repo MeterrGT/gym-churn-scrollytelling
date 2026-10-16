@@ -1,0 +1,31 @@
+.vercel
+# Node.js dependencies
+node_modules/
+
+# Build output
+dist/
+.vite/
+.vercel/
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Logs and test output
+*.log
+coverage/
+
+# Python cache and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# Exclude the old dataset containing personal information
+**/gym_members_dataset.csv
+
+data/raw/gym_churn_us.csv

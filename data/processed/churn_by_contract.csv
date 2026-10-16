@@ -1,0 +1,4 @@
+Contract_period,Label,Total_Count,Churn_Count,Churn_Rate,Churn_Percentage,Share_Percentage
+1,1 Ay (Aylık),2207,934,0.4231989125509742,42.32,55.18
+6,6 Ay (Yarım Yıl),833,104,0.12484993997599039,12.48,20.82
+12,12 Ay (Yıllık),960,23,0.023958333333333335,2.4,24.0

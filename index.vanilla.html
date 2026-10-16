@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang="tr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Metehan Gezer - Manisa Celal Bayar Üniversitesi Büyük Veri Analistliği Öğrencisi Kişisel Portfolyo">
+    <meta name="author" content="Metehan Gezer">
+    <title>Metehan Gezer | Büyük Veri Analistliği Portfolyosu</title>
+
+    <!-- Google Fonts: Plus Jakarta Sans & Outfit (Modern, Açık ve Ferah Tipografi) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Font Awesome İkon Kütüphanesi -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Özel Cyber-Purple Stil Dosyası -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- Arka Planda Zarif Süzülen Parçacık Ağı (Canvas) -->
+    <canvas id="cyber-canvas"></canvas>
+
+    <!-- Neon Mor Işıma Efektleri -->
+    <div class="ambient-glow orb-purple-1"></div>
+    <div class="ambient-glow orb-purple-2"></div>
+
+    <!-- ÜST MENÜ (NAVBAR) -->
+    <header class="navbar" id="navbar">
+        <div class="container nav-container">
+            <a href="#hero" class="nav-brand">
+                <span class="brand-bracket">[</span>
+                <span class="brand-text">Metehan<span class="highlight-purple">.Gezer</span></span>
+                <span class="brand-bracket">]</span>
+            </a>
+
+            <!-- Masaüstü Linkler -->
+            <nav class="nav-menu" id="nav-menu">
+                <ul class="nav-list">
+                    <li><a href="#hero" class="nav-link active">Ana Sayfa</a></li>
+                    <li><a href="#about" class="nav-link">Hakkımda</a></li>
+                    <li><a href="#skills" class="nav-link">Yeteneklerim</a></li>
+                    <li><a href="#projects" class="nav-link">Dönem Projem</a></li>
+                    <li><a href="#contact" class="nav-link">İletişim</a></li>
+                </ul>
+            </nav>
+
+            <!-- Sağ Aksiyon & Sosyal Link -->
+            <div class="nav-actions">
+                <a href="https://www.instagram.com/metehangezer/?hl=tr" target="_blank" rel="noopener noreferrer"
+                    class="nav-social-icon insta-glow" title="Instagram Profilim">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="#contact" class="btn btn-sm btn-nav-cta">İletişime Geç</a>
+                <button class="mobile-toggle" id="mobile-toggle" aria-label="Menüyü Aç/Kapat">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- 1. BÖLÜM: HERO (GİRİŞ ALANI) -->
+        <section class="hero-section" id="hero">
+            <div class="container hero-container">
+
+                <!-- Üst Bilgi Rozeti -->
+                <div class="hero-badge">
+                    <span class="pulse-beacon"></span>
+                    <span>Manisa Celal Bayar Üniversitesi • Büyük Veri Analistliği</span>
+                </div>
+
+                <!-- Ferah ve Zarif Başlık (Easter Egg: 5 Tıklama) -->
+                <h1 class="hero-title" id="main-name" title="Easter Egg: 5 kez tıkla!">
+                    Merhaba, Ben <span class="gradient-purple">Metehan Gezer</span>
+                </h1>
+
+                <!-- Daktilo / Typing Efektli Alt Başlık -->
+                <div class="typing-box">
+                    <span class="typing-text" id="typing-text"></span>
+                    <span class="typing-cursor"></span>
+                </div>
+
+                <!-- Samimi ve Profesyonel Açıklama -->
+                <p class="hero-description">
+                    Ham verinin içindeki gizli hikayeleri bulmak ve analitik yöntemlerle anlamlı içgörülere dönüştürmek
+                    için yola çıkmış bir veri tutkunuyum.
+                </p>
+
+                <!-- Neon Mor Butonlar -->
+                <div class="hero-cta-group">
+                    <a href="#projects" class="btn btn-primary-neon">
+                        <i class="fa-solid fa-diagram-project"></i>
+                        <span>Projemi İncele</span>
+                    </a>
+                    <a href="#contact" class="btn btn-glass">
+                        <i class="fa-regular fa-paper-plane"></i>
+                        <span>Bana Ulaşın</span>
+                    </a>
+                </div>
+
+                <!-- Sade Bilgi Şeridi -->
+                <div class="hero-info-pills">
+                    <div class="info-pill">
+                        <i class="fa-solid fa-graduation-cap"></i>
+                        <span>MCBÜ Büyük Veri Analistliği</span>
+                    </div>
+                    <div class="info-pill">
+                        <i class="fa-solid fa-laptop-code"></i>
+                        <span>Python &amp; SQL Öğrenimi</span>
+                    </div>
+                    <div class="info-pill">
+                        <i class="fa-regular fa-envelope"></i>
+                        <span>gztmetehan@gmail.com</span>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 2. BÖLÜM: HAKKIMDA (ANLAŞILIR, ŞIK VE FERAH) -->
+        <section class="section about-section" id="about">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <span class="section-tag">&lt;biyografi&gt;</span>
+                    <h2 class="section-title">Hakkımda</h2>
+                    <div class="heading-line"></div>
+                </div>
+
+                <div class="about-card-modern">
+                    <div class="about-icon-header">
+                        <div class="profile-avatar-icon">
+                            <i class="fa-solid fa-user-astronaut"></i>
+                        </div>
+                        <div>
+                            <h3 class="about-name">Metehan Gezer</h3>
+                            <span class="about-sub">Veri Analisti Adayı | MCBÜ Öğrencisi</span>
+                        </div>
+                    </div>
+
+                    <div class="about-text-content">
+                        <p>
+                            Manisa Celal Bayar Üniversitesi <strong>Büyük Veri Analistliği</strong> programında
+                            eğitimime devam ediyorum. Veri bilimi dünyasına adım attığımdan bu yana;
+                            <strong>Python</strong> ve <strong>SQL</strong> temellerimi geliştiriyor, veriyi analiz etme
+                            ve anlamlandırma adımlarını öğreniyorum.
+                        </p>
+                        <p>
+                            Benim için veri, sadece sayılardan ibaret değil; doğru analiz edildiğinde geleceğe ışık
+                            tutan stratejik bir pusuladır. Günlük çalışmalarımda açık veri setlerini inceleyerek
+                            istatistiksel ve makine öğrenmesi modellerini kavramaya çalışıyorum. Amacım; endüstride
+                            karşılaşılan gerçek sorunlara veri odaklı, akılcı ve sürdürülebilir çözümler üretebilen bir
+                            analist olmaktır.
+                        </p>
+                    </div>
+
+                    <!-- Kolay Anlaşılır İlgi Alanları -->
+                    <div class="about-focus-chips">
+                        <div class="focus-chip"><i class="fa-solid fa-check"></i> Python &amp; Veri Manipülasyonu</div>
+                        <div class="focus-chip"><i class="fa-solid fa-check"></i> İlişkisel Veri Tabanları (SQL)</div>
+                        <div class="focus-chip"><i class="fa-solid fa-check"></i> Temel Makine Öğrenmesi Mantığı</div>
+                        <div class="focus-chip"><i class="fa-solid fa-check"></i> Merak &amp; Problem Çözme Odaklılık
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 3. BÖLÜM: YETENEKLERİM (SKILLS) -->
+        <section class="section skills-section" id="skills">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <span class="section-tag">&lt;araclar_ve_beceriler&gt;</span>
+                    <h2 class="section-title">Öğrendiğim ve Geliştirdiğim Araçlar</h2>
+                    <p class="section-sub">Ustalık iddiası yerine: Aktif olarak çalıştığım ve gelişim aşamasında olduğum
+                        temel teknolojiler</p>
+                    <div class="heading-line"></div>
+                </div>
+
+                <div class="skills-grid">
+
+                    <!-- 1. Python -->
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fa-brands fa-python"></i></div>
+                        <h3 class="skill-title">Python</h3>
+                        <p class="skill-desc">Temel sözdizimi, veri işleme mantığı, Pandas ve NumPy ile ilk çalışmalar.
+                        </p>
+                        <span class="skill-level-tag">Geliştiriliyor</span>
+                    </div>
+
+                    <!-- 2. SQL -->
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fa-solid fa-database"></i></div>
+                        <h3 class="skill-title">SQL</h3>
+                        <p class="skill-desc">İlişkisel veritabanı sorguları; SELECT, WHERE, filtreleme ve gruplama
+                            işlemleri.</p>
+                        <span class="skill-level-tag">Geliştiriliyor</span>
+                    </div>
+
+                    <!-- 3. Anaconda -->
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fa-solid fa-cubes"></i></div>
+                        <h3 class="skill-title">Anaconda</h3>
+                        <p class="skill-desc">Veri bilimi kütüphanelerinin yönetimi ve sanal ortam yapılandırması.</p>
+                        <span class="skill-level-tag">Kullanılıyor</span>
+                    </div>
+
+                    <!-- 4. Jupyter Notebook -->
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fa-solid fa-book-open"></i></div>
+                        <h3 class="skill-title">Jupyter Notebook</h3>
+                        <p class="skill-desc">Adım adım kodlama, veri görselleştirme ve modellerin interaktif testi.</p>
+                        <span class="skill-level-tag">Kullanılıyor</span>
+                    </div>
+
+                    <!-- 5. Machine Learning (Giriş) -->
+                    <div class="skill-card highlight-skill">
+                        <div class="skill-icon purple-glow"><i class="fa-solid fa-brain"></i></div>
+                        <h3 class="skill-title">Machine Learning (Giriş)</h3>
+                        <p class="skill-desc">Regresyon, sınıflandırma ve kümeleme algoritmalarının temel matematiksel
+                            mantığı.</p>
+                        <span class="skill-level-tag purple">Öğreniliyor</span>
+                    </div>
+
+                    <!-- 6. Kaggle -->
+                    <div class="skill-card">
+                        <div class="skill-icon"><i class="fa-brands fa-kaggle"></i></div>
+                        <h3 class="skill-title">Kaggle</h3>
+                        <p class="skill-desc">Açık veri setlerine ulaşma, örnek analizleri inceleme ve pratik yapma.</p>
+                        <span class="skill-level-tag">Pratik Alanı</span>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- 4. BÖLÜM: DÖNEM SONU PROJESİ (SADECE BURADA VURGULANIYOR) -->
+        <section class="section project-section" id="projects">
+            <div class="container">
+                <div class="section-heading text-center">
+                    <span class="section-tag">&lt;donem_projesi&gt;</span>
+                    <h2 class="section-title">Üzerinde Çalıştığım Dönem Projesi</h2>
+                    <p class="section-sub">Şu an laboratuvar ve araştırma sürecinde olduğum akademik çalışmam</p>
+                    <div class="heading-line"></div>
+                </div>
+
+                <!-- Şık ve Dengeli Proje Kartı -->
+                <div class="project-showcase-card">
+                    <div class="project-card-top">
+                        <div class="project-badge">
+                            <span class="badge-dot"></span>
+                            <span>Yapım Aşamasında (In Progress) • Dönem Sonu Projesi</span>
+                        </div>
+                        <span class="academic-note"><i class="fa-solid fa-graduation-cap"></i> Akademik Çalışma</span>
+                    </div>
+
+                    <div class="project-card-main">
+                        <h3 class="project-heading">
+                            Kestirimci Bakım Sistemleri ile Endüstride Arıza Önleme
+                            <span class="project-subheading">(Erken Uyarı Sistemi)</span>
+                        </h3>
+
+                        <p class="project-text">
+                            Açık veri kaynaklarından (<strong>Kaggle</strong>) alınacak endüstriyel motor sensör
+                            verileri, <strong>Anaconda ve Jupyter Notebook</strong> ortamında <strong>Python</strong>
+                            ile işlenecektir.
+                        </p>
+
+                        <div class="project-goal-box">
+                            <div class="goal-icon"><i class="fa-solid fa-bullseye"></i></div>
+                            <div>
+                                <strong>Projenin Hedefi:</strong>
+                                <p>Motorun bozulmasına ne kadar süre kaldığını tahmin eden bir makine öğrenmesi modeli
+                                    geliştirerek fabrikalar için hayat kurtaran bir erken uyarı sistemi sunmak.</p>
+                            </div>
+                        </div>
+
+                        <!-- Kullanılacak Araçlar -->
+                        <div class="project-tools">
+                            <span class="tools-label">Kullanılacak Araçlar:</span>
+                            <div class="tools-tags">
+                                <span class="tag-item"><i class="fa-brands fa-python"></i> Python</span>
+                                <span class="tag-item"><i class="fa-solid fa-table"></i> Pandas</span>
+                                <span class="tag-item"><i class="fa-solid fa-brain"></i> Scikit-learn</span>
+                                <span class="tag-item"><i class="fa-solid fa-book"></i> Jupyter</span>
+                                <span class="tag-item"><i class="fa-brands fa-kaggle"></i> Kaggle</span>
+                            </div>
+                        </div>
+
+                        <!-- 2. ÖZELLİK: 'MOTORU KURTAR' KESTİRİMCİ BAKIM MİNİGAME WIDGET'I -->
+                        <div class="motor-minigame-widget" id="motor-widget">
+                            <div class="minigame-header">
+                                <div class="minigame-title-group">
+                                    <div class="motor-icon-box" id="motor-icon-box">
+                                        <i class="fa-solid fa-gear fa-spin motor-gear-icon" id="motor-gear"></i>
+                                    </div>
+                                    <div>
+                                        <span class="widget-badge">KESTİRİMCİ BAKIM SİMÜLASYONU</span>
+                                        <h4 class="widget-title">Motor Sıcaklığı &amp; Arıza Riski</h4>
+                                    </div>
+                                </div>
+                                <div class="intervention-badge">
+                                    <span class="intervention-label">Müdahale:</span>
+                                    <span class="intervention-score" id="intervention-count">0/10</span>
+                                </div>
+                            </div>
+
+                            <!-- İlerleme Çubuğu (Progress Bar) -->
+                            <div class="temp-track-container">
+                                <div class="temp-track">
+                                    <div class="temp-fill" id="temp-fill" style="width: 25%;"></div>
+                                </div>
+                                <div class="temp-info-row">
+                                    <span class="temp-status-text" id="temp-status">
+                                        <i class="fa-solid fa-circle-check"></i> Normal Çalışma Seviyesi
+                                    </span>
+                                    <span class="temp-percent-text" id="temp-percent">%25 Sıcaklık</span>
+                                </div>
+                            </div>
+
+                            <!-- Kontrol Butonları -->
+                            <div class="minigame-actions">
+                                <button type="button" class="btn btn-cool-motor" id="cool-motor-btn">
+                                    <i class="fa-solid fa-snowflake"></i>
+                                    <span>Analiz Et ve Müdahale Et</span>
+                                </button>
+                                <button type="button" class="btn btn-sm btn-restart-game hidden" id="restart-game-btn">
+                                    <i class="fa-solid fa-rotate-right"></i> Yeniden Başlat
+                                </button>
+                            </div>
+
+                            <!-- Başarı Rozeti (Erken Uyarı Başarılı) -->
+                            <div class="game-success-card hidden" id="game-success-badge">
+                                <i class="fa-solid fa-award success-badge-icon"></i>
+                                <div>
+                                    <strong class="success-badge-title">SİSTEM KURTARILDI!</strong>
+                                    <p class="success-badge-desc">Erken uyarı algoritması motor arızasını başarıyla
+                                        önledi.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card-bottom">
+                        <span class="bottom-status">
+                            <i class="fa-solid fa-spinner fa-spin"></i> Sensör veri setleri inceleniyor, model altyapısı
+                            hazırlanıyor.
+                        </span>
+                        <a href="mailto:gztmetehan@gmail.com?subject=Dönem%20Projesi%20Hakkında"
+                            class="btn btn-sm btn-outline-purple">
+                            <i class="fa-regular fa-envelope"></i> Fikir Paylaş
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 5. BÖLÜM: İLETİŞİM & SOSYAL MEDYA KUTUCUĞU -->
+        <section class="section contact-section" id="contact">
+            <div class="container">
+                <div class="contact-box-wrapper">
+
+                    <div class="contact-header text-center">
+                        <span class="section-tag">&lt;iletisim&gt;</span>
+                        <h2 class="contact-slogan">"Veriler yalan söylemez, <span class="gradient-purple">hadi
+                                tanışalım.</span>"</h2>
+                        <p class="contact-intro">Büyük Veri Analistliği, dönem projem veya akademik değerlendirmeleriniz
+                            için bana dilediğiniz zaman ulaşabilirsiniz.</p>
+                    </div>
+
+                    <div class="contact-layout">
+
+                        <!-- Sol Taraf: Sosyal Medya ve İletişim Kutucukları -->
+                        <div class="contact-info-panel">
+                            <h3 class="panel-title">Sosyal Ağlar &amp; İletişim</h3>
+                            <p class="panel-desc">Aşağıdaki kutucuklardan sosyal medya hesaplarıma göz atabilir veya
+                                doğrudan e-posta gönderebilirsiniz:</p>
+
+                            <!-- Sosyal Ağ Kutucukları -->
+                            <div class="social-cards-grid">
+
+                                <!-- Instagram Kutucuğu (Özel İstek) -->
+                                <a href="https://www.instagram.com/metehangezer/?hl=tr" target="_blank"
+                                    rel="noopener noreferrer" class="social-card-item instagram">
+                                    <div class="social-icon-box">
+                                        <i class="fa-brands fa-instagram"></i>
+                                    </div>
+                                    <div class="social-meta">
+                                        <span class="social-platform">Instagram</span>
+                                        <span class="social-handle">@metehangezer</span>
+                                    </div>
+                                    <i class="fa-solid fa-arrow-up-right-from-square external-link-icon"></i>
+                                </a>
+
+                                <!-- E-Posta Kutucuğu -->
+                                <a href="mailto:gztmetehan@gmail.com" class="social-card-item email">
+                                    <div class="social-icon-box">
+                                        <i class="fa-regular fa-envelope"></i>
+                                    </div>
+                                    <div class="social-meta">
+                                        <span class="social-platform">Kişisel E-Posta</span>
+                                        <span class="social-handle">gztmetehan@gmail.com</span>
+                                    </div>
+                                    <i class="fa-solid fa-arrow-up-right-from-square external-link-icon"></i>
+                                </a>
+
+                                <!-- LinkedIn Kutucuğu -->
+                                <a href="https://www.linkedin.com/in/metehan-gezer-aa444b403/?isSelfProfile=true"
+                                    target="_blank" rel="noopener noreferrer" class="social-card-item linkedin">
+                                    <div class="social-icon-box">
+                                        <i class="fa-brands fa-linkedin-in"></i>
+                                    </div>
+                                    <div class="social-meta">
+                                        <span class="social-platform">LinkedIn</span>
+                                        <span class="social-handle">Metehan Gezer</span>
+                                    </div>
+                                    <i class="fa-solid fa-arrow-up-right-from-square external-link-icon"></i>
+                                </a>
+
+                                <!-- GitHub Kutucuğu -->
+                                <a href="https://github.com/MeterrGT" target="_blank" rel="noopener noreferrer"
+                                    class="social-card-item github">
+                                    <div class="social-icon-box">
+                                        <i class="fa-brands fa-github"></i>
+                                    </div>
+                                    <div class="social-meta">
+                                        <span class="social-platform">GitHub</span>
+                                        <span class="social-handle">MeterrGT</span>
+                                    </div>
+                                    <i class="fa-solid fa-arrow-up-right-from-square external-link-icon"></i>
+                                </a>
+
+                            </div>
+
+                            <div class="uni-location-pill">
+                                <i class="fa-solid fa-location-dot"></i>
+                                <span>Manisa Celal Bayar Üniversitesi, Manisa / Türkiye</span>
+                            </div>
+                        </div>
+
+                        <!-- Sağ Taraf: İletişim Formu -->
+                        <div class="contact-form-panel">
+                            <form id="contact-form" class="clean-form" novalidate>
+                                <div class="form-group">
+                                    <label for="name" class="clean-label">Adınız Soyadınız</label>
+                                    <input type="text" id="name" name="name" class="clean-input"
+                                        placeholder="Örn: Dr. Ahmet Yılmaz" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="email" class="clean-label">E-Posta Adresiniz</label>
+                                    <input type="email" id="email" name="email" class="clean-input"
+                                        placeholder="ornek@alanadi.com" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="subject" class="clean-label">Konu</label>
+                                    <input type="text" id="subject" name="subject" class="clean-input"
+                                        placeholder="Dönem Projesi / Staj" required>
+                                </div>
+
+                                <div class="form-group">
+                                    <label for="message" class="clean-label">Mesajınız</label>
+                                    <textarea id="message" name="message" class="clean-input clean-textarea" rows="4"
+                                        placeholder="Mesajınızı buraya yazabilirsiniz..." required></textarea>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary-neon btn-block" id="form-btn">
+                                    <i class="fa-regular fa-paper-plane"></i>
+                                    <span>Mesajı Gönder</span>
+                                </button>
+                            </form>
+
+                            <div class="form-success-alert hidden" id="form-alert">
+                                <i class="fa-solid fa-circle-check"></i>
+                                <span>Mesajınız başarıyla iletildi! gztmetehan@gmail.com üzerinden geri
+                                    döneceğim.</span>
+                            </div>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- ALT BİLGİ (FOOTER) -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-left">
+                <span class="footer-logo">Metehan<span class="highlight-purple">.Gezer</span></span>
+                <p class="footer-subtext">Manisa Celal Bayar Üniversitesi • Büyük Veri Analistliği</p>
+            </div>
+            <div class="footer-right">
+                <div class="footer-socials">
+                    <a href="https://www.instagram.com/metehangezer/?hl=tr" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="https://www.linkedin.com/in/metehan-gezer-aa444b403/?isSelfProfile=true" target="_blank"
+                        rel="noopener noreferrer" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="" target="_blank" rel="noopener noreferrer" aria-label="GitHub"><i
+                            class="fa-brands fa-github"></i></a>
+                    <a href="mailto:gztmetehan@gmail.com" aria-label="E-Posta"><i
+                            class="fa-regular fa-envelope"></i></a>
+                </div>
+                <span class="copyright-text">© 2026 Metehan Gezer. Tüm hakları saklıdır.</span>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 1. ÖZELLİK: GİZLİ EASTER EGG: GLITCH & HACKER MODU OVERLAY -->
+    <div id="hacker-glitch-overlay" class="glitch-overlay hidden">
+        <canvas id="matrix-rain-canvas"></canvas>
+        <div class="glitch-terminal-box">
+            <div class="glitch-terminal-header">
+                <span class="glitch-alert-pulse"></span>
+                <span class="glitch-header-title">CRITICAL_SYSTEM_ALERT // KERNEL_PANIC</span>
+            </div>
+            <div class="glitch-terminal-body" id="glitch-terminal-lines"></div>
+            <div class="glitch-countdown-bar">
+                <div class="countdown-fill" id="glitch-timer-fill"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Özel JavaScript Dosyası -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>

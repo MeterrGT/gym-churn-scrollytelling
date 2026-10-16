@@ -1,0 +1,31 @@
+{
+  "total_observations": 4000,
+  "total_features": 14,
+  "overall_churn_count": 1061,
+  "overall_churn_rate": 0.26525,
+  "overall_churn_percentage": 26.5,
+  "overall_churn_percentage_exact": 26.525,
+  "contract_1m_churn_percentage": 42.3,
+  "contract_6m_churn_percentage": 12.5,
+  "contract_12m_churn_percentage": 2.4,
+  "contract_delta_1m_vs_12m_pp": 39.9,
+  "peak_risk_segment": {
+    "age_group": "18-25",
+    "contract_period": 1,
+    "churn_percentage": 78.2,
+    "total_count": 367
+  },
+  "lowest_churn_segment": {
+    "age_group": "34+",
+    "contract_period": 12,
+    "churn_percentage": 0.0,
+    "total_count": 112
+  },
+  "mean_age": 29.18,
+  "avg_class_freq_retained": 2.03,
+  "avg_class_freq_churned": 1.04,
+  "dataset_source": "Kaggle: Adrian Vinueza - Gym Customers Features and Churn",
+  "dataset_url": "https://www.kaggle.com/datasets/adrianvinueza/gym-customers-features-and-churn",
+  "dataset_nature": "Public dataset (4,000 observations); literature describes records as simulated for educational and analytical purposes.",
+  "dataset_license": "Listed as CC BY-NC-SA 4.0 on Kaggle dataset page (manual verification recommended)"
+}
