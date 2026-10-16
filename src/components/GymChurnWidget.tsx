@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-// Lookup table based on real Kaggle Gym Churn US (4,000 records)
+// Lookup table based on Kaggle Gym Customers Features and Churn (4,000 observations)
 const CHURN_LOOKUP: Record<string, Record<string, { pct: number; rate: number; label: string }>> = {
   '18-25': {
     '1': { pct: 78.20, rate: 0.7820, label: 'Zirve Yüksek Risk' },
@@ -31,7 +31,7 @@ export const GymChurnWidget: React.FC = () => {
 
   const rawInfo = CHURN_LOOKUP[selectedAge]?.[selectedPlan] || { pct: 26.5, rate: 0.26525, label: 'Orta Risk' };
   const currentPct = actionApplied ? 4.53 : rawInfo.pct;
-  const currentLabel = actionApplied ? 'Tutundurma Başarılı (Yıllık Taahhüt)' : rawInfo.label;
+  const currentLabel = actionApplied ? 'Gözlemsel Kıyas (12 Aylık Model)' : rawInfo.label;
 
   const handleApplyAction = () => {
     setActionApplied(true);
@@ -271,8 +271,8 @@ export const GymChurnWidget: React.FC = () => {
               boxShadow: '0 0 15px rgba(184, 41, 234, 0.4)',
             }}
           >
-            <i className="fa-solid fa-user-shield" />
-            <span>Erken Uyarı &amp; Tutundurma Stratejisi Uygula</span>
+            <i className="fa-solid fa-chart-pie" />
+            <span>12 Aylık Taahhüt Modeli ile Karşılaştır</span>
           </button>
         ) : (
           <button
@@ -316,7 +316,7 @@ export const GymChurnWidget: React.FC = () => {
         >
           <i className="fa-solid fa-circle-check" style={{ fontSize: '1.1rem' }} />
           <span>
-            <strong>Tutundurma Aksiyonu Başarılı:</strong> Üyeye yıllık taahhüt avantajı ve kişisel antrenman programı tanımlandı. Terk riski <strong>%4,5</strong> seviyesine düşürüldü!
+            <strong>Gözlemsel Model Kıyası:</strong> Veri setinde 12 aylık taahhüde sahip benzer segmentte gözlemlenen terk oranı <strong>%4,53</strong> seviyesindedir. (Bu durum doğrudan sözleşmenin terki önlediğini kanıtlamaz; motivasyon ve kendini seçme yanlılığı gibi dışsal faktörler göz önünde bulundurulmalıdır.)
           </span>
         </div>
       )}

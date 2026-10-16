@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
 
-// Interfaces for verified 4,000-row dataset (Adrian Vinueza - Gym Churn US)
+// Interfaces for 4,000-row dataset (Adrian Vinueza - Gym Customers Features and Churn)
 interface ContractRow {
   contractPeriod: number;
   label: string;
@@ -50,7 +50,7 @@ interface FrequencyRow {
   churnPercentage: number;
 }
 
-// Fallback data verified from 4,000 records
+// Fallback data from 4,000 observations
 const DEFAULT_CONTRACT_DATA: ContractRow[] = [
   { contractPeriod: 1, label: '1 Ay (Aylık)', totalCount: 2207, churnCount: 934, churnRate: 0.4232, churnPercentage: 42.32, sharePercentage: 55.18 },
   { contractPeriod: 6, label: '6 Ay (Yarım Yıl)', totalCount: 833, churnCount: 104, churnRate: 0.1248, churnPercentage: 12.48, sharePercentage: 20.83 },
@@ -1000,7 +1000,7 @@ function drawFrequencySynthesis(
   card2.append('text')
     .attr('x', 14).attr('y', 24)
     .attr('fill', '#38bdf8').attr('font-size', 12.5).attr('font-weight', 800).attr('font-family', 'Outfit, sans-serif')
-    .text('DOĞRULANMIŞ VERİ SETİ KAPSAMI');
+    .text('VERİ SETİ VE LİSANS BİLGİSİ');
 
   card2.append('text')
     .attr('x', 14).attr('y', 46)
@@ -1356,7 +1356,7 @@ export const ScrollyDataViz: React.FC = () => {
 
             {/* Source Note Footer */}
             <div className="flex items-center justify-between gap-2 mt-1.5 pt-2 border-t border-white/10 text-xs sm:text-[13px] font-mono text-slate-400">
-              <span>Kaynak: Kaggle Gym Churn US (4.000 Gözlem)</span>
+              <span>Kaynak: Kaggle Gym Customers Features and Churn (4.000 Gözlem)</span>
               <span>{activeStep + 1} / {steps.length}</span>
             </div>
           </div>

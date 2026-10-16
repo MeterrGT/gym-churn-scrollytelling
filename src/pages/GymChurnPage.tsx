@@ -63,13 +63,12 @@ export const GymChurnPage: React.FC = () => {
         id="story-hero"
       >
         <div className="max-w-4xl mx-auto flex flex-col items-center">
-          
           {/* Top Academic Tag */}
           <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-mono font-bold tracking-wider text-[#c77dff] bg-[#b829ea]/10 border border-[#b829ea]/40 mb-6 shadow-[0_0_15px_rgba(184,41,234,0.2)] animate-fadeIn">
             <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
             <span>AKADEMİK VERİ HİKAYESİ</span>
             <span>•</span>
-            <span>KAGGLE: GYM CHURN US (4.000 GÖZLEM)</span>
+            <span>KAGGLE: GYM CUSTOMERS FEATURES AND CHURN (4.000 GÖZLEM)</span>
           </div>
 
           {/* Catchy Finding Title */}
@@ -82,9 +81,8 @@ export const GymChurnPage: React.FC = () => {
 
           {/* Subtitle */}
           <p className="text-base sm:text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8 font-sans">
-            Kaggle üzerinde yayımlanan 4.000 gözlemlik kamuya açık veri setinde (%26,5 genel terk oranı); müşteri kaybının ardındaki
-            gözlemsel örüntüler yaş mı, yoksa sözleşme süresi ile mi daha ilişkili? 14 değişken üzerinden
-            hazırlanan analitik veri gazeteciliği anlatımı.
+            Kaggle'da yayımlanan 4.000 gözlemli Gym Customers Features and Churn veri seti üzerinde yapılan analiz (%26,5 genel terk oranı); müşteri kaybının ardındaki
+            gözlemsel örüntülerin yaş ve sözleşme süresi ile ilişkisini inceliyor. İlgili literatürde eğitim ve analitik amaçlı simüle edildiği belirtilen bu veri setindeki bulgular tüm spor salonu sektörünün geneline değil, incelenen veri kümesine aittir.
           </p>
 
           {/* Author & Meta Badges */}
@@ -121,7 +119,6 @@ export const GymChurnPage: React.FC = () => {
               <i className="fa-solid fa-chevron-down text-sm text-[#e0aaff]" />
             </div>
           </button>
-
         </div>
       </section>
 
@@ -146,10 +143,9 @@ export const GymChurnPage: React.FC = () => {
           {/* Paragraphs with Highly Readable Typography (16px+ / text-base sm:text-lg) */}
           <div className="space-y-6 text-slate-300 text-base sm:text-lg leading-relaxed font-sans">
             <p>
-              Spor ve sağlıklı yaşam kulüplerinde sürdürülebilirliği etkileyen en temel operasyonel başlıklardan biri{' '}
+              Spor ve sağlıklı yaşam kulüplerinde sürdürülebilirliği etkileyen başlıklardan biri{' '}
               <strong className="text-white font-semibold">Müşteri Terki (Customer Churn)</strong> olgusudur.
-              İncelenen veri setinde, salona adım atan her 4 gözlemden birinin (%26,5) üyeliğini yenilemeyip
-              ayrıldığı görülmektedir.
+              İncelenen veri setinde, salona adım atan her 4 gözlemden birinin (%26,5) ayrıldığı görülmektedir.
             </p>
 
             <p>
@@ -157,8 +153,8 @@ export const GymChurnPage: React.FC = () => {
               modelleme amaçlı simüle edildiği belirtilen{' '}
               <strong className="text-[#c77dff] font-semibold">4.000 gözlem ve 14 değişken içeren</strong>{' '}
               <em className="text-white not-italic font-mono text-sm bg-white/5 px-2 py-0.5 rounded">Gym Customers Features and Churn</em>{' '}
-              veri setini mercek altına alıyor. Amacımız; üyelik sözleşme süreleri (1, 6 ve 12 Ay), yaş kategorileri,
-              üyelik süresi (Lifetime) ve haftalık devam sıklığı arasındaki gözlemsel örüntüleri incelemektir.
+              veri setini mercek altına alıyor. Elde edilen bulgular tüm spor salonu sektörünün genel gerçeği olarak değil, incelenen veri kümesi sınırları dahilindeki gözlemsel örüntüler olarak değerlendirilmelidir. Amacımız; sözleşme süreleri (1, 6 ve 12 Ay), demografik yaş kategorileri,
+              Lifetime kategorilerine göre gözlenen terk oranları ve haftalık devam sıklığı arasındaki gözlemsel örüntüleri incelemektir.
             </p>
           </div>
 
@@ -170,14 +166,14 @@ export const GymChurnPage: React.FC = () => {
             </div>
             <div className="p-4 rounded-xl bg-[#140f26]/80 border border-[#b829ea]/30 text-center">
               <span className="block text-2xl sm:text-3xl font-extrabold text-amber-400 font-mono">%26,5</span>
-              <span className="text-xs text-slate-400 font-sans mt-1 block">Genel Terk Oranı (1.061/4.000)</span>
+              <span className="text-xs text-slate-400 font-sans mt-1 block">Veri Setindeki Genel Churn Oranı (1.061/4.000)</span>
             </div>
             <div className="p-4 rounded-xl bg-[#140f26]/80 border border-[#b829ea]/30 text-center">
-              <span className="block text-2xl sm:text-3xl font-extrabold text-red-400 font-mono">%78,2</span>
+              <span className="block text-2xl sm:text-3xl font-extrabold text-red-400 font-mono">%78,20</span>
               <span className="text-xs text-slate-400 font-sans mt-1 block">Zirve Risk (18-25 &amp; 1 Ay)</span>
             </div>
             <div className="p-4 rounded-xl bg-[#140f26]/80 border border-[#b829ea]/30 text-center">
-              <span className="block text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">-39,9 pp</span>
+              <span className="block text-2xl sm:text-3xl font-extrabold text-emerald-400 font-mono">39,92 pp</span>
               <span className="text-xs text-slate-400 font-sans mt-1 block">12 Ay vs 1 Ay Gözlemsel Fark</span>
             </div>
           </div>
@@ -197,7 +193,7 @@ export const GymChurnPage: React.FC = () => {
           </h2>
           <p className="text-xs sm:text-sm text-slate-400 max-w-xl mx-auto">
             Aşağı kaydırdıkça sabit grafik üzerinden sözleşme sürelerini (1, 6, 12 ay), demografik yaş dağılımını,
-            12 hücrelik etkileşim matrisini ve üyelik süresi (Lifetime) kategorilerini adım adım inceleyin.
+            12 hücrelik etkileşim matrisini ve Lifetime kategorilerine göre gözlenen terk oranlarını adım adım inceleyin.
           </p>
         </div>
 
@@ -239,15 +235,15 @@ export const GymChurnPage: React.FC = () => {
                 gözlemsel ilişkiler değerlendirildiğinde:{' '}
                 <strong className="text-white font-bold">
                   En düşük gözlemlenen terk oranı 12 aylık sözleşmeye sahip üyeler arasında gerçekleşmiştir.
-                  1 aylık taahhütsüz paketlerde gözlemlenen terk %42,3 iken, 12 aylık sözleşmede
-                  bu oran %2,4&apos;e gerilemektedir (39,9 yüzde puanlık gözlemsel fark).
+                  1 aylık taahhütsüz paketlerde gözlemlenen terk %42,32 iken, 12 aylık sözleşmede
+                  bu oran %2,40&apos;a gerilemektedir (39,92 yüzde puanlık gözlemsel fark).
                 </strong>
               </p>
 
               <p>
-                Zirve risk kümesi olan 18-25 yaş grubundaki aylık üyelerde terk oranı %78,2 olarak gözlemlenmiştir.
-                Aynı yaş grubunda 12 aylık taahhüde sahip üyelerde ise terk oranı %6,1 seviyesindedir (72,1 pp gözlemsel fark).
-                34+ yaş grubunda 12 aylık sözleşmeye sahip 112 gözlemin hiçbirinde terk kaydedilmemiştir (%0,0).
+                Zirve risk kümesi olan 18-25 yaş grubundaki aylık üyelerde terk oranı %78,20 olarak gözlemlenmiştir.
+                Aynı yaş grubunda 12 aylık taahhüde sahip üyelerde ise terk oranı %6,10 seviyesindedir (72,10 pp gözlemsel fark).
+                34+ yaş grubunda 12 aylık sözleşmeye sahip 112 gözlemin hiçbirinde terk kaydedilmemiştir (%0,00).
               </p>
             </div>
 
@@ -259,7 +255,7 @@ export const GymChurnPage: React.FC = () => {
               </div>
               <ul className="text-xs sm:text-sm text-slate-300 space-y-2 list-disc list-inside font-sans">
                 <li>
-                  <strong className="text-white">Korelasyon ≠ Nedensellik:</strong> 12 aylık taahhüdün düşük terk (%2,4) ile
+                  <strong className="text-white">Korelasyon ≠ Nedensellik:</strong> 12 aylık taahhüdün düşük terk (%2,40) ile
                   ilişkili olması doğrudan sözleşmenin terki önlediğini kanıtlamaz. Spor disiplinine ve devamlılık motivasyonuna
                   zaten sahip olan üyelerin uzun taahhütleri tercih etmesi (kendini seçme yanlılığı / self-selection bias) bu örüntüde temel rol oynayabilir.
                 </li>
@@ -271,7 +267,7 @@ export const GymChurnPage: React.FC = () => {
                 <li>
                   <strong className="text-white">Üyelik Süresi (Lifetime) Analizi Sınırları:</strong> Veri kesitseldir (cross-sectional);
                   üyelerin zamana bağlı ayrılma kronolojisini izleyen bir yaşam kalımı (survival/time-to-event) takibi değildir.
-                  0-2. ay kategorilerinde gözlemlenen yüksek terk oranı, ilk 90 günün doğrudan terke neden olduğunu kanıtlamaz.
+                  Lifetime kategorilerine göre gözlenen terk oranları (0-2. ay kategorilerinde yüksek churn), ilk 90 günün doğrudan terke neden olduğunu veya ayrılma anının kronolojisini kanıtlamaz.
                 </li>
               </ul>
             </div>
@@ -284,7 +280,7 @@ export const GymChurnPage: React.FC = () => {
                 </div>
                 <h3 className="text-sm font-bold text-white mb-1">Sözleşme Süresi Örüntüsü</h3>
                 <p className="text-xs text-slate-400 leading-relaxed m-0">
-                  1 aylık paketlerde %42,3 olan terk, 12 aylık sözleşmede %2,4&apos;e inerek 39,9 pp gözlemsel fark sergiler.
+                  1 aylık paketlerde %42,32 olan terk, 12 aylık sözleşmede %2,40&apos;a inerek 39,92 pp gözlemsel fark sergiler.
                 </p>
               </div>
 
@@ -292,9 +288,9 @@ export const GymChurnPage: React.FC = () => {
                 <div className="text-[#b829ea] text-lg mb-2">
                   <i className="fa-solid fa-hourglass-start" />
                 </div>
-                <h3 className="text-sm font-bold text-white mb-1">Kayıt Süresi Kategorileri</h3>
+                <h3 className="text-sm font-bold text-white mb-1">Lifetime Kategorileri</h3>
                 <p className="text-xs text-slate-400 leading-relaxed m-0">
-                  0-2. ay kategorilerinde gözlemlenen terk yüksek olup (%82,8 - %25,7), 3+ ayı aşan kategorilerde %10&apos;un altına inmektedir.
+                  0-2. ay kategorilerinde gözlemlenen terk yüksek olup (%82,75 - %25,74), 3+ ayı aşan kategorilerde %10&apos;un altına inmektedir. Bu durum kesitsel bir dağılımdır; ilk 90 günün nedenselliğini kanıtlamaz.
                 </p>
               </div>
 
@@ -304,7 +300,7 @@ export const GymChurnPage: React.FC = () => {
                 </div>
                 <h3 className="text-sm font-bold text-white mb-1">Genç Yaş Kümesi</h3>
                 <p className="text-xs text-slate-400 leading-relaxed m-0">
-                  18-25 yaş aylık sözleşmeli gözlemlerde (%78,2) terk oranı en yüksek risk düzeyinde kaydedilmiştir.
+                  18-25 yaş aylık sözleşmeli gözlemlerde (%78,20) terk oranı en yüksek risk düzeyinde kaydedilmiştir.
                 </p>
               </div>
             </div>

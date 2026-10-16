@@ -11,7 +11,7 @@ interface CombinedRecord {
   churnPercentage: number;
 }
 
-// Fallback lookup derived from 4,000 verified records
+// Fallback lookup derived from 4,000 observations
 const VERIFIED_RECORDS: CombinedRecord[] = [
   { ageGroup: '18-25', contractPeriod: 1, contractLabel: '1 Ay (Aylık)', totalCount: 367, churnCount: 287, churnRate: 0.7820, churnPercentage: 78.20 },
   { ageGroup: '18-25', contractPeriod: 6, contractLabel: '6 Ay (Yarım Yıl)', totalCount: 87, churnCount: 40, churnRate: 0.4598, churnPercentage: 45.98 },

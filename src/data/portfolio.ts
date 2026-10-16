@@ -207,14 +207,14 @@ export const PORTFOLIO_DATA = {
     id: "gym-churn-prediction",
     badge: "Kaggle Büyük Veri Analizi • Dönem Sonu Projesi",
     academicNote: "Akademik Çalışma",
-    title: "Gym Members Churn Prediction: Spor Salonu Üyelik Terk Analizi",
-    subtitle: "(Kaggle Makine Öğrenmesi & Veri Analitiği)",
+    title: "Gym Customers Features and Churn: Spor Salonu Terk Analizi",
+    subtitle: "(Kaggle 4.000 Gözlemli Veri Seti & Analitik Hikaye)",
     description:
-      "Kaggle Gym Members Churn veri seti kullanılarak üyelerin devamlılık ve ayrılma (churn) davranışları Python ve Pandas ile incelenmiş, demografik özellikler ve üyelik sözleşme tiplerine göre terk eğilimleri modellenmiştir.",
+      "Kaggle'da yayımlanan 4.000 gözlemli Gym Customers Features and Churn veri seti üzerinde yapılan analiz; Python, Pandas ve D3.js ile gerçekleştirilmiş, yaş ve sözleşme süresine göre gözlemlenen terk örüntüleri incelenmiştir.",
     goal: {
       title: "Projenin Hedefi:",
       description:
-        "Spor salonu üyelerinin salonu terk etme (churn) olasılıklarını önceden tahmin ederek, riskli kitlelere yönelik proaktif tutundurma stratejileri ve erken uyarı modelleri geliştirmek.",
+        "Kaggle'da yayımlanan 4.000 gözlemli simüle eğitim veri setinde terk (churn) ile yaş ve sözleşme süresi arasındaki gözlemsel örüntüleri modellemek ve interaktif bir veri hikayesiyle sunmak.",
     },
     tools: [
       { name: "Python", icon: "fa-brands fa-python" },
@@ -223,7 +223,7 @@ export const PORTFOLIO_DATA = {
       { name: "Jupyter", icon: "fa-solid fa-book" },
       { name: "Kaggle", icon: "fa-brands fa-kaggle" },
     ],
-    bottomStatus: "Kaggle Gym Churn veri seti başarıyla temizlendi, aggregate edildi ve modellendi.",
+    bottomStatus: "Kaggle Gym Customers Features and Churn veri seti başarıyla incelendi, aggregate edildi ve modellendi.",
     contactMailSubject: "Gym Churn Projesi Hakkında",
   } as ProjectData,
 
@@ -264,8 +264,8 @@ export const PORTFOLIO_DATA = {
       badge: "ADIM 1 / 6 • SÖZLEŞME SÜRELERİ",
       title: "Sözleşme Süresi Kategorilerine Göre Gözlemlenen Terk Oranları",
       description:
-        "Kaggle üzerinde yayımlanan 4.000 gözlemlik kamuya açık veri setinde en düşük gözlemlenen terk oranı 12 aylık sözleşmeye sahip üyeler arasında (%2,4) gerçekleşmiştir. 1 aylık taahhütsüz paketlerde gözlemlenen churn %42,3 iken, 6 aylık sözleşmelerde %12,5'e, 12 aylık sözleşmelerde ise %2,4'e inmektedir (39,9 yüzde puanlık gözlemsel fark).",
-      highlightMetric: "1 Ay: %42,3 • 6 Ay: %12,5 • 12 Ay: %2,4 (39,9 pp Gözlemsel Fark)",
+        "Kaggle'da yayımlanan 4.000 gözlemli Gym Customers Features and Churn veri seti üzerinde yapılan analizde; bu veri setinde en düşük gözlenen terk oranı 12 aylık sözleşme grubundadır (%2,40). 1 aylık sözleşmelerde gözlenen terk oranı %42,32 iken, 6 aylık sözleşmelerde %12,48'e, 12 aylık sözleşmelerde ise %2,40'a inmektedir (39,92 yüzde puanlık gözlemsel fark).",
+      highlightMetric: "1 Ay: %42,32 • 6 Ay: %12,48 • 12 Ay: %2,40 (39,92 yüzde puan fark)",
       status: "normal",
       chartMode: "bar",
       highlightKey: "1",
@@ -275,8 +275,8 @@ export const PORTFOLIO_DATA = {
       badge: "ADIM 2 / 6 • YAŞ KATEGORİLERİ",
       title: "Yaş Gruplarına Göre Gözlemlenen Terk Dağılımı",
       description:
-        "18 ile 41 yaş aralığındaki gözlemler incelendiğinde; 18-25 yaş grubunda terk oranı %61,9 ile en yüksek seviyede gözlemlenmektedir. Yaş grupları ilerledikçe gözlemlenen terk oranı düşmekte, 34+ yaş grubunda %3,3'e kadar gerilemektedir (Genel veri seti ortalaması: %26,5).",
-      highlightMetric: "18-25: %61,9 • 26-29: %33,1 • 30-33: %12,6 • 34+: %3,3 (Genel Ort: %26,5)",
+        "18 ile 41 yaş aralığındaki gözlemler incelendiğinde; 18-25 yaş grubunda terk oranı %61,94 ile en yüksek seviyede gözlemlenmektedir. Yaş grupları ilerledikçe gözlemlenen terk oranı düşmekte, 34+ yaş grubunda %3,31'e kadar gerilemektedir (Veri setindeki genel churn oranı: %26,5).",
+      highlightMetric: "18-25: %61,94 • 26-29: %33,08 • 30-33: %12,60 • 34+: %3,31 (Genel Terk: %26,5)",
       status: "warning",
       chartMode: "lollipop",
       highlightKey: "18-25",
@@ -286,7 +286,7 @@ export const PORTFOLIO_DATA = {
       badge: "ADIM 3 / 6 • ETKİLEŞİM MATRİSİ",
       title: "Yaş Grubu ve Sözleşme Süresi Etkileşim Matrisi (12 Hücre)",
       description:
-        "4 yaş grubu ile 3 sözleşme modelinin kesişimi incelendiğinde; 18-25 yaş grubunda 1 aylık pakette gözlemlenen terk oranı %78,2 iken, 12 aylık taahhüde sahip aynı yaş grubunda bu oran %6,1 olarak gözlemlenmiştir.",
+        "4 yaş grubu ile 3 sözleşme modelinin kesişimi incelendiğinde; 18-25 yaş grubunda 1 aylık pakette gözlemlenen terk oranı %78,20 iken, 12 aylık taahhüde sahip aynı yaş grubunda bu oran %6,10 olarak gözlemlenmiştir.",
       highlightMetric: "4 Yaş Grubu × 3 Sözleşme Tipi = 12 Hücrelik Gözlem Matrisi",
       status: "normal",
       chartMode: "heatmap",
@@ -295,10 +295,10 @@ export const PORTFOLIO_DATA = {
     {
       step: 4,
       badge: "ADIM 4 / 6 • UÇ NOKTALAR",
-      title: "Zirve Risk (%78,2) ve En Düşük Terk Segmenti (%0,0)",
+      title: "Zirve Risk (%78,20) ve En Düşük Terk Segmenti (%0,00)",
       description:
-        "İncelenen veri setinde en yüksek terk oranı %78,2 ile 18-25 yaş grubunda 1 aylık sözleşme alanlarda (367 gözlemden 287'si terk); en düşük oran ise %0,0 ile 34+ yaş grubunda 12 aylık sözleşme alanlarda (112 gözlemden 0 terk) kaydedilmiştir.",
-      highlightMetric: "Zirve: %78,2 (18-25 & 1 Ay) • En Düşük: %0,0 (34+ & 12 Ay) [78,2 pp Fark]",
+        "İncelenen veri setinde en yüksek terk oranı %78,20 ile 18-25 yaş grubunda 1 aylık sözleşme alanlarda (367 gözlemden 287'si terk); en düşük oran ise %0,00 ile 34+ yaş grubunda 12 aylık sözleşme alanlarda (112 gözlemden 0 terk) kaydedilmiştir.",
+      highlightMetric: "Zirve: %78,20 (18-25 & 1 Ay) • En Düşük: %0,00 (34+ & 12 Ay) [78,20 pp Fark]",
       status: "critical",
       chartMode: "heatmap-focus",
       highlightKey: "18-25-1",
@@ -306,10 +306,10 @@ export const PORTFOLIO_DATA = {
     {
       step: 5,
       badge: "ADIM 5 / 6 • ÜYELİK SÜRESİ (LIFETIME)",
-      title: "Üyelik Süresi (Lifetime) Kategorileri ile Gözlemlenen Terk İlişkisi",
+      title: "Lifetime kategorilerine göre gözlenen terk oranları",
       description:
-        "Veri setindeki kayıt ömrü (Lifetime) kategorileri incelendiğinde; 0. ve 1. ay kategorilerinde terk oranının yüksek (%82,8 ve %49,1), 3+ ay kategorilerinde ise %10'un altında olduğu gözlemlenmektedir. Ancak bu analiz zamana bağlı bir yaşam kalımı (survival/time-to-event) takibi değildir; ayrılma anının kesin kronolojisini kanıtlamaz veya ilk 90 günün doğrudan terke neden olduğunu iddia etmez.",
-      highlightMetric: "Gözlemsel İlişki: 0. Ay: %82,8 → 3. Ay: %10,2 → 6+ Ay: %0,7 (Kesitsel Dağılım)",
+        "Lifetime kategorilerine göre gözlenen terk oranları incelendiğinde; 0. ve 1. ay kategorilerinde terk oranının yüksek (%82,75 ve %49,11), 3+ ay kategorilerinde ise %10'un altında olduğu gözlemlenmektedir. Ancak bu analiz kesitsel bir dağılım olup zamana bağlı bir yaşam kalımı (survival/time-to-event) takibi değildir; ayrılma anının kesin kronolojisini kanıtlamaz veya ilk 90 günün doğrudan terke neden olduğunu iddia etmez.",
+      highlightMetric: "Lifetime Kategorileri: 0. Ay: %82,75 → 3. Ay: %10,20 → 6+ Ay: %0,66 (Kesitsel Dağılım)",
       status: "normal",
       chartMode: "area",
       highlightKey: null,
@@ -319,8 +319,8 @@ export const PORTFOLIO_DATA = {
       badge: "ADIM 6 / 6 • KATILIM SIKLIĞI VE KISITLAR",
       title: "Haftalık Katılım, Sınırlılıklar ve Nedensellik Uyarısı",
       description:
-        "Aktif kalan üyelerin son aydaki haftalık ortalama ders sıklığı 2,0 gün iken, terk eden grupta bu değer 1,0 gün olarak gözlemlenmiştir. Ancak uzun sözleşme veya yüksek katılım ile düşük terk arasındaki bu bağlantı korelasyoneldir; üyelerin motivasyon farkları (kendini seçme yanlılığı) gibi dışsal faktörler kontrol edilmeden nedensel bir sonuç çıkarılamaz.",
-      highlightMetric: "Metodolojik İlke: Korelasyon ≠ Nedensellik • Katılım Sıklığı: 2,0 vs 1,0 Gün/Hafta",
+        "Aktif kalan gözlemlerin son aydaki haftalık ortalama ders sıklığı 2,03 gün iken, terk eden grupta bu değer 1,04 gün olarak gözlemlenmiştir. Ancak uzun sözleşme veya yüksek katılım ile düşük terk arasındaki bu bağlantı korelasyoneldir; bireylerin motivasyon farkları (kendini seçme yanlılığı) gibi dışsal faktörler kontrol edilmeden nedensel bir sonuç çıkarılamaz.",
+      highlightMetric: "Metodolojik İlke: Korelasyon ≠ Nedensellik • Katılım Sıklığı: 2,03 vs 1,04 Gün/Hafta",
       status: "warning",
       chartMode: "synthesis",
       highlightKey: null,
