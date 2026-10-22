@@ -6,6 +6,9 @@ node_modules/
 dist/
 .vite/
 .vercel/
+.next/
+out/
+build/
 
 # Environment variables and secrets
 .env

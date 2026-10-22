@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 627" width="1200" height="627">
+  <defs>
+    <linearGradient id="ogBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0812" />
+      <stop offset="50%" stop-color="#120c22" />
+      <stop offset="100%" stop-color="#050308" />
+    </linearGradient>
+    <linearGradient id="ogTextGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#e0aaff" />
+      <stop offset="50%" stop-color="#b829ea" />
+      <stop offset="100%" stop-color="#38bdf8" />
+    </linearGradient>
+    <linearGradient id="ogCardGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="rgba(184, 41, 234, 0.2)" />
+      <stop offset="100%" stop-color="rgba(18, 15, 28, 0.8)" />
+    </linearGradient>
+    <filter id="ogGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur" />
+      <feMerge>
+        <feMergeNode in="blur" />
+        <feMergeNode in="SourceGraphic" />
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="627" fill="url(#ogBg)" />
+  <circle cx="1050" cy="120" r="280" fill="#b829ea" opacity="0.12" filter="blur(60px)" />
+  <circle cx="150" cy="500" r="220" fill="#0284c7" opacity="0.10" filter="blur(50px)" />
+
+  <!-- Outer Border -->
+  <rect x="24" y="24" width="1152" height="579" rx="20" fill="none" stroke="rgba(184, 41, 234, 0.3)" stroke-width="2" />
+
+  <!-- Tag Pill -->
+  <g transform="translate(80, 80)">
+    <rect width="290" height="36" rx="18" fill="rgba(184, 41, 234, 0.15)" stroke="rgba(184, 41, 234, 0.5)" />
+    <circle cx="20" cy="18" r="5" fill="#10b981" />
+    <text x="36" y="23" fill="#e0aaff" font-family="'Outfit', sans-serif" font-size="13" font-weight="700" letter-spacing="1.5">AKADEMİK VERİ HİKAYESİ • D3.js</text>
+  </g>
+
+  <!-- Main Headline -->
+  <text x="80" y="180" fill="#ffffff" font-family="'Outfit', sans-serif" font-size="52" font-weight="800">
+    Sadakatin Bedeli:
+  </text>
+  <text x="80" y="245" fill="url(#ogTextGrad)" font-family="'Outfit', sans-serif" font-size="52" font-weight="800" filter="url(#ogGlow)">
+    Spor Salonları Üyelerini Neden Kaybediyor?
+  </text>
+
+  <!-- Subtitle -->
+  <text x="80" y="305" fill="#94a3b8" font-family="'Plus Jakarta Sans', sans-serif" font-size="20">
+    4.000 Gözlemlik Kamuya Açık Veri Seti Üzerinde Yaş, Sözleşme ve Terk Analizi
+  </text>
+
+  <!-- Key Stat Cards -->
+  <g transform="translate(80, 360)">
+    <!-- Card 1 -->
+    <rect x="0" y="0" width="220" height="110" rx="14" fill="url(#ogCardGrad)" stroke="rgba(184, 41, 234, 0.4)" stroke-width="1.5" />
+    <text x="24" y="44" fill="#fbbf24" font-family="monospace" font-size="34" font-weight="800">%26,5</text>
+    <text x="24" y="78" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="14">Genel Terk Oranı</text>
+
+    <!-- Card 2 -->
+    <rect x="250" y="0" width="220" height="110" rx="14" fill="url(#ogCardGrad)" stroke="rgba(239, 68, 68, 0.4)" stroke-width="1.5" />
+    <text x="274" y="44" fill="#f87171" font-family="monospace" font-size="34" font-weight="800">%78,2</text>
+    <text x="274" y="78" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="14">Zirve Risk (18-25 &amp; 1 Ay)</text>
+
+    <!-- Card 3 -->
+    <rect x="500" y="0" width="220" height="110" rx="14" fill="url(#ogCardGrad)" stroke="rgba(52, 211, 153, 0.4)" stroke-width="1.5" />
+    <text x="524" y="44" fill="#34d399" font-family="monospace" font-size="34" font-weight="800">-39,9 pp</text>
+    <text x="524" y="78" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="14">12 Ay vs 1 Ay Farkı</text>
+
+    <!-- Card 4 -->
+    <rect x="750" y="0" width="280" height="110" rx="14" fill="url(#ogCardGrad)" stroke="rgba(56, 189, 248, 0.4)" stroke-width="1.5" />
+    <text x="774" y="44" fill="#38bdf8" font-family="monospace" font-size="34" font-weight="800">12 Hücre</text>
+    <text x="774" y="78" fill="#cbd5e1" font-family="'Plus Jakarta Sans', sans-serif" font-size="14">Yaş × Sözleşme Matrisi</text>
+  </g>
+
+  <!-- Footer Info -->
+  <line x1="80" y1="520" x2="1120" y2="520" stroke="rgba(255, 255, 255, 0.1)" stroke-width="1" />
+  <text x="80" y="555" fill="#e0aaff" font-family="'Outfit', sans-serif" font-size="16" font-weight="700">Metehan Gezer</text>
+  <text x="220" y="555" fill="#64748b" font-family="monospace" font-size="14">• Manisa Celal Bayar Üniversitesi • Büyük Veri Analistliği</text>
+  <text x="1120" y="555" fill="#94a3b8" font-family="monospace" font-size="14" text-anchor="end">D3.js v7 + React 18 + Scrollama</text>
+</svg>

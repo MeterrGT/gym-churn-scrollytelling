@@ -1,0 +1,11 @@
+id,brand,model,ram_gb,cpu_tier,gpu_tier,storage_gb,price_usd
+1,Lenovo,IdeaPad 3,4,1,1,256,280
+2,Acer,Aspire 5,8,3,2,512,580
+3,Dell,Inspiron 15,16,4,3,512,850
+4,ASUS,TUF Gaming,16,5,5,1024,1240
+5,HP,Victus 16,16,6,5,1024,1380
+6,Lenovo,Legion Pro 5,32,7,6,1024,1850
+7,MSI,Vector GP68,32,8,7,2048,2450
+8,Razer,Blade 16,32,9,9,2048,3200
+9,ASUS,ROG Strix SCAR,64,10,10,4096,4150
+10,Apple,MacBook Pro M3 Max,64,9,9,2048,3499
