@@ -167,7 +167,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
               <ul className="flex flex-col gap-2 m-0 p-0 list-none">
                 {PORTFOLIO_DATA.navLinks.map((link: NavLink) => {
-                  const targetId = link.href.replace('#', '');
+                  const targetId = link.href.replace('/#', '').replace('#', '').replace('/', '');
                   const isActive = activeSection === targetId;
 
                   return (

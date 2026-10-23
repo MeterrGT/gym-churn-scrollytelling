@@ -16,7 +16,7 @@ Aşağıdaki ekran görüntüleri, çalışan Next.js uygulaması üzerinden Chr
 | Dosya Adı | Açıklama | URL / Rota | Doğrulanan Unsurlar |
 |:---|:---|:---|:---|
 | `01_public_homepage.png` | Genel Portfolyo Ana Sayfası | `/` | Hero alanı, hakkımda, biyografi, MCBÜ Büyük Veri Analistliği bilgisi |
-| `02_public_videos_section.png` | Videolarım & Öne Çıkanlar | `/#videos` | Görev 3.2 alanı, "Bağlantı eklenmedi" güvenli boş durum mesajı, Top 5 başlığı |
+| `02_public_videos_section.png` | Videolarım & Öne Çıkanlar | `/#videos` | "Henüz yayımlanmış video yok." dürüst boş durum gösterimi, akademik test kaydı açıklaması ve Neon DB entegrasyonu |
 | `03_public_gym_churn.png` | Gym Churn Veri Hikâyesi | `/gym-churn` | D3.js interaktif scrollytelling görselleştirmeleri, churn analiz grafikleri |
 | `04_public_contact.png` | İletişim & KVKK Onayı | `/iletisim` | Mesaj formu, 6698 sayılı KVKK aydınlatma metni onay kutusu, doğrulama |
 | `05_login_page.png` | Yönetici Giriş Sayfası | `/giris` | E-posta ve şifre formu, **TCK m. 243-244** yasal uyarı bildirimi |

@@ -18,17 +18,36 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://metehan-gym-churn.vercel.app"),
-  title: "Metehan Gezer | Büyük Veri Analistliği Portfolyosu & Gym Churn Veri Hikayesi",
+  title: {
+    default: "Metehan Gezer | Kişisel Portfolyo & Büyük Veri Analistliği",
+    template: "%s | Metehan Gezer",
+  },
   description:
-    "Manisa Celal Bayar Üniversitesi Büyük Veri Analistliği Öğrencisi Kişisel Portfolyo ve Gym Churn Veri Hikayesi (D3.js & Scrollytelling).",
+    "Manisa Celal Bayar Üniversitesi Büyük Veri Analistliği programı öğrencisi Metehan Gezer'in kişisel portfolyosu, veri analitiği projeleri, SQL ve Neon PostgreSQL veritabanı çalışmaları.",
   icons: {
     icon: "/favicon.svg",
   },
   openGraph: {
     type: "website",
-    title: "Sadakatin Bedeli: Spor Salonları Üyelerini Neden Kaybediyor? | Metehan Gezer",
+    locale: "tr_TR",
+    siteName: "Metehan Gezer Portfolyo",
+    title: "Metehan Gezer | Büyük Veri Analistliği & Veri Mühendisliği Portfolyosu",
     description:
-      "Kaggle üzerinde yayımlanan 4.000 gözlemlik kamuya açık veri setinde (%26,5 genel terk oranı) yaş, sözleşme süresi ve katılım ilişkisini inceleyen interaktif veri gazeteciliği çalışması.",
+      "Manisa Celal Bayar Üniversitesi Büyük Veri Analistliği öğrencisi Metehan Gezer'in veri analizi projeleri, SQL sorguları, ekonometrik modelleri ve analitik çalışmaları.",
+    images: [
+      {
+        url: "/og-image.svg",
+        width: 1200,
+        height: 630,
+        alt: "Metehan Gezer Kişisel Portfolyosu",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Metehan Gezer | Kişisel Portfolyo",
+    description:
+      "Manisa Celal Bayar Üniversitesi Büyük Veri Analistliği öğrencisi Metehan Gezer'in veri odaklı projeleri ve analitik çalışmaları.",
     images: ["/og-image.svg"],
   },
 };

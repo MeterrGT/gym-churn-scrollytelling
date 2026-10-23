@@ -416,9 +416,21 @@ export default function GymChurnPage() {
 
           </div>
 
+          {/* Project-specific dataset statement moved from general homepage footer */}
+          <div
+            className="p-3.5 sm:p-4 text-xs sm:text-sm text-slate-200 leading-relaxed text-center my-6 rounded-xl"
+            style={{
+              background: 'rgba(36, 0, 70, 0.45)',
+              border: '1px solid rgba(199, 125, 255, 0.3)',
+              boxShadow: '0 0 20px rgba(184, 41, 234, 0.15)',
+            }}
+          >
+            Bu scrollytelling projesi Kaggle&apos;daki Gym Customers Features and Churn veri seti kullanılarak hazırlanmıştır. | Metehan Gezer - Manisa Celal Bayar Üniversitesi - Büyük Veri Analistliği
+          </div>
+
           {/* Bottom Copyright & Back to Home */}
-          <div className="pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
-            <span>Â© 2026 Metehan Gezer • Manisa Celal Bayar Üniversitesi</span>
+          <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-mono text-slate-400">
+            <span>© 2026 Metehan Gezer • Manisa Celal Bayar Üniversitesi</span>
             <Link href="/"
               className="text-[#c77dff] hover:text-white inline-flex items-center gap-1.5 transition-colors"
             >

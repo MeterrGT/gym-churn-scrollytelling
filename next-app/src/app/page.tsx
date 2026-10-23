@@ -15,7 +15,7 @@ export default async function HomePage() {
   let topVideos: PublicVideo[] = [];
 
   try {
-    // 1. Tüm yayındaki videolar (oynatma_listeleri ile JOIN)
+    // 1. Tüm yayındaki geçerli videolar (oynatma_listeleri ile JOIN)
     const rawAll = await sql`
       SELECT 
         v.id,
@@ -28,6 +28,10 @@ export default async function HomePage() {
       FROM videolar v
       LEFT JOIN oynatma_listeleri ol ON v.kategori_id = ol.id
       WHERE v.yayinda = true
+        AND v.video_url IS NOT NULL
+        AND TRIM(v.video_url) != ''
+        AND v.video_url NOT ILIKE '%example.com%'
+        AND v.video_url NOT ILIKE '%example.org%'
       ORDER BY v.yayin_tarihi DESC NULLS LAST, v.id DESC
     `;
 
@@ -45,7 +49,7 @@ export default async function HomePage() {
       kategori_adi: v.kategori_adi,
     }));
 
-    // 2. Görev 3.2: En çok izlenen ilk 5 yayındaki video
+    // 2. Görev 3.2: En çok izlenen ilk 5 yayındaki geçerli video
     const rawTop = await sql`
       SELECT 
         v.id,
@@ -58,6 +62,10 @@ export default async function HomePage() {
       FROM videolar v
       LEFT JOIN oynatma_listeleri ol ON v.kategori_id = ol.id
       WHERE v.yayinda = true
+        AND v.video_url IS NOT NULL
+        AND TRIM(v.video_url) != ''
+        AND v.video_url NOT ILIKE '%example.com%'
+        AND v.video_url NOT ILIKE '%example.org%'
       ORDER BY v.izlenme DESC NULLS LAST
       LIMIT 5
     `;
