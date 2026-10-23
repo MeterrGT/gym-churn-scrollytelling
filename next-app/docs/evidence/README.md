@@ -25,6 +25,8 @@ Aşağıdaki ekran görüntüleri, çalışan Next.js uygulaması üzerinden Chr
 | `08_admin_videos.png` | Video Yönetim Paneli | `/admin/videolar` | 9 adet video kaydı, `2516016026` öğrenci numaralı başlık, "Bağlantı eklenmedi" etiketleri, CRUD butonları |
 | `09_admin_messages.png` | İletişim Mesajları Paneli | `/admin/mesajlar` | Gelen mesajlar, KVKK onay durumu, okunmamış sayaç rozeti, durum değiştirme/silme |
 | `10_admin_logs.png` | Denetim Kayıtları (Audit Log) | `/admin/kayitlar` | Son 50 `islem_kayitlari` (ekle, guncelle, sil, giris), zaman damgası ve yönetici bilgisi |
+| `neon_tables_schema.png` | Neon Bulut Konsolu Tabloları | console.neon.tech | 6 ilişkisel tablonun listesi ve `videolar` tablosunun detaylı şeması / kısıtları |
+| `neon_sql_query_result.png` | Neon SQL Editor Görev 3.2 | console.neon.tech | Görev 3.2 sorgu icrası ve 5 satırlık azalan izlenme sonuç tablosu |
 
 ---
 
@@ -117,19 +119,15 @@ ORDER BY islem_sayisi DESC;
 
 ---
 
-## 3. Neon Konsolu Üzerinden Manuel Alınması Gereken Ekran Görüntüleri
+## 3. Neon Konsolu Ekran Görüntüleri ve Doğrulama
 
-Uygulamanın çalıştığı ortam web arayüzü ve API seviyesindeki kanıtları otomatik olarak yakalamış olmakla birlikte, bulut tabanlı **Neon Console (neon.tech)** kullanıcı oturumu arkasında yer aldığından aşağıdaki iki ekran görüntüsü öğrenci tarafından doğrudan Neon web panelinden alınarak rapora eklenebilir:
+Bulut tabanlı **Neon Console (console.neon.tech)** üzerinden alınan 2 adet gerçek ekran görüntüsü başarıyla doğrulanmış ve PDF raporuna entegre edilmiştir:
 
-1. **Neon Tables Görünümü Ekran Görüntüsü:**
-   - [console.neon.tech](https://console.neon.tech) adresine giriş yapın.
-   - Projenizi seçip sol menüden **Tables** sekmesine tıklayın.
-   - 6 tablonun (`yoneticiler`, `oturumlar`, `oynatma_listeleri`, `videolar`, `iletisim_mesajlari`, `islem_kayitlari`) listelendiği ekranın görüntüsünü alın.
-   - Dosya adı: `neon_tables_schema.png`
-2. **Neon SQL Editor Görev Sonuçları Ekran Görüntüsü:**
-   - Neon panelinde sol menüden **SQL Editor** sekmesine geçin.
-   - `sql/sorgular.sql` dosyasındaki sorgulardan (örneğin Görev 3.2 veya Görev 3.4) birini çalıştırın ve alt tarafta tablo halinde beliren sonuç penceresinin görüntüsünü alın.
-   - Dosya adı: `neon_sql_query_result.png`
+1. **Neon Tables Görünümü Ekran Görüntüsü (`neon_tables_schema.png`):**
+   - 6 tablonun (`yoneticiler`, `oturumlar`, `oynatma_listeleri`, `videolar`, `iletisim_mesajlari`, `islem_kayitlari`) şeması ve `videolar` tablosunun sütun yapısı, primary key, foreign key ve index kısıtları doğrulanmıştır.
+2. **Neon SQL Editor Görev Sonuçları Ekran Görüntüsü (`neon_sql_query_result.png`):**
+   - Görev 3.2 sorgusu (`SELECT id, baslik, izlenme FROM videolar ORDER BY izlenme DESC LIMIT 5;`) çalıştırılmış; 93ms içinde dönen 5 satırlık sonuç kümesi Neon SQL konsolundan kaydedilmiştir.
+   - *Açıklama:* Bu ekrandaki izlenme sayıları (3200, 2400, 1800, 1500, 1250) akademik test verisidir; gerçek YouTube analitiği iddiası taşımamaktadır.
 
 ---
 
