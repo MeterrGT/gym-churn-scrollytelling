@@ -11,6 +11,21 @@ export interface PublicVideo {
   kategori_adi: string;
 }
 
+export function isRealVideoUrl(url: string | null | undefined): boolean {
+  if (!url || typeof url !== 'string') return false;
+  const trimmed = url.trim();
+  if (trimmed === '' || trimmed.toLowerCase() === 'null') return false;
+  if (trimmed.includes('example.com') || trimmed.includes('example.org') || trimmed.startsWith('test')) {
+    return false;
+  }
+  try {
+    const parsed = new URL(trimmed);
+    return parsed.protocol === 'http:' || parsed.protocol === 'https:';
+  } catch {
+    return false;
+  }
+}
+
 interface VideosSectionProps {
   allVideos: PublicVideo[];
   topVideos: PublicVideo[];
@@ -86,9 +101,9 @@ export const VideosSection: React.FC<VideosSectionProps> = ({ allVideos, topVide
                     <span>{video.sure_dk ? `${video.sure_dk} dk` : '-'}</span>
                   </span>
 
-                  {video.video_url ? (
+                  {isRealVideoUrl(video.video_url) ? (
                     <a
-                      href={video.video_url}
+                      href={video.video_url!}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="text-xs text-[#e0aaff] hover:text-white inline-flex items-center gap-1 font-semibold group/link"
@@ -98,7 +113,9 @@ export const VideosSection: React.FC<VideosSectionProps> = ({ allVideos, topVide
                       <i className="fa-solid fa-arrow-up-right-from-square text-[10px] group-hover/link:translate-x-0.5 group-hover/link:-translate-y-0.5 transition-transform" />
                     </a>
                   ) : (
-                    <span className="text-[11px] text-slate-500 font-mono">Yakında</span>
+                    <span className="text-[11px] text-slate-400 font-mono italic">
+                      Bağlantı eklenmedi
+                    </span>
                   )}
                 </div>
               </div>
@@ -171,9 +188,9 @@ export const VideosSection: React.FC<VideosSectionProps> = ({ allVideos, topVide
                     <span>Yayında</span>
                   </span>
 
-                  {video.video_url ? (
+                  {isRealVideoUrl(video.video_url) ? (
                     <a
-                      href={video.video_url}
+                      href={video.video_url!}
                       target="_blank"
                       rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 text-xs font-bold text-[#c77dff] hover:text-white px-3 py-1.5 rounded-lg bg-[#b829ea]/15 hover:bg-[#b829ea]/30 border border-[#b829ea]/40 transition-all shadow-[0_0_10px_rgba(184,41,234,0.2)]"
@@ -183,7 +200,10 @@ export const VideosSection: React.FC<VideosSectionProps> = ({ allVideos, topVide
                       <i className="fa-solid fa-arrow-right text-[10px]" />
                     </a>
                   ) : (
-                    <span className="text-xs font-mono text-slate-500">Bağlantı Yok</span>
+                    <span className="inline-flex items-center gap-1.5 text-[11px] font-mono text-slate-400 px-2.5 py-1 rounded-lg bg-white/5 border border-white/10">
+                      <i className="fa-solid fa-link-slash text-[9px] text-slate-400" />
+                      <span>Bağlantı eklenmedi</span>
+                    </span>
                   )}
                 </div>
               </div>
