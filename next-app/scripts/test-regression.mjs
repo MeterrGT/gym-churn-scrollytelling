@@ -6,7 +6,7 @@ import nextEnvPkg from '@next/env';
 const { loadEnvConfig } = nextEnvPkg.default || nextEnvPkg;
 loadEnvConfig(process.cwd());
 
-const sql = neon(process.env.DATABASE_URL);
+const sql = process.env.DATABASE_URL ? neon(process.env.DATABASE_URL) : null;
 
 async function runRegressionTests() {
   console.log('=== METEHAN GEZER PORTFOLYO & BVA 2205 REGRESYON TESTLERİ ===\n');
@@ -54,16 +54,20 @@ async function runRegressionTests() {
     }
   }
 
-  const rawAllValid = await executeWithRetry(() => sql`
-    SELECT id, baslik, video_url, yayinda
-    FROM videolar
-    WHERE yayinda = true
-      AND video_url IS NOT NULL
-      AND TRIM(video_url) != ''
-      AND video_url NOT ILIKE '%example.com%'
-      AND video_url NOT ILIKE '%example.org%'
-  `);
-  assert(rawAllValid.length === 0, 'Canlı veritabanındaki 9 test videosunun hiçbiri geçerli URL içermediğinden filtreden elenmelidir (0 dönmelidir).');
+  if (sql) {
+    const rawAllValid = await executeWithRetry(() => sql`
+      SELECT id, baslik, video_url, yayinda
+      FROM videolar
+      WHERE yayinda = true
+        AND video_url IS NOT NULL
+        AND TRIM(video_url) != ''
+        AND video_url NOT ILIKE '%example.com%'
+        AND video_url NOT ILIKE '%example.org%'
+    `);
+    assert(rawAllValid.length === 0, 'Canlı veritabanındaki 9 test videosunun hiçbiri geçerli URL içermediğinden filtreden elenmelidir (0 dönmelidir).');
+  } else {
+    console.log('  [BİLGİ] DATABASE_URL ortam değişkeni bulunamadı. Çevrimdışı / CI ortamında canlı veritabanı sorgusu atlandı.');
+  }
 
   const videosSecPath = path.join(process.cwd(), 'src', 'components', 'VideosSection.tsx');
   const videosSecContent = fs.readFileSync(videosSecPath, 'utf8');
