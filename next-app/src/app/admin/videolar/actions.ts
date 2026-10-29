@@ -122,6 +122,7 @@ export async function createVideoAction(
 
     revalidatePath('/admin/videolar');
     revalidatePath('/admin');
+    revalidatePath('/');
 
     return { success: true, message: `"${baslik}" videosu başarıyla eklendi.` };
   } catch (err) {
@@ -184,6 +185,7 @@ export async function updateVideoAction(
 
     revalidatePath('/admin/videolar');
     revalidatePath('/admin');
+    revalidatePath('/');
 
     return { success: true, message: `"${baslik}" videosu başarıyla güncellendi.` };
   } catch (err) {
@@ -225,6 +227,7 @@ export async function toggleVideoPublishAction(
 
     revalidatePath('/admin/videolar');
     revalidatePath('/admin');
+    revalidatePath('/');
 
     return { success: true };
   } catch (err) {
@@ -262,6 +265,7 @@ export async function deleteVideoAction(videoId: number): Promise<ActionResponse
 
     revalidatePath('/admin/videolar');
     revalidatePath('/admin');
+    revalidatePath('/');
 
     return { success: true, message: `"${result[0].baslik}" videosu başarıyla silindi.` };
   } catch (err) {

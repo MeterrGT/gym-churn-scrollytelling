@@ -11,7 +11,8 @@
     "test:auth": "node scripts/test-auth-flow.mjs",
     "test:stage2": "node scripts/test-stage2.mjs",
     "test:stage3-4": "node scripts/test-stage3-4.mjs",
-    "test:all": "node scripts/test-auth-flow.mjs && node scripts/test-stage2.mjs && node scripts/test-stage3-4.mjs"
+    "test:regression": "node scripts/test-regression.mjs",
+    "test:all": "node scripts/test-auth-flow.mjs && node scripts/test-stage2.mjs && node scripts/test-stage3-4.mjs && node scripts/test-regression.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.2.0",

@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
 
 export const Footer: React.FC = () => {
@@ -23,6 +24,18 @@ export const Footer: React.FC = () => {
             <p className="footer-subtext text-xs sm:text-sm text-slate-400 mt-1">
               {PORTFOLIO_DATA.personal.university} • {PORTFOLIO_DATA.personal.department}
             </p>
+          </div>
+
+          <div className="footer-links flex flex-wrap justify-center items-center gap-3 sm:gap-4 text-xs font-mono text-slate-400">
+            <Link href="/#hero" className="hover:text-white transition-colors">Ana Sayfa</Link>
+            <span className="hidden sm:inline">•</span>
+            <Link href="/#projects" className="hover:text-white transition-colors">Projelerim</Link>
+            <span className="hidden sm:inline">•</span>
+            <Link href="/gym-churn" className="hover:text-[#c77dff] transition-colors">Gym Churn</Link>
+            <span className="hidden sm:inline">•</span>
+            <Link href="/iletisim" className="hover:text-white transition-colors">İletişim</Link>
+            <span className="hidden sm:inline">•</span>
+            <Link href="/giris" className="hover:text-white transition-colors">Yönetici Girişi</Link>
           </div>
 
           <div className="footer-socials flex items-center gap-3">
@@ -56,19 +69,14 @@ export const Footer: React.FC = () => {
           </div>
         </div>
 
-        <div
-          className="footer-project-statement p-3 sm:p-4 text-xs sm:text-sm text-slate-200 leading-relaxed max-w-4xl"
-          style={{
-            background: 'rgba(36, 0, 70, 0.35)',
-            border: '1px solid rgba(199, 125, 255, 0.25)',
-            borderRadius: '10px',
-            boxShadow: '0 0 20px rgba(184, 41, 234, 0.1)',
-          }}
-        >
-          Bu scrollytelling projesi Kaggle&apos;daki Gym Members Churn veri seti kullanılarak hazırlanmıştır. | Metehan Gezer - Manisa Celal Bayar Üniversitesi - Büyük Veri Analistliği
-        </div>
+        <div className="w-full h-px bg-white/10 my-1" />
 
-        <span className="copyright-text">{PORTFOLIO_DATA.personal.copyright}</span>
+        <div className="flex flex-col sm:flex-row items-center justify-between w-full text-xs text-slate-400 gap-2">
+          <span>{PORTFOLIO_DATA.personal.copyright}</span>
+          <span className="font-mono text-[11px] text-slate-400">
+            Büyük Veri Analistliği Portfolyosu • Manisa Celal Bayar Üniversitesi
+          </span>
+        </div>
       </div>
     </footer>
   );

@@ -34,6 +34,28 @@ export interface ProjectData {
   contactMailSubject: string;
 }
 
+export interface BlueskyProjectData {
+  id: string;
+  badge: string;
+  academicNote: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  metrics: {
+    duration: string;
+    posts: string;
+    nodes: string;
+    edges: string;
+  };
+  tools: ProjectTool[];
+  deliverables: {
+    interactive: string;
+    report: string;
+    poster: string;
+    presentation: string;
+  };
+}
+
 export interface SocialLink {
   platform: string;
   handle: string;
@@ -227,6 +249,34 @@ export const PORTFOLIO_DATA = {
     bottomStatus: "Kaggle Gym Customers Features and Churn veri seti başarıyla incelendi, aggregate edildi ve modellendi.",
     contactMailSubject: "Gym Churn Projesi Hakkında",
   } as ProjectData,
+
+  blueskyProject: {
+    id: "bluesky-hashtag-network",
+    badge: "Sosyal Ağ Analizi • SNA",
+    academicNote: "Akademik Çalışma",
+    title: "Bluesky Turkish Hashtag Network",
+    subtitle: "(48 Saatlik Arşiv, 7.658 Gönderi, 7.092 Düğüm & 37.206 Kenar)",
+    description:
+      "Bluesky platformunun Türkçe gönderi akışından toplanan 48 saatlik canlı veri arşivi üzerinde gerçekleştirilen büyük ölçekli sosyal ağ analizi (SNA). Eş-zamanlı etiket ilişkileri (co-occurrence), Louvain modülerlik algoritmasıyla topluluk kümelenmesi ve derece merkeziyetleri modellenmiştir.",
+    metrics: {
+      duration: "48-hour Bluesky archive analysis",
+      posts: "7,658 hashtag-bearing posts",
+      nodes: "7,092 nodes",
+      edges: "37,206 edges",
+    },
+    tools: [
+      { name: "Python", icon: "fa-brands fa-python" },
+      { name: "NetworkX", icon: "fa-solid fa-diagram-project" },
+      { name: "Louvain Modularity", icon: "fa-solid fa-circle-nodes" },
+      { name: "Gephi & D3.js", icon: "fa-solid fa-share-nodes" },
+    ],
+    deliverables: {
+      interactive: "https://meterrgt.github.io/sosyal-ag-hashtag-analizi/interactive.html",
+      report: "https://github.com/MeterrGT/sosyal-ag-hashtag-analizi/blob/main/deliverables/2516016026_METEHAN_GEZER_Rapor.pdf",
+      poster: "https://github.com/MeterrGT/sosyal-ag-hashtag-analizi/blob/main/deliverables/hashtag_network_poster_A3.pdf",
+      presentation: "https://github.com/MeterrGT/sosyal-ag-hashtag-analizi/blob/main/deliverables/2516016026_METEHAN_GEZER_Sunum.pdf",
+    },
+  } as BlueskyProjectData,
 
   socialLinks: [
     {

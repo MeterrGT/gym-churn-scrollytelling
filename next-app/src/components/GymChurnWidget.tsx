@@ -31,8 +31,9 @@ export const GymChurnWidget: React.FC = () => {
   const [actionApplied, setActionApplied] = useState<boolean>(false);
 
   const rawInfo = CHURN_LOOKUP[selectedAge]?.[selectedPlan] || { pct: 26.5, rate: 0.26525, label: 'Orta Risk' };
-  const currentPct = actionApplied ? 4.53 : rawInfo.pct;
-  const currentLabel = actionApplied ? 'Gözlemsel Kıyas (12 Aylık Model)' : rawInfo.label;
+  const benchmark12m = CHURN_LOOKUP[selectedAge]?.['12']?.pct ?? 2.40;
+  const currentPct = actionApplied ? benchmark12m : rawInfo.pct;
+  const currentLabel = actionApplied ? `Gözlemsel Kıyas (${selectedAge} Yaş / 12 Ay)` : rawInfo.label;
 
   const handleApplyAction = () => {
     setActionApplied(true);
@@ -238,7 +239,7 @@ export const GymChurnWidget: React.FC = () => {
           <div
             style={{
               height: '100%',
-              width: `${Math.min(100, (currentPct / 45) * 100)}%`,
+              width: `${Math.min(100, Math.max(0, currentPct))}%`,
               background: getRiskColor(currentPct),
               borderRadius: '4px',
               transition: 'all 0.5s ease',
@@ -317,7 +318,7 @@ export const GymChurnWidget: React.FC = () => {
         >
           <i className="fa-solid fa-circle-check" style={{ fontSize: '1.1rem' }} />
           <span>
-            <strong>Gözlemsel Model Kıyası:</strong> Veri setinde 12 aylık taahhüde sahip benzer segmentte gözlemlenen terk oranı <strong>%4,53</strong> seviyesindedir. (Bu durum doğrudan sözleşmenin terki önlediğini kanıtlamaz; motivasyon ve kendini seçme yanlılığı gibi dışsal faktörler göz önünde bulundurulmalıdır.)
+            <strong>Gözlemsel Model Kıyası:</strong> Veri setinde 12 aylık taahhüde sahip <strong>{selectedAge}</strong> yaş grubunda gözlemlenen terk oranı <strong>%{benchmark12m.toFixed(1).replace('.', ',')}</strong> seviyesindedir. (Bu durum doğrudan sözleşmenin terki önlediğini kanıtlamaz; motivasyon ve kendini seçme yanlılığı gibi dışsal faktörler göz önünde bulundurulmalıdır.)
           </span>
         </div>
       )}

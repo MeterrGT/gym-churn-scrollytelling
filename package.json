@@ -4,10 +4,13 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc && vite build",
+    "dev": "npm run dev --prefix next-app",
+    "build": "npm run build --prefix next-app",
+    "start": "npm run start --prefix next-app",
     "preview": "vite preview",
-    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0"
+    "lint": "npm run lint --prefix next-app",
+    "dev:vite": "vite",
+    "build:vite": "tsc && vite build"
   },
   "dependencies": {
     "d3": "^7.9.0",

@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useTransition } from 'react';
+import { isRealVideoUrl } from '@/components/VideosSection';
 import {
   createVideoAction,
   updateVideoAction,
@@ -249,15 +250,19 @@ export default function VideoManager({ initialVideos, categories }: VideoManager
                     <td className="py-3.5 px-4 font-mono text-zinc-500">#{video.id}</td>
                     <td className="py-3.5 px-4 font-medium text-zinc-100 max-w-xs">
                       <div className="font-semibold text-zinc-200">{video.baslik}</div>
-                      {video.video_url && (
+                      {isRealVideoUrl(video.video_url) ? (
                         <a
-                          href={video.video_url}
+                          href={video.video_url!}
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-[11px] text-purple-400 hover:text-purple-300 font-mono truncate block max-w-xs mt-0.5"
                         >
                           {video.video_url}
                         </a>
+                      ) : (
+                        <span className="text-[11px] text-zinc-500 font-mono italic block max-w-xs mt-0.5">
+                          Bağlantı eklenmedi
+                        </span>
                       )}
                     </td>
                     <td className="py-3.5 px-4">
@@ -369,7 +374,7 @@ export default function VideoManager({ initialVideos, categories }: VideoManager
                 <input
                   name="video_url"
                   type="url"
-                  placeholder="https://example.com/video/..."
+                  placeholder="https://youtube.com/watch?v=..."
                   className="w-full px-3.5 py-2.5 bg-zinc-900 border border-zinc-800 rounded-xl text-xs text-zinc-100 placeholder-zinc-500 focus:outline-none focus:border-purple-500"
                 />
               </div>
