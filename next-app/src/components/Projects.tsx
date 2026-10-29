@@ -494,24 +494,27 @@ export const Projects: React.FC = () => {
 
             {/* Card Bottom / Footer Actions */}
             <div className="project-card-bottom flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 px-4 sm:px-5 py-3.5 bg-[#140f26]/80 border-t border-white/10 shrink-0">
-              <a
-                href="#bluesky-network-viewer"
-                className="btn btn-sm btn-outline-purple text-xs px-3 py-2 sm:py-1.5 rounded-lg border border-[#b829ea]/40 text-[#e0aaff] hover:bg-[#b829ea]/15 inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto cursor-pointer"
-              >
-                <i className="fa-solid fa-arrow-down text-xs" />
-                <span>İnteraktif Grafiğe İn</span>
-              </a>
-
+              {/* Secondary Action: Live Network */}
               <a
                 href={blueskyProject.deliverables.interactive}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-sm btn-primary text-xs font-bold text-white bg-[#b829ea] hover:bg-[#9d17cb] px-3.5 py-2 sm:py-1.5 rounded-lg border border-[#e0aaff]/40 shadow-[0_0_15px_rgba(184,41,234,0.4)] hover:shadow-[0_0_20px_rgba(184,41,234,0.6)] inline-flex items-center justify-center gap-1.5 transition-all w-full sm:w-auto"
+                className="btn btn-sm btn-outline-purple text-xs px-3 py-2 sm:py-1.5 rounded-lg border border-[#b829ea]/40 text-[#e0aaff] hover:bg-[#b829ea]/15 inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
               >
-                <i className="fa-solid fa-circle-nodes" />
-                <span>Tam Ekranda Aç</span>
+                <i className="fa-solid fa-share-nodes text-xs" />
+                <span>Live Network</span>
                 <i className="fa-solid fa-arrow-up-right-from-square text-[10px]" />
               </a>
+
+              {/* Primary Action: Case Study */}
+              <Link
+                href="/bluesky-hashtag-network"
+                className="btn btn-sm btn-primary text-xs font-bold text-white bg-[#b829ea] hover:bg-[#9d17cb] px-3.5 py-2 sm:py-1.5 rounded-lg border border-[#e0aaff]/40 shadow-[0_0_15px_rgba(184,41,234,0.4)] hover:shadow-[0_0_20px_rgba(184,41,234,0.6)] inline-flex items-center justify-center gap-1.5 transition-all w-full sm:w-auto"
+              >
+                <i className="fa-solid fa-diagram-project" />
+                <span>Case Study</span>
+                <i className="fa-solid fa-arrow-right text-[10px]" />
+              </Link>
             </div>
           </div>
 
@@ -568,115 +571,6 @@ export const Projects: React.FC = () => {
           </div>
         )}
 
-        {/* ========================================================
-            Embedded Responsive Interactive Network Viewer (At least 800px on desktop)
-           ======================================================== */}
-        <div
-          id="bluesky-network-viewer"
-          className="mt-10 sm:mt-12 w-full bg-[#110e1c]/95 border border-[#b829ea]/50 shadow-[0_15px_45px_rgba(0,0,0,0.8),0_0_30px_rgba(184,41,234,0.25)] rounded-2xl overflow-hidden transition-all duration-300"
-        >
-          {/* Viewer Header */}
-          <div className="p-4 sm:p-6 bg-[#140f26]/95 border-b border-white/10 flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-            <div>
-              <div className="flex flex-wrap items-center gap-2 mb-2">
-                <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-bold text-[#c77dff] bg-[#b829ea]/15 border border-[#b829ea]/30">
-                  <i className="fa-solid fa-circle-nodes text-[10px]" />
-                  <span>İnteraktif Sosyal Ağ Analizi</span>
-                </span>
-                <span className="inline-flex items-center gap-1 text-[11px] font-mono text-emerald-400 bg-emerald-500/10 border border-emerald-500/30 px-2 py-0.5 rounded-full">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                  <span>Canlı Grafik</span>
-                </span>
-              </div>
-              <h3 className="text-lg sm:text-xl md:text-2xl font-extrabold text-white">
-                Bluesky Turkish Hashtag Network — İnteraktif Ağ Görselleştirmesi
-              </h3>
-              {/* Verified Metrics Badges */}
-              <div className="flex flex-wrap items-center gap-2 mt-2 text-xs font-mono">
-                <span className="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-slate-300">
-                  <i className="fa-regular fa-clock text-[#b829ea] mr-1.5" /> 48-hour Bluesky archive analysis
-                </span>
-                <span className="px-2.5 py-1 rounded-md bg-white/[0.04] border border-white/10 text-slate-300">
-                  <i className="fa-regular fa-message text-[#b829ea] mr-1.5" /> 7,658 hashtag-bearing posts
-                </span>
-                <span className="px-2.5 py-1 rounded-md bg-[#b829ea]/10 border border-[#b829ea]/30 text-[#e0aaff]">
-                  <i className="fa-solid fa-circle-nodes text-[#b829ea] mr-1.5" /> 7,092 nodes
-                </span>
-                <span className="px-2.5 py-1 rounded-md bg-[#b829ea]/10 border border-[#b829ea]/30 text-[#e0aaff]">
-                  <i className="fa-solid fa-share-nodes text-[#b829ea] mr-1.5" /> 37,206 edges
-                </span>
-              </div>
-            </div>
-
-            {/* Deliverable Action Buttons */}
-            <div className="flex flex-wrap items-center gap-2">
-              <a
-                href={blueskyProject.deliverables.report}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold font-mono bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 hover:text-white border border-white/15 transition-all shadow-sm"
-              >
-                <i className="fa-regular fa-file-pdf text-red-400" />
-                <span>Rapor (PDF)</span>
-              </a>
-              <a
-                href={blueskyProject.deliverables.poster}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold font-mono bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 hover:text-white border border-white/15 transition-all shadow-sm"
-              >
-                <i className="fa-solid fa-image text-purple-400" />
-                <span>A3 Poster (PDF)</span>
-              </a>
-              <a
-                href={blueskyProject.deliverables.presentation}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-2 rounded-lg text-xs font-semibold font-mono bg-white/[0.06] hover:bg-white/[0.12] text-slate-200 hover:text-white border border-white/15 transition-all shadow-sm"
-              >
-                <i className="fa-solid fa-chalkboard-user text-amber-400" />
-                <span>Sunum (PDF)</span>
-              </a>
-              <a
-                href={blueskyProject.deliverables.interactive}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3.5 py-2 rounded-lg text-xs font-bold font-mono text-white bg-[#b829ea] hover:bg-[#9d17cb] border border-[#e0aaff]/40 shadow-[0_0_15px_rgba(184,41,234,0.4)] transition-all"
-              >
-                <i className="fa-solid fa-arrow-up-right-from-square" />
-                <span>Tam Ekranda Aç</span>
-              </a>
-            </div>
-          </div>
-
-          {/* Responsive Embedded Iframe (At least 800px on desktop) */}
-          <div className="w-full relative bg-[#0a0a0f] overflow-hidden min-h-[520px] sm:min-h-[650px] lg:min-h-[820px] h-[520px] sm:h-[650px] lg:h-[820px]">
-            <iframe
-              src={blueskyProject.deliverables.interactive}
-              title="Bluesky Turkish Hashtag Network Interactive Graph"
-              className="w-full h-full border-0 block"
-              loading="lazy"
-              allow="fullscreen"
-            />
-          </div>
-
-          {/* Interactive Hint Footer */}
-          <div className="px-5 py-3 bg-[#140f26]/80 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono text-slate-400">
-            <span className="flex items-center gap-2">
-              <i className="fa-solid fa-hand-pointer text-[#b829ea]" />
-              <span>Düğümleri sürükleyebilir, fare tekerleğiyle yakınlaştırabilir ve etiket kümelerini inceleyebilirsiniz.</span>
-            </span>
-            <a
-              href={blueskyProject.deliverables.interactive}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-[#c77dff] hover:text-white flex items-center gap-1 transition-colors"
-            >
-              <span>Ayrı sekmede tam ekran görüntüle</span>
-              <i className="fa-solid fa-arrow-up-right-from-square text-[10px]" />
-            </a>
-          </div>
-        </div>
 
       </div>
     </section>

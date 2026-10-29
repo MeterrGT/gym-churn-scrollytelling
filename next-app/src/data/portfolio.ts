@@ -53,6 +53,8 @@ export interface BlueskyProjectData {
     report: string;
     poster: string;
     presentation: string;
+    repository: string;
+    caseStudyRoute: string;
   };
 }
 
@@ -257,7 +259,7 @@ export const PORTFOLIO_DATA = {
     title: "Bluesky Turkish Hashtag Network",
     subtitle: "(48 Saatlik Arşiv, 7.658 Gönderi, 7.092 Düğüm & 37.206 Kenar)",
     description:
-      "Bluesky platformunun Türkçe gönderi akışından toplanan 48 saatlik canlı veri arşivi üzerinde gerçekleştirilen büyük ölçekli sosyal ağ analizi (SNA). Eş-zamanlı etiket ilişkileri (co-occurrence), Louvain modülerlik algoritmasıyla topluluk kümelenmesi ve derece merkeziyetleri modellenmiştir.",
+      "Bluesky platformunun Türkçe gönderi akışından toplanan 48 saatlik tarihsel veri arşivi üzerinde gerçekleştirilen büyük ölçekli sosyal ağ analizi (SNA). Eş-zamanlı etiket ilişkileri (co-occurrence), Louvain modülerlik algoritmasıyla topluluk kümelenmesi ve derece merkeziyetleri modellenmiştir.",
     metrics: {
       duration: "48-hour Bluesky archive analysis",
       posts: "7,658 hashtag-bearing posts",
@@ -275,6 +277,8 @@ export const PORTFOLIO_DATA = {
       report: "https://github.com/MeterrGT/sosyal-ag-hashtag-analizi/blob/main/deliverables/2516016026_METEHAN_GEZER_Rapor.pdf",
       poster: "https://github.com/MeterrGT/sosyal-ag-hashtag-analizi/blob/main/deliverables/hashtag_network_poster_A3.pdf",
       presentation: "https://github.com/MeterrGT/sosyal-ag-hashtag-analizi/blob/main/deliverables/2516016026_METEHAN_GEZER_Sunum.pdf",
+      repository: "https://github.com/MeterrGT/sosyal-ag-hashtag-analizi",
+      caseStudyRoute: "/bluesky-hashtag-network",
     },
   } as BlueskyProjectData,
 
