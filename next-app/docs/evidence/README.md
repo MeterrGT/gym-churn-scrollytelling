@@ -2,10 +2,11 @@
 
 Bu dizin, Manisa Celal Bayar Üniversitesi BVA 2205 Veritabanı ve Web Entegrasyonu dersi final ödevi kapsamında toplanan gerçek ekran görüntülerini, SQL sorgu sonuçlarını ve kanıt envanterini içerir.
 
-**Öğrenci Adı:** Metehan Gezer
-**Öğrenci Numarası:** 2516016026
-**Ders:** BVA 2205 - Büyük Veri Analistliği
-**Proje:** Next.js & Neon PostgreSQL Entegre Portfolyo ve Yönetim Sistemi
+- **Öğrenci Adı:** Metehan Gezer
+- **Öğrenci Numarası:** 2516016026
+- **Ders:** BVA 2205 - Büyük Veri Analistliği
+- **Proje:** Next.js & Neon PostgreSQL Entegre Portfolyo ve Yönetim Sistemi
+- **Kanonik Canlı Site:** https://metehan-gezer.vercel.app *(Yönlendirme: https://metehan-gym-churn.vercel.app)*
 
 ---
 

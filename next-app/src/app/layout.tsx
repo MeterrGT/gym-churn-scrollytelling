@@ -17,7 +17,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://metehan-gym-churn.vercel.app"),
+  metadataBase: new URL("https://metehan-gezer.vercel.app"),
+  alternates: {
+    canonical: "https://metehan-gezer.vercel.app",
+  },
   title: {
     default: "Metehan Gezer | Kişisel Portfolyo & Büyük Veri Analistliği",
     template: "%s | Metehan Gezer",
@@ -65,12 +68,25 @@ export default function RootLayout({
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossOrigin="anonymous" />
         <link
+          rel="preload"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+          as="style"
+          crossOrigin="anonymous"
+        />
+        <link
+          id="fa-css"
           rel="stylesheet"
           href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-          integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+          media="print"
           crossOrigin="anonymous"
           referrerPolicy="no-referrer"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: "var l=document.getElementById('fa-css');if(l){l.addEventListener('load',function(){this.media='all'});setTimeout(function(){l.media='all'},1000);}",
+          }}
         />
       </head>
       <body className="min-h-full flex flex-col bg-[#09080e] text-[#f8fafc] font-sans selection:bg-[#9d4edd] selection:text-white">

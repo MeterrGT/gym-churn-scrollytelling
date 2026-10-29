@@ -58,6 +58,25 @@ export interface BlueskyProjectData {
   };
 }
 
+export interface LivePulseProjectData {
+  id: string;
+  badge: string;
+  academicNote: string;
+  title: string;
+  subtitle: string;
+  description: string;
+  metrics: {
+    protocol: string;
+    latency: string;
+    windows: string;
+    privacy: string;
+  };
+  tools: ProjectTool[];
+  route: string;
+  caseStudyRoute: string;
+  githubUrl: string;
+}
+
 export interface SocialLink {
   platform: string;
   handle: string;
@@ -281,6 +300,31 @@ export const PORTFOLIO_DATA = {
       caseStudyRoute: "/bluesky-hashtag-network",
     },
   } as BlueskyProjectData,
+
+  livePulseProject: {
+    id: "canli-sosyal-medya-nabzi",
+    badge: "BVA 2245 • Canlı Veri Ürünü",
+    academicNote: "Gerçek Zamanlı Veri",
+    title: "Canlı Sosyal Medya Nabzı: Bluesky Gerçek Zamanlı Akış & Trend Analizi",
+    subtitle: "(WebSocket Jetstream, Web Worker, 5m/1h Kayan Pencere & Sıfır Veri Saklama)",
+    description:
+      "Bluesky genel post akışına (Jetstream WebSocket) doğrudan bağlanan ve Web Worker üzerinde UI dondurmadan çalışan gerçek zamanlı trend dinleme ürünü. 5 dakikalık ve 1 saatlik kayan pencerelerde etiket sayımı, dakikalık akış hızı zaman serisi ve %100 gizlilik odaklı mimari.",
+    metrics: {
+      protocol: "Bluesky Jetstream WebSocket",
+      latency: "< 50ms Web Worker",
+      windows: "5 Dk & 1 Saat Kayan Pencere",
+      privacy: "%100 Ham Veri İmhası",
+    },
+    tools: [
+      { name: "WebSocket (Jetstream)", icon: "fa-solid fa-bolt" },
+      { name: "Web Worker", icon: "fa-solid fa-gears" },
+      { name: "Rolling Window", icon: "fa-solid fa-clock-rotate-left" },
+      { name: "React & SVG Charts", icon: "fa-brands fa-react" },
+    ],
+    route: "/canli-sosyal-medya-nabzi",
+    caseStudyRoute: "/canli-sosyal-medya-nabzi/vaka-analizi",
+    githubUrl: "https://github.com/MeterrGT/gym-churn-scrollytelling",
+  } as LivePulseProjectData,
 
   socialLinks: [
     {
