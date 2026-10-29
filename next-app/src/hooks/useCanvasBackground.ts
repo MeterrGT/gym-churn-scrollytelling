@@ -11,12 +11,17 @@ export function useCanvasBackground() {
     const ctx = canvas.getContext('2d');
     if (!ctx) return;
 
+    if (window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      return;
+    }
+
     let width = (canvas.width = window.innerWidth);
     let height = (canvas.height = window.innerHeight);
 
+    const isMobile = window.innerWidth < 768;
     const particles: Particle[] = [];
-    const particleCount = Math.min(Math.floor(window.innerWidth / 20), 60);
-    const connectionDistance = 110;
+    const particleCount = isMobile ? 16 : Math.min(Math.floor(window.innerWidth / 25), 45);
+    const connectionDistance = isMobile ? 75 : 105;
     const mouse = { x: null as number | null, y: null as number | null, radius: 120 };
 
     const handleResize = () => {
@@ -114,10 +119,24 @@ export function useCanvasBackground() {
       animId = requestAnimationFrame(animate);
     };
 
-    animate();
+    // İlk boyama (FCP/LCP) tamamlanana kadar animasyon döngüsünü hafifçe ötele
+    const animTimer = setTimeout(() => {
+      animId = requestAnimationFrame(animate);
+    }, 120);
+
+    const handleVisibility = () => {
+      if (document.hidden) {
+        cancelAnimationFrame(animId);
+      } else {
+        animId = requestAnimationFrame(animate);
+      }
+    };
+    document.addEventListener('visibilitychange', handleVisibility);
 
     return () => {
+      clearTimeout(animTimer);
       cancelAnimationFrame(animId);
+      document.removeEventListener('visibilitychange', handleVisibility);
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('mousemove', handleMouseMove);
       window.removeEventListener('mouseout', handleMouseOut);

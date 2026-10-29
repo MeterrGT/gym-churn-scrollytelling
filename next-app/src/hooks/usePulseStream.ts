@@ -91,12 +91,11 @@ export function usePulseStream() {
       const formattedDate = new Date(cached.timestamp).toLocaleString('tr-TR');
       const initialSnap: PulseAggregateSnapshot = {
         ...cached,
-        isStale: true,
+        isStale: false,
         staleSince: formattedDate,
       };
       setSnapshot(initialSnap);
       latestSnapshotRef.current = initialSnap;
-      updateIsStale(true);
       setStaleSince(formattedDate);
     }
 

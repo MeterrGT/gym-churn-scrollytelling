@@ -6,6 +6,89 @@ import { usePulseStream } from '@/hooks/usePulseStream';
 import { TagMetric } from '@/lib/pulse/types';
 import { CyberCanvas } from '@/components/CyberCanvas';
 
+// Inline SVG İkon Bileşenleri (Dış CSS/font bağımlılığını ve render-blocking gecikmelerini sıfıra indirir)
+const IconArrowLeft = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+);
+const IconExternalLink = () => (
+  <svg className="w-2.5 h-2.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6M15 3h6v6M10 14L21 3"/></svg>
+);
+const IconArchive = () => (
+  <svg className="w-2.5 h-2.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="4" width="18" height="4" rx="1"/><path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8M10 12h4"/></svg>
+);
+const IconAlertTriangle = () => (
+  <svg className="w-4 h-4 shrink-0 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+);
+const IconAlertCircle = () => (
+  <svg className="w-4 h-4 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>
+);
+const IconRotate = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 0 0-9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/><path d="M3 12a9 9 0 0 0 9 9 9.75 9.75 0 0 0 6.74-2.74L21 16"/><path d="M16 21h5v-5"/></svg>
+);
+const IconPlug = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 2v10M18.4 6.6a9 9 0 1 1-12.77.04"/></svg>
+);
+const IconPower = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M18.36 6.64A9 9 0 1 1 5.63 6.64M12 2v10"/></svg>
+);
+const IconPlay = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><polygon points="6 3 20 12 6 21 6 3"/></svg>
+);
+const IconPause = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+);
+const IconReset = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+);
+const IconShield = () => (
+  <svg className="w-4 h-4 shrink-0 text-[#e0aaff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+);
+const IconLock = () => (
+  <svg className="w-3 h-3 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+);
+const IconSpeed = () => (
+  <svg className="w-3.5 h-3.5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m12 14 4-4"/><path d="M3.34 19a10 10 0 1 1 17.32 0"/></svg>
+);
+const IconHashtag = () => (
+  <svg className="w-3.5 h-3.5 shrink-0 text-[#e0aaff]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="4" y1="9" x2="20" y2="9"/><line x1="4" y1="15" x2="20" y2="15"/><line x1="10" y1="3" x2="8" y2="21"/><line x1="16" y1="3" x2="14" y2="21"/></svg>
+);
+const IconChart = () => (
+  <svg className="w-3.5 h-3.5 shrink-0 text-amber-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+);
+const IconLanguage = () => (
+  <svg className="w-3.5 h-3.5 shrink-0 text-purple-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+);
+const IconSearch = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+);
+const IconX = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+);
+const IconTable = () => (
+  <svg className="w-3.5 h-3.5 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="3" y1="15" x2="21" y2="15"/><line x1="12" y1="3" x2="12" y2="21"/></svg>
+);
+const IconSpinner = () => (
+  <svg className="w-5 h-5 animate-spin text-[#b829ea] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-6.219-8.56"/></svg>
+);
+const IconInbox = () => (
+  <svg className="w-5 h-5 text-amber-400 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="22 12 16 12 14 15 10 15 8 12 2 12"/><path d="M5.45 5.11L2 12v6a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2v-6l-3.45-6.89A2 2 0 0 0 16.76 4H7.24a2 2 0 0 0-1.79 1.11z"/></svg>
+);
+const IconSort = ({ active }: { active: boolean }) => (
+  <svg className={`w-3 h-3 shrink-0 ${active ? 'text-[#b829ea]' : 'text-slate-600'}`} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><path d="m7 15 5 5 5-5"/><path d="m7 9 5-5 5 5"/></svg>
+);
+const IconTrendUp = () => (
+  <svg className="w-3.5 h-3.5 shrink-0 text-emerald-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+);
+const IconTrendDown = () => (
+  <svg className="w-3.5 h-3.5 shrink-0 text-slate-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polyline points="23 18 13.5 8.5 8.5 13.5 1 6"/><polyline points="17 18 23 18 23 12"/></svg>
+);
+const IconMinus = () => (
+  <svg className="w-3.5 h-3.5 shrink-0 text-purple-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><line x1="5" y1="12" x2="19" y2="12"/></svg>
+);
+const IconFilter = () => (
+  <svg className="w-5 h-5 text-slate-600 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3"/></svg>
+);
+
 export default function LiveSocialPulsePage() {
   const {
     snapshot,
@@ -138,6 +221,13 @@ export default function LiveSocialPulsePage() {
     const found = availableLangs.find((l) => l.code === langFilter);
     return found ? found.label : langFilter;
   }, [availableLangs, langFilter]);
+  // Sabit bildirim kartını mobil cihazda kullanıcı isteğiyle geçici gizleme durumu
+  const [dismissedAlert, setDismissedAlert] = useState(false);
+
+  useEffect(() => {
+    setDismissedAlert(false);
+  }, [status, disconnectReason]);
+
   // Durum Bildirimleri (Tek Doğruluk Kaynağından Türetilmiş)
   // 1. Bayat Veri Bildirimi: Başarılı bir veri anlık görüntüsü var, ancak akış canlı/taze değil.
   const showStaleWarning =
@@ -155,6 +245,9 @@ export default function LiveSocialPulsePage() {
       disconnectReason === 'manual' ||
       status === 'reconnecting');
 
+  const showStaleWarningCard = showStaleWarning && !dismissedAlert;
+  const showDisconnectedEmptyCard = showDisconnectedEmpty && !dismissedAlert;
+
   return (
     <div className="pulse-page-root min-h-screen bg-[#0d0d0d] text-slate-100 relative selection:bg-[#b829ea] selection:text-white overflow-x-clip font-sans">
       {/* Arka Plan Siber Parçacık Tuvali */}
@@ -168,7 +261,7 @@ export default function LiveSocialPulsePage() {
               href="/"
               className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full text-xs font-semibold text-[#e0aaff] bg-[#b829ea]/15 hover:bg-[#b829ea]/25 border border-[#b829ea]/50 shadow-[0_0_12px_rgba(184,41,234,0.3)] transition-all focus-visible:ring-2 focus-visible:ring-[#b829ea] focus-visible:outline-none"
             >
-              <i className="fa-solid fa-arrow-left text-xs" />
+              <IconArrowLeft />
               <span>Ana Sayfaya Dön</span>
             </Link>
 
@@ -208,7 +301,7 @@ export default function LiveSocialPulsePage() {
             )}
             {status === 'fallback' && (
               <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-purple-500/20 text-purple-200 border border-purple-500/50">
-                <i className="fa-solid fa-box-archive text-[10px]" />
+                <IconArchive />
                 <span>Son Anlık Görüntü (Önbellek)</span>
               </span>
             )}
@@ -227,88 +320,18 @@ export default function LiveSocialPulsePage() {
               title="Bluesky Jetstream WebSocket Dokümantasyonu"
             >
               <span>Jetstream API</span>
-              <i className="fa-solid fa-arrow-up-right-from-square text-[9px]" />
+              <IconExternalLink />
             </a>
           </div>
         </div>
       </header>
 
-      {/* ======================================================================
-          BAYAT VERİ VE BAĞLANTI DURUM BİLDİRİMLERİ (STALE & DISCONNECTED NOTICES)
-         ====================================================================== */}
-      {/* DURUM 1: Geçmişte/önbellekte veri var, ancak akış aktif değil (Stale Data Notice) */}
-      {showStaleWarning && (
-        <div
-          role="alert"
-          aria-live="polite"
-          className="bg-amber-950/90 border-b border-amber-500/60 text-amber-200 px-4 py-3 shadow-xl"
-        >
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
-            <div className="flex items-start sm:items-center gap-2.5">
-              <i className="fa-solid fa-triangle-exclamation text-amber-400 text-base shrink-0 mt-0.5 sm:mt-0" />
-              <div>
-                <strong>
-                  {disconnectReason === 'manual'
-                    ? '⚠️ Manuel Olarak Bağlantı Kesildi (Stale Data Notice):'
-                    : '⚠️ Ağ Kesintisi / Bayat Veri Bildirimi (Stale Data Notice):'}
-                </strong>{' '}
-                <span>
-                  {disconnectReason === 'manual'
-                    ? 'Canlı WebSocket akışı kullanıcı tarafından kapatılmıştır. Gösterilen veriler dondurulmuş son anlık görüntüdür.'
-                    : 'Canlı akış bağlantısı koptu; sistem yerel önbellekteki son başarılı kümülatif anlık görüntüyü göstermektedir.'}
-                  {staleSince && (
-                    <> (Dondurulan Kayıt Tarihi: <strong className="text-white">{staleSince}</strong>)</>
-                  )}
-                </span>
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={reconnect}
-              className="px-3.5 py-1.5 rounded-lg bg-amber-500/25 hover:bg-amber-500/40 text-amber-200 border border-amber-500/50 font-bold transition-all shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
-            >
-              <i className="fa-solid fa-arrows-rotate mr-1.5" />
-              Canlı Akışı Başlat
-            </button>
-          </div>
-        </div>
-      )}
-
-      {/* DURUM 2: Hiç veri yok ve bağlantı kesik/kurulamadı (Disconnected Empty State) */}
-      {showDisconnectedEmpty && (
-        <div
-          role="alert"
-          aria-live="polite"
-          className="bg-slate-900/95 border-b border-white/20 text-slate-300 px-4 py-3 shadow-xl"
-        >
-          <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3 text-xs font-mono">
-            <div className="flex items-start sm:items-center gap-2.5">
-              <i className="fa-solid fa-circle-exclamation text-slate-400 text-base shrink-0 mt-0.5 sm:mt-0" />
-              <div>
-                <strong className="text-white">
-                  {disconnectReason === 'manual'
-                    ? 'Bağlantı Kesildi (Kayıt Yok):'
-                    : 'Bağlantı Bekleniyor (Kayıt Yok):'}
-                </strong>{' '}
-                <span>
-                  Şu anda aktif bir WebSocket bağlantısı ve gösterilecek geçmiş veri anlık görüntüsü bulunmuyor. Gerçek zamanlı akışı başlatmak için butonu kullanabilirsiniz.
-                </span>
-              </div>
-            </div>
-            <button
-              type="button"
-              onClick={reconnect}
-              className="px-3.5 py-1.5 rounded-lg bg-[#b829ea]/20 hover:bg-[#b829ea]/30 text-[#e0aaff] border border-[#b829ea]/50 font-bold transition-all shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-[#b829ea] focus-visible:outline-none"
-            >
-              <i className="fa-solid fa-plug mr-1.5" />
-              Canlı Akışı Başlat
-            </button>
-          </div>
-        </div>
-      )}
-
       {/* Ana İçerik Konteyneri */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      <main
+        className={`max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8 ${
+          showStaleWarningCard || showDisconnectedEmptyCard ? 'pb-36 sm:pb-12' : 'pb-12'
+        }`}
+      >
         {/* ======================================================================
             1. HERO & PROJE TANIMI
            ====================================================================== */}
@@ -321,7 +344,7 @@ export default function LiveSocialPulsePage() {
               <span>ÇOK DİLLİ GERÇEK ZAMANLI AKIŞ</span>
             </div>
 
-            <h1 className="text-2xl sm:text-3xl md:text-4xl font-extrabold text-white tracking-tight !leading-tight">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-heading font-extrabold text-white tracking-tight !leading-tight">
               Canlı Sosyal Medya Nabzı:{' '}
               <span className="bg-gradient-to-r from-[#e0aaff] via-[#b829ea] to-[#7b2cbf] bg-clip-text text-transparent">
                 Bluesky Türkçe & Global Trend Takibi
@@ -338,7 +361,7 @@ export default function LiveSocialPulsePage() {
             <button
               type="button"
               onClick={togglePause}
-              className={`px-3.5 py-2 rounded-xl text-xs font-mono font-bold border transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#b829ea] focus-visible:outline-none ${
+              className={`px-3.5 py-2 rounded-xl text-xs font-mono font-bold border transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#b829ea] focus-visible:outline-none inline-flex items-center gap-1.5 ${
                 isPaused
                   ? 'bg-amber-500/20 text-amber-300 border-amber-500/50 hover:bg-amber-500/30'
                   : 'bg-white/[0.06] text-slate-200 border-white/15 hover:bg-white/[0.12]'
@@ -346,7 +369,7 @@ export default function LiveSocialPulsePage() {
               title={isPaused ? 'Akışı Devam Ettir' : 'Akışı Duraklat'}
               aria-label={isPaused ? 'Akışı Devam Ettir' : 'Akışı Duraklat'}
             >
-              <i className={`fa-solid ${isPaused ? 'fa-play' : 'fa-pause'} mr-1.5`} />
+              {isPaused ? <IconPlay /> : <IconPause />}
               <span>{isPaused ? 'Devam Et' : 'Duraklat'}</span>
             </button>
 
@@ -354,22 +377,22 @@ export default function LiveSocialPulsePage() {
               <button
                 type="button"
                 onClick={disconnect}
-                className="px-3.5 py-2 rounded-xl text-xs font-mono font-bold bg-red-500/10 hover:bg-red-500/20 text-red-300 border border-red-500/40 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:outline-none"
+                className="px-3.5 py-2 rounded-xl text-xs font-mono font-bold bg-red-500/10 hover:bg-red-500/20 text-red-300 border border-red-500/40 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-red-400 focus-visible:outline-none inline-flex items-center gap-1.5"
                 title="WebSocket Bağlantısını Kes"
                 aria-label="WebSocket Bağlantısını Kes"
               >
-                <i className="fa-solid fa-power-off mr-1.5" />
+                <IconPower />
                 <span>Bağlantıyı Kes</span>
               </button>
             ) : (
               <button
                 type="button"
                 onClick={reconnect}
-                className="px-3.5 py-2 rounded-xl text-xs font-mono font-bold bg-[#b829ea]/20 hover:bg-[#b829ea]/30 text-[#e0aaff] border border-[#b829ea]/50 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#b829ea] focus-visible:outline-none"
+                className="px-3.5 py-2 rounded-xl text-xs font-mono font-bold bg-[#b829ea]/20 hover:bg-[#b829ea]/30 text-[#e0aaff] border border-[#b829ea]/50 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-[#b829ea] focus-visible:outline-none inline-flex items-center gap-1.5"
                 title="Canlı Akışı Başlat"
                 aria-label="Canlı Akışı Başlat"
               >
-                <i className="fa-solid fa-plug mr-1.5" />
+                <IconPlug />
                 <span>Canlı Akışı Başlat</span>
               </button>
             )}
@@ -377,15 +400,115 @@ export default function LiveSocialPulsePage() {
             <button
               type="button"
               onClick={clearBuffer}
-              className="px-3 py-2 rounded-xl text-xs font-mono font-medium bg-white/[0.04] hover:bg-white/[0.08] text-slate-400 hover:text-white border border-white/10 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none"
+              className="px-3 py-2 rounded-xl text-xs font-mono font-medium bg-white/[0.04] hover:bg-white/[0.08] text-slate-400 hover:text-white border border-white/10 transition-all cursor-pointer focus-visible:ring-2 focus-visible:ring-white focus-visible:outline-none inline-flex items-center gap-1"
               title="Kayan Pencere Belleğini Temizle"
               aria-label="Belleği Sıfırla"
             >
-              <i className="fa-solid fa-rotate-left mr-1" />
+              <IconReset />
               <span>Sıfırla</span>
             </button>
           </div>
         </section>
+
+        {/* ======================================================================
+            BAYAT VERİ VE BAĞLANTI DURUM BİLDİRİMLERİ (STALE & DISCONNECTED NOTICES)
+            Sıfır Kümülatif Düzen Kayması (CLS = 0) ve Kesintisiz Kullanıcı Farkındalığı:
+            Sabit konumlu (fixed floating) bildirim kartı olarak sunulur; DOM akışındaki
+            öğeleri asla itmez ve mobil cihazlarda alttaki içeriği kapatmaması için
+            kullanıcı tarafından gizlenebilir (dismissible) ve sayfa alt boşluğu eklenmiştir.
+           ====================================================================== */}
+        {/* DURUM 1: Geçmişte/önbellekte veri var, ancak akış aktif değil (Stale Data Notice) */}
+        {showStaleWarningCard && (
+          <aside
+            role="alert"
+            aria-live="polite"
+            className="fixed bottom-3 left-3 right-3 sm:left-auto sm:right-6 sm:max-w-xl z-50 rounded-2xl bg-amber-950/95 border border-amber-500/80 text-amber-200 p-3.5 sm:p-4 shadow-2xl shadow-black backdrop-blur-xl"
+          >
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
+              <div className="flex items-start gap-2.5 flex-1 pr-6 sm:pr-0">
+                <IconAlertTriangle />
+                <div>
+                  <strong className="text-amber-300 block sm:inline">
+                    {disconnectReason === 'manual'
+                      ? '⚠️ Manuel Olarak Bağlantı Kesildi:'
+                      : '⚠️ Ağ Kesintisi / Bayat Veri Bildirimi:'}
+                  </strong>{' '}
+                  <span className="text-amber-200/90 text-[11px] sm:text-xs">
+                    {disconnectReason === 'manual'
+                      ? 'Canlı WebSocket akışı kullanıcı tarafından kapatılmıştır. Dondurulmuş anlık görüntü gösterilmektedir.'
+                      : 'Bağlantı koptu; sistem yerel önbellekteki son başarılı kümülatif anlık görüntüyü göstermektedir.'}
+                    {staleSince && (
+                      <> (Kayıt: <strong className="text-white">{staleSince}</strong>)</>
+                    )}
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
+                <button
+                  type="button"
+                  onClick={reconnect}
+                  className="px-3.5 py-1.5 rounded-xl bg-amber-500/25 hover:bg-amber-500/40 text-amber-200 border border-amber-500/50 font-bold transition-all shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none inline-flex items-center gap-1.5 text-xs"
+                >
+                  <IconRotate />
+                  <span>Canlı Akışı Başlat</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDismissedAlert(true)}
+                  className="p-1.5 rounded-lg text-amber-300/70 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  title="Bildirimi Gizle"
+                  aria-label="Bildirimi Gizle"
+                >
+                  <IconX />
+                </button>
+              </div>
+            </div>
+          </aside>
+        )}
+
+        {/* DURUM 2: Hiç veri yok ve bağlantı kesik/kurulamadı (Disconnected Empty State) */}
+        {showDisconnectedEmptyCard && (
+          <aside
+            role="alert"
+            aria-live="polite"
+            className="fixed bottom-3 left-3 right-3 sm:left-auto sm:right-6 sm:max-w-xl z-50 rounded-2xl bg-slate-900/95 border border-white/30 text-slate-300 p-3.5 sm:p-4 shadow-2xl shadow-black backdrop-blur-xl"
+          >
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 text-xs font-mono">
+              <div className="flex items-start gap-2.5 flex-1 pr-6 sm:pr-0">
+                <IconAlertCircle />
+                <div>
+                  <strong className="text-white block sm:inline">
+                    {disconnectReason === 'manual'
+                      ? 'Bağlantı Kesildi (Kayıt Yok):'
+                      : 'Bağlantı Bekleniyor (Kayıt Yok):'}
+                  </strong>{' '}
+                  <span className="text-slate-300 text-[11px] sm:text-xs">
+                    Aktif bağlantı ve gösterilecek geçmiş veri bulunmuyor.
+                  </span>
+                </div>
+              </div>
+              <div className="flex items-center gap-2 self-end sm:self-center shrink-0">
+                <button
+                  type="button"
+                  onClick={reconnect}
+                  className="px-3.5 py-1.5 rounded-xl bg-[#b829ea]/20 hover:bg-[#b829ea]/30 text-[#e0aaff] border border-[#b829ea]/50 font-bold transition-all shrink-0 cursor-pointer focus-visible:ring-2 focus-visible:ring-[#b829ea] focus-visible:outline-none inline-flex items-center gap-1.5 text-xs"
+                >
+                  <IconPlug />
+                  <span>Canlı Akışı Başlat</span>
+                </button>
+                <button
+                  type="button"
+                  onClick={() => setDismissedAlert(true)}
+                  className="p-1.5 rounded-lg text-slate-400 hover:text-white hover:bg-white/10 transition-colors cursor-pointer"
+                  title="Bildirimi Gizle"
+                  aria-label="Bildirimi Gizle"
+                >
+                  <IconX />
+                </button>
+              </div>
+            </div>
+          </aside>
+        )}
 
         {/* ======================================================================
             2. GİZLİLİK VE VERİ MİNİMİZASYONU BİLDİRİMİ (PRIVACY BANNER)
@@ -396,7 +519,7 @@ export default function LiveSocialPulsePage() {
         >
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 rounded-xl bg-[#b829ea]/20 border border-[#b829ea]/40 flex items-center justify-center text-[#e0aaff] shrink-0 mt-0.5">
-              <i className="fa-solid fa-shield-halved text-lg" />
+              <IconShield />
             </div>
             <div>
               <h2 id="privacy-heading" className="text-sm font-bold text-white mb-0.5">
@@ -409,7 +532,7 @@ export default function LiveSocialPulsePage() {
           </div>
 
           <div className="shrink-0 flex items-center gap-2 font-mono text-[11px] bg-emerald-500/10 border border-emerald-500/30 text-emerald-300 px-3 py-1.5 rounded-xl">
-            <i className="fa-solid fa-lock" />
+            <IconLock />
             <span>%100 Ham Veri İmhası</span>
           </div>
         </section>
@@ -425,7 +548,7 @@ export default function LiveSocialPulsePage() {
                 Akış Debisi {langFilter !== 'all' && <span className="text-emerald-400">({langFilter})</span>}
               </span>
               <div className="w-7 h-7 rounded-lg bg-emerald-500/15 border border-emerald-500/30 flex items-center justify-center text-emerald-400">
-                <i className="fa-solid fa-gauge-high text-xs" />
+                <IconSpeed />
               </div>
             </div>
             <div>
@@ -444,7 +567,7 @@ export default function LiveSocialPulsePage() {
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-mono text-slate-400">Son 5 Dk Tekil Etiket</span>
               <div className="w-7 h-7 rounded-lg bg-[#b829ea]/20 border border-[#b829ea]/40 flex items-center justify-center text-[#e0aaff]">
-                <i className="fa-solid fa-hashtag text-xs" />
+                <IconHashtag />
               </div>
             </div>
             <div>
@@ -467,7 +590,7 @@ export default function LiveSocialPulsePage() {
                 {langFilter === 'all' ? '1 Saatlik Gönderi' : `${langFilter.toUpperCase()} Gönderileri`}
               </span>
               <div className="w-7 h-7 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                <i className="fa-solid fa-chart-simple text-xs" />
+                <IconChart />
               </div>
             </div>
             <div>
@@ -488,7 +611,7 @@ export default function LiveSocialPulsePage() {
             <div className="flex items-center justify-between mb-2">
               <span className="text-xs font-mono text-slate-400">Aktif Dil & Bellek</span>
               <div className="w-7 h-7 rounded-lg bg-purple-500/20 border border-purple-500/40 flex items-center justify-center text-purple-300">
-                <i className="fa-solid fa-language text-xs" />
+                <IconLanguage />
               </div>
             </div>
             <div>
@@ -558,18 +681,20 @@ export default function LiveSocialPulsePage() {
               <button
                 type="button"
                 onClick={() => setLangFilter('all')}
-                className="text-[11px] font-mono text-purple-300 hover:text-white px-2 py-1 rounded bg-purple-500/15 border border-purple-500/30 transition-colors"
+                className="text-[11px] font-mono text-purple-300 hover:text-white px-2 py-1 rounded bg-purple-500/15 border border-purple-500/30 transition-colors inline-flex items-center gap-1"
                 title="Tüm Dilleri Göster"
               >
-                <i className="fa-solid fa-xmark mr-1" />
-                Filtreyi Kaldır
+                <IconX />
+                <span>Filtreyi Kaldır</span>
               </button>
             )}
           </div>
 
           {/* Sağ: Etiket Arama Kutusu */}
           <div className="relative min-w-[200px] sm:min-w-[260px]">
-            <i className="fa-solid fa-magnifying-glass absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 text-xs" />
+            <span className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none">
+              <IconSearch />
+            </span>
             <input
               type="text"
               value={searchQuery}
@@ -585,7 +710,7 @@ export default function LiveSocialPulsePage() {
                 className="absolute right-3 top-1/2 -translate-y-1/2 text-slate-400 hover:text-white text-xs cursor-pointer"
                 aria-label="Aramayı Temizle"
               >
-                <i className="fa-solid fa-xmark" />
+                <IconX />
               </button>
             )}
           </div>
@@ -614,10 +739,10 @@ export default function LiveSocialPulsePage() {
               <button
                 type="button"
                 onClick={() => setShowRateTable(!showRateTable)}
-                className="text-[11px] font-mono text-[#e0aaff] hover:text-white px-2.5 py-1 rounded-lg bg-white/[0.05] border border-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-[#b829ea] focus-visible:outline-none"
+                className="text-[11px] font-mono text-[#e0aaff] hover:text-white px-2.5 py-1 rounded-lg bg-white/[0.05] border border-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-[#b829ea] focus-visible:outline-none inline-flex items-center gap-1"
                 aria-label="Erişilebilir tablo görünümünü aç/kapat"
               >
-                <i className="fa-solid fa-table mr-1" />
+                <IconTable />
                 <span>{showRateTable ? 'Grafiği Göster' : 'Tablo Alternatifi'}</span>
               </button>
             </div>
@@ -770,8 +895,8 @@ export default function LiveSocialPulsePage() {
                   </svg>
                 ) : (
                   <div className="h-full flex flex-col items-center justify-center text-slate-500 text-xs font-mono py-8">
-                    <i className="fa-solid fa-spinner animate-spin text-lg mb-2 text-[#b829ea]" />
-                    <span>Akıştan dakikalık debi verisi bekleniyor...</span>
+                    <IconSpinner />
+                    <span className="mt-2">Akıştan dakikalık debi verisi bekleniyor...</span>
                   </div>
                 )}
 
@@ -803,10 +928,10 @@ export default function LiveSocialPulsePage() {
               <button
                 type="button"
                 onClick={() => setShowTopTable(!showTopTable)}
-                className="text-[11px] font-mono text-amber-300 hover:text-white px-2.5 py-1 rounded-lg bg-white/[0.05] border border-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none"
+                className="text-[11px] font-mono text-amber-300 hover:text-white px-2.5 py-1 rounded-lg bg-white/[0.05] border border-white/10 transition-colors focus-visible:ring-2 focus-visible:ring-amber-400 focus-visible:outline-none inline-flex items-center gap-1"
                 aria-label="En popüler etiketler için alternatif tablo görünümünü aç/kapat"
               >
-                <i className="fa-solid fa-table mr-1" />
+                <IconTable />
                 <span>{showTopTable ? 'Grafiği Göster' : 'Tablo Alternatifi'}</span>
               </button>
             </div>
@@ -870,8 +995,8 @@ export default function LiveSocialPulsePage() {
                   })
                 ) : (
                   <div className="h-full flex flex-col items-center justify-center text-slate-500 text-xs font-mono py-8">
-                    <i className="fa-solid fa-inbox text-lg mb-2 text-amber-400" />
-                    <span>Seçilen dilde ve pencerede henüz etiket bulunamadı.</span>
+                    <IconInbox />
+                    <span className="mt-2">Seçilen dilde ve pencerede henüz etiket bulunamadı.</span>
                   </div>
                 )}
               </div>
@@ -916,7 +1041,7 @@ export default function LiveSocialPulsePage() {
                   >
                     <div className="flex items-center gap-1.5">
                       <span>Etiket</span>
-                      <i className={`fa-solid fa-sort ${sortField === 'tag' ? 'text-[#b829ea]' : 'text-slate-600'}`} />
+                      <IconSort active={sortField === 'tag'} />
                     </div>
                   </th>
                   <th
@@ -926,7 +1051,7 @@ export default function LiveSocialPulsePage() {
                   >
                     <div className="flex items-center justify-end gap-1.5">
                       <span>Son 5 Dk</span>
-                      <i className={`fa-solid fa-sort ${sortField === 'count5m' ? 'text-[#b829ea]' : 'text-slate-600'}`} />
+                      <IconSort active={sortField === 'count5m'} />
                     </div>
                   </th>
                   <th
@@ -936,7 +1061,7 @@ export default function LiveSocialPulsePage() {
                   >
                     <div className="flex items-center justify-end gap-1.5">
                       <span>Son 1 Saat</span>
-                      <i className={`fa-solid fa-sort ${sortField === 'count1h' ? 'text-[#b829ea]' : 'text-slate-600'}`} />
+                      <IconSort active={sortField === 'count1h'} />
                     </div>
                   </th>
                   <th
@@ -946,7 +1071,7 @@ export default function LiveSocialPulsePage() {
                   >
                     <div className="flex items-center justify-end gap-1.5">
                       <span>Son Görülme</span>
-                      <i className={`fa-solid fa-sort ${sortField === 'lastSeen' ? 'text-[#b829ea]' : 'text-slate-600'}`} />
+                      <IconSort active={sortField === 'lastSeen'} />
                     </div>
                   </th>
                   <th scope="col" className="p-3 text-center">
@@ -972,19 +1097,19 @@ export default function LiveSocialPulsePage() {
                       <td className="p-3 text-center">
                         {t.trend === 'up' && (
                           <span className="inline-flex items-center gap-1 text-[11px] text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded-full border border-emerald-500/30">
-                            <i className="fa-solid fa-arrow-trend-up" />
+                            <IconTrendUp />
                             <span>Yükselişte</span>
                           </span>
                         )}
                         {t.trend === 'down' && (
                           <span className="inline-flex items-center gap-1 text-[11px] text-slate-400 bg-white/[0.04] px-2 py-0.5 rounded-full border border-white/10">
-                            <i className="fa-solid fa-arrow-trend-down" />
+                            <IconTrendDown />
                             <span>Yavaşlıyor</span>
                           </span>
                         )}
                         {t.trend === 'stable' && (
                           <span className="inline-flex items-center gap-1 text-[11px] text-purple-300 bg-purple-500/10 px-2 py-0.5 rounded-full border border-purple-500/30">
-                            <i className="fa-solid fa-minus" />
+                            <IconMinus />
                             <span>Dengeli</span>
                           </span>
                         )}
@@ -995,7 +1120,7 @@ export default function LiveSocialPulsePage() {
                   <tr>
                     <td colSpan={6} className="p-8 text-center text-slate-500">
                       <div className="flex flex-col items-center justify-center gap-2">
-                        <i className="fa-solid fa-filter text-xl text-slate-600" />
+                        <IconFilter />
                         <span>Kriterlere uyan etiket bulunamadı.</span>
                       </div>
                     </td>
