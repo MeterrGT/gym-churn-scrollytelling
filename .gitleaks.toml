@@ -20,6 +20,7 @@ regexes = [
   '''did:plc:[a-zA-Z0-9_-]+''',
   '''dummy_cf_[a-zA-Z0-9_]+''',
   '''3Xz3kawRV9M''', # YouTube demo video ID
+  '''postgres://build_user:[^@]+@127\.0\.0\.1.*''',
 ]
 
 [[rules]]

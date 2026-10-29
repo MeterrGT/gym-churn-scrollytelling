@@ -115,5 +115,5 @@ jobs:
         working-directory: ./next-app
         env:
           NEXT_TELEMETRY_DISABLED: 1
-          DATABASE_URL: postgres://dummy_build:dummy_build@ep-dummy-build.neon.tech/dummy
+          DATABASE_URL: postgres://build_user:build_password@127.0.0.1:5432/build_db
         run: npm run build

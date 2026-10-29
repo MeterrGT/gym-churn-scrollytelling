@@ -2,7 +2,7 @@ import { neon } from '@neondatabase/serverless';
 
 const databaseUrl =
   process.env.DATABASE_URL ||
-  'postgres://dummy_build:dummy_build@ep-dummy-build.neon.tech/dummy';
+  'postgres://build_user:build_password@127.0.0.1:5432/build_db';
 
 /**
  * Neon serverless SQL istemcisi.
