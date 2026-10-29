@@ -17,7 +17,10 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://metehan-gym-churn.vercel.app"),
+  metadataBase: new URL("https://metehan-gezer.vercel.app"),
+  alternates: {
+    canonical: "https://metehan-gezer.vercel.app",
+  },
   title: {
     default: "Metehan Gezer | Kişisel Portfolyo & Büyük Veri Analistliği",
     template: "%s | Metehan Gezer",

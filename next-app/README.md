@@ -38,3 +38,6 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/bui
 ## Deployment Configuration
 
 This integrated Next.js application is deployed from the `next-app/` directory. In the Vercel project settings, the Root Directory is configured to `next-app` so that Next.js dependencies, build steps, and serverless functions are handled directly from this folder.
+
+- **Canonical Production URL:** https://metehan-gezer.vercel.app
+  *(Legacy project redirect: https://metehan-gym-churn.vercel.app)*

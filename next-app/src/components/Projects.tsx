@@ -8,7 +8,7 @@ import { PriceSimulator } from './PriceSimulator';
 import { SectionLabel } from './SectionLabel';
 
 export const Projects: React.FC = () => {
-  const { project, previousProjects, blueskyProject } = PORTFOLIO_DATA;
+  const { project, previousProjects, blueskyProject, livePulseProject } = PORTFOLIO_DATA;
   const motorProject = previousProjects[0];
   const laptopProject = previousProjects[1];
 
@@ -513,6 +513,103 @@ export const Projects: React.FC = () => {
               >
                 <i className="fa-solid fa-diagram-project" />
                 <span>Case Study</span>
+                <i className="fa-solid fa-arrow-right text-[10px]" />
+              </Link>
+            </div>
+          </div>
+
+          {/* ========================================================
+              Card 5: Canlı Sosyal Medya Nabzı (Live Data Product)
+             ======================================================== */}
+          <div className="project-showcase-card h-full flex flex-col justify-between bg-[#110e1c]/90 border border-emerald-500/40 hover:border-emerald-400 rounded-2xl overflow-hidden shadow-[0_10px_35px_rgba(0,0,0,0.6),0_0_20px_rgba(16,185,129,0.15)] hover:shadow-[0_12px_45px_rgba(0,0,0,0.8),0_0_30px_rgba(16,185,129,0.3)] transition-all duration-300 relative group md:col-span-2 lg:col-span-1">
+
+            {/* Card Top */}
+            <div className="project-card-top flex items-center justify-between gap-2 px-5 py-3.5 bg-[#140f26]/80 border-b border-white/10 shrink-0">
+              <div className="flex items-center gap-2">
+                <div className="project-badge text-[11px] py-0.5 px-2.5 bg-emerald-500/15 border-emerald-500/40 text-emerald-300">
+                  <span className="badge-dot bg-emerald-400" />
+                  <span>{livePulseProject.badge}</span>
+                </div>
+                <span className="academic-note text-[11px] font-mono text-slate-400">
+                  <i className="fa-solid fa-bolt text-emerald-400 mr-1" /> {livePulseProject.academicNote}
+                </span>
+              </div>
+
+              {/* Status Badge: Live Real-Time Pulse */}
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-[11px] font-mono font-bold bg-emerald-500/15 text-emerald-400 border border-emerald-500/40 shadow-[0_0_10px_rgba(16,185,129,0.25)] shrink-0">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                <span>Canlı Akış</span>
+              </div>
+            </div>
+
+            {/* Card Main Body */}
+            <div className="project-card-main p-5 sm:p-6 bg-[#0d0d0d]/90 flex-1 flex flex-col justify-between">
+              <div className="space-y-3.5">
+                <div>
+                  <h3 className="project-heading text-lg sm:text-xl font-extrabold text-white mb-1 group-hover:text-emerald-300 transition-colors">
+                    {livePulseProject.title}
+                  </h3>
+                  <span className="project-subheading block text-xs font-mono text-emerald-400 font-semibold">
+                    {livePulseProject.subtitle}
+                  </span>
+                </div>
+
+                <p className="project-text text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  {livePulseProject.description}
+                </p>
+
+                {/* 4 Key Metrics Badges */}
+                <div className="grid grid-cols-2 gap-2 text-xs font-mono">
+                  <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/10">
+                    <span className="text-[10px] text-slate-400 block">Protokol</span>
+                    <strong className="text-white text-xs">{livePulseProject.metrics.protocol}</strong>
+                  </div>
+                  <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/10">
+                    <span className="text-[10px] text-slate-400 block">Arka Plan İşleme</span>
+                    <strong className="text-emerald-400 text-xs">{livePulseProject.metrics.latency}</strong>
+                  </div>
+                  <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/10">
+                    <span className="text-[10px] text-slate-400 block">Kayan Pencere</span>
+                    <strong className="text-amber-300 text-xs">{livePulseProject.metrics.windows}</strong>
+                  </div>
+                  <div className="p-2.5 rounded-lg bg-white/[0.03] border border-white/10">
+                    <span className="text-[10px] text-slate-400 block">Veri Güvenliği</span>
+                    <strong className="text-purple-300 text-xs">{livePulseProject.metrics.privacy}</strong>
+                  </div>
+                </div>
+
+                {/* Tools Tags */}
+                <div className="project-tools">
+                  <div className="tools-tags flex flex-wrap gap-1.5">
+                    {livePulseProject.tools.map((tool, idx) => (
+                      <span key={idx} className="tag-item inline-flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10">
+                        <i className={`${tool.icon} text-emerald-400`} /> {tool.name}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Card Bottom / Footer Actions */}
+            <div className="project-card-bottom flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 px-4 sm:px-5 py-3.5 bg-[#140f26]/80 border-t border-white/10 shrink-0">
+              <a
+                href={livePulseProject.githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn btn-sm btn-outline-purple text-xs px-3 py-2 sm:py-1.5 rounded-lg border border-white/20 text-slate-300 hover:text-white hover:bg-white/[0.08] inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
+              >
+                <i className="fa-brands fa-github text-xs" />
+                <span>GitHub</span>
+                <i className="fa-solid fa-arrow-up-right-from-square text-[10px]" />
+              </a>
+
+              <Link
+                href="/canli-sosyal-medya-nabzi"
+                className="btn btn-sm text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 px-4 py-2 sm:py-1.5 rounded-lg border border-emerald-400/40 shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:shadow-[0_0_20px_rgba(16,185,129,0.6)] inline-flex items-center justify-center gap-1.5 transition-all w-full sm:w-auto"
+              >
+                <i className="fa-solid fa-bolt" />
+                <span>Canlı Ürünü Aç</span>
                 <i className="fa-solid fa-arrow-right text-[10px]" />
               </Link>
             </div>

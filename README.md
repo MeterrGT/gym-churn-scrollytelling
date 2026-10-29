@@ -2,6 +2,9 @@
 
 Bu depo, **Manisa Celal Bayar Üniversitesi Büyük Veri Analistliği** öğrencisi **Metehan Gezer**'in kişisel web portfolyosunu ve dönem sonu akademik veri görselleştirme projesi olan **Gym Churn Data Story (Sadakatin Bedeli: Spor Salonları Üyelerini Neden Kaybediyor?)** sayfasını barındırır.
 
+- **Canlı Üretim Sitesi (Canonical Production):** [https://metehan-gezer.vercel.app](https://metehan-gezer.vercel.app)
+  *(Eski alan adı yönlendirmesi: `https://metehan-gym-churn.vercel.app`)*
+
 ---
 
 ## 📌 Proje Genel Bakışı
@@ -117,5 +120,6 @@ Kodlama ve teknik hata ayıklama desteği ile analitik yazım katkısı açıkç
 - **Metehan Gezer**
 - Manisa Celal Bayar Üniversitesi, Büyük Veri Analistliği
 - **GitHub:** [https://github.com/MeterrGT](https://github.com/MeterrGT)
+- **Canlı Yayın (Vercel):** [https://metehan-gezer.vercel.app](https://metehan-gezer.vercel.app) *(Yönlendirme: `https://metehan-gym-churn.vercel.app`)*
 - **LinkedIn:** [Metehan Gezer](https://www.linkedin.com/in/metehan-gezer-aa444b403/)
 - **E-posta:** [gztmetehan@gmail.com](mailto:gztmetehan@gmail.com)
