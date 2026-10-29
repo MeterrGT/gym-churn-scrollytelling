@@ -111,15 +111,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               <i className="fa-brands fa-instagram text-xs sm:text-sm" />
             </a>
 
-            {/* Admin Login Icon */}
-            <a
-              href="/giris"
-              className="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-white/[0.06] hover:bg-[#b829ea]/20 text-slate-300 hover:text-[#b829ea] border border-white/10 hover:border-[#b829ea]/40 transition-all duration-300 shadow-sm"
-              title="Yönetici Girişi"
-            >
-              <i className="fa-solid fa-lock text-xs sm:text-sm" />
-            </a>
-
             {/* Direct CTA (hidden on mobile) */}
             <a
               href="/iletisim"
@@ -197,14 +188,6 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 >
                   <i className="fa-regular fa-paper-plane text-xs" />
                   <span>İletişime Geç</span>
-                </a>
-                <a
-                  href="/giris"
-                  onClick={closeMobileMenu}
-                  className="flex items-center justify-center gap-2 py-2 px-4 rounded-xl text-xs font-mono text-slate-300 bg-white/[0.04] border border-white/10 hover:border-[#b829ea]/40"
-                >
-                  <i className="fa-solid fa-lock text-xs text-[#b829ea]" />
-                  <span>Yönetici Girişi</span>
                 </a>
               </div>
             </div>

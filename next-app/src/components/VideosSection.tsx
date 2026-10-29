@@ -68,7 +68,7 @@ export const VideosSection: React.FC<VideosSectionProps> = ({ allVideos, topVide
               Veritabanında kayıtlı mevcut videolar, BVA 2205 dersi SQL test senaryoları ve ilişkisel sorgu pratikleri için yapılandırılmış akademik gösterim kayıtlarıdır. Kamuya açık portfolyo arayüzünde yalnızca doğrulanmış, gerçek ve izlenebilir harici video bağlantısına sahip kayıtlar listelenmektedir.
             </p>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg mx-auto mb-6 text-left">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-lg mx-auto text-left">
               <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10">
                 <span className="text-[11px] font-mono text-[#b829ea] font-bold block mb-1">
                   <i className="fa-solid fa-database mr-1.5" /> Neon PostgreSQL
@@ -79,21 +79,13 @@ export const VideosSection: React.FC<VideosSectionProps> = ({ allVideos, topVide
               </div>
               <div className="p-3.5 rounded-xl bg-white/[0.03] border border-white/10">
                 <span className="text-[11px] font-mono text-[#b829ea] font-bold block mb-1">
-                  <i className="fa-solid fa-lock mr-1.5" /> Yönetici Paneli
+                  <i className="fa-solid fa-play mr-1.5" /> Video Yayın Akışı
                 </span>
                 <p className="text-[11px] text-slate-400 m-0 leading-relaxed">
-                  Video CRUD işlemleri, yayın durumu ve link tanımlama paneli hazırdır.
+                  YouTube ve harici eğitim serileri incelenip onaylandıktan sonra bu alanda listelenecektir.
                 </p>
               </div>
             </div>
-
-            <a
-              href="/giris"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl text-xs font-mono font-bold text-white bg-[#b829ea]/20 hover:bg-[#b829ea]/35 border border-[#b829ea]/50 transition-all shadow-[0_0_12px_rgba(184,41,234,0.2)]"
-            >
-              <i className="fa-solid fa-shield-halved text-xs text-[#e0aaff]" />
-              <span>Yönetici Paneline Git</span>
-            </a>
           </div>
         ) : (
           <>

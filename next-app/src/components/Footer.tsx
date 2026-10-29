@@ -33,9 +33,9 @@ export const Footer: React.FC = () => {
             <span className="hidden sm:inline">•</span>
             <Link href="/gym-churn" className="hover:text-[#c77dff] transition-colors">Gym Churn</Link>
             <span className="hidden sm:inline">•</span>
-            <Link href="/iletisim" className="hover:text-white transition-colors">İletişim</Link>
+            <Link href="/bluesky-hashtag-network" className="hover:text-[#c77dff] transition-colors">Bluesky SNA</Link>
             <span className="hidden sm:inline">•</span>
-            <Link href="/giris" className="hover:text-white transition-colors">Yönetici Girişi</Link>
+            <Link href="/iletisim" className="hover:text-white transition-colors">İletişim</Link>
           </div>
 
           <div className="footer-socials flex items-center gap-3">
