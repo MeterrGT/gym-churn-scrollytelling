@@ -2,8 +2,13 @@
 
 Bu depo, **Manisa Celal Bayar Üniversitesi Büyük Veri Analistliği** öğrencisi **Metehan Gezer**'in kişisel web portfolyosunu ve dönem sonu akademik veri görselleştirme projesi olan **Gym Churn Data Story (Sadakatin Bedeli: Spor Salonları Üyelerini Neden Kaybediyor?)** sayfasını barındırır.
 
-- **Canlı Üretim Sitesi (Canonical Production):** [https://metehan-gezer.vercel.app](https://metehan-gezer.vercel.app)
+- **Canlı Üretim Sitesi (Canonical Production):** [https://metehan-gezer.vercel.app](https://metehan-gezer.vercel.app)<br />
   *(Eski alan adı yönlendirmesi: `https://metehan-gym-churn.vercel.app`)*
+- **BVA 2245 Canlı Veri Ürünü (Live Pulse):** [https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi](https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi)
+- **BVA 2245 Vaka Analizi (Case Study):** [https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi/vaka-analizi](https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi/vaka-analizi)
+- **Tarihsel Bluesky Ağ Analizi (SNA):** [https://metehan-gezer.vercel.app/bluesky-hashtag-network](https://metehan-gezer.vercel.app/bluesky-hashtag-network)
+- **Gym Churn Veri Hikayesi:** [https://metehan-gezer.vercel.app/gym-churn](https://metehan-gezer.vercel.app/gym-churn)
+- **GitHub Deposu:** [https://github.com/MeterrGT/gym-churn-scrollytelling](https://github.com/MeterrGT/gym-churn-scrollytelling)
 
 ---
 
@@ -15,18 +20,30 @@ Bu depo, **Manisa Celal Bayar Üniversitesi Büyük Veri Analistliği** öğrenc
 - Ekonometrik dizüstü bilgisayar fiyat tahmin simülatörü (OLS regresyon modeli).
 - Kestirimci bakım ve IoT makine öğrenmesi projeleri.
 - **Gym Churn Hızlı Simülatörü:** 4.000 gözlemden hesaplanan 12 hücrelik yaş × sözleşme matrisi ile anlık risk hesaplayan dinamik araç.
+- **Canlı Sosyal Medya Nabzı & Ağ Analizi Kartları:** Canlı veri ürünü, vaka analizleri ve GitHub kaynak bağlantılarına doğrudan erişim.
 
-### 2. Gym Churn Veri Hikayesi (`/gym-churn`)
+### 2. BVA 2245 — Canlı Sosyal Medya Nabzı (`/canli-sosyal-medya-nabzi`)
+- **Bluesky Jetstream WebSocket** üzerinden akan canlı genel gönderileri tarayıcıda Web Worker ile işleyen gerçek zamanlı trend dinleme platformu.
+- 5 dakikalık ve 1 saatlik kayan pencereler (sliding/rolling windows) ile en popüler etiketler ve dakikalık akış hızı (posts/min) zaman serisi.
+- Çok dilli (Türkçe, İngilizce, Almanca, Japonca, Portekizce, İspanyolca, Fransızca) anlık filtreleme.
+- **%100 Tasarım Yoluyla Gizlilik (Privacy by Design):** Ham gönderi metinleri, kullanıcı DID ve profil bilgileri kalıcı belleğe asla yazılmaz, anında imha edilir.
+
+### 3. Bluesky Turkish Hashtag Network — Tarihsel Ağ Analizi (`/bluesky-hashtag-network`)
+- Bluesky platformundan toplanan **48 saatlik tarihsel arşiv** (7.658 etiketli gönderi, 7.092 düğüm, 37.206 kenar) üzerinde gerçekleştirilen statik Sosyal Ağ Analizi (SNA).
+- Louvain modülerlik algoritması, derece merkeziyeti ve D3.js interaktif ağ görselleştirmesi.
+- *(Not: Bu çalışma geçmişe dönük statik bir arşiv çalışması olup, canlı akan BVA 2245 ürününden kavramsal ve mimari olarak tamamen bağımsızdır).*
+
+### 4. Gym Churn Veri Hikayesi (`/gym-churn`)
 - **D3.js (v7)** ve **Scrollama / IntersectionObserver** kullanılarak hazırlanmış 6 adımlı scrollytelling veri hikayesi.
 - Masaüstünde sol tarafta sabit (sticky) grafik konteyneri, sağ tarafta adım adım ilerleyen anlatı kartları; mobilde akıcı dikey sıralama.
 - **5 Farklı Veri Görselleştirmesi & Çoklu Grafik Türü:**
-  1. **Adım 1 - Sıralı Sütun Grafiği (Sorted Bar Chart):** Sözleşme sürelerine göre (1 Ay: %42.3, 6 Ay: %12.5, 12 Ay: %2.4) gözlemlenen terk oranları (39.9 yüzde puanlık fark). En düşük gözlemlenen terk oranı 12 aylık sözleşmeye sahip üyeler arasındadır.
-  2. **Adım 2 - Nokta / Lollipop Grafiği (Lollipop Plot):** 4 yaş kategorisinin genel veri seti ortalaması (%26.5) ile kıyaslanması (18-25 yaşta %61.9 terk vs 34+ yaşta %3.3 terk).
+  1. **Adım 1 - Sıralı Sütun Grafiği (Sorted Bar Chart):** Sözleşme sürelerine göre (1 Ay: %42.3, 6 Ay: %12.5, 12 Ay: %2.4) gözlemlenen terk oranları (39.9 yüzde puanlık fark).
+  2. **Adım 2 - Nokta / Lollipop Grafiği (Lollipop Plot):** 4 yaş kategorisinin genel veri seti ortalaması (%26.5) ile kıyaslanması.
   3. **Adım 3 - Etkileşim Matrisi (Annotated Matrix Heatmap):** 4 Yaş Grubu × 3 Sözleşme Modeli = 12 hücrelik çapraz gözlem matrisi.
   4. **Adım 4 - Odaklanmış Risk & Sadakat Matrisi (Spotlight Heatmap):** Zirve risk segmenti (18-25 Yaş & 1 Ay: **%78.2 terk**) ile en düşük terk oranına sahip segmentin (34+ Yaş & 12 Ay: **%0.0 terk**) karşılaştırılması.
-  5. **Adım 5 - Üyelik Süresi (Lifetime) Kategorileri ile Gözlemlenen Terk İlişkisi:** 0-2. ay kategorilerinde (%82.8 - %25.7) yüksek terk gözlemlenirken, 3+ ay kategorilerinde %10'un altına inmektedir. *(Not: Bu analiz kesitsel bir dağılımdır; zaman serisi veya zamana bağlı yaşam kalımı/survival takibi değildir; ilk 90 günün doğrudan terke neden olduğunu kanıtlamaz).*
-  6. **Adım 6 - Analitik Sentez & Katılım Grafiği (Attendance Synthesis):** Haftalık ders sıklığı ile terk ilişkisi (Terk edenler: 1.0 gün/hafta vs Aktifler: 2.0 gün/hafta) ve nedensellik kısıtları paneli.
-- **Okuyucu Keşfi (Reader Exploration):** Okuyucunun yaş grubu ve sözleşme süresini interaktif butonlarla filtreleyip alt grupların terk oranlarını, toplam gözlem sayısını ve dinamik D3 sütun grafiğini anlık inceleyebildiği panel.
+  5. **Adım 5 - Üyelik Süresi (Lifetime) Kategorileri ile Gözlemlenen Terk İlişkisi:** Kesitsel dağılım analizi.
+  6. **Adım 6 - Analitik Sentez & Katılım Grafiği (Attendance Synthesis):** Haftalık ders sıklığı ile terk ilişkisi ve nedensellik kısıtları paneli.
+- **Okuyucu Keşfi (Reader Exploration):** Yaş ve sözleşme parametreleriyle dinamik D3 filtresi.
 
 ---
 
@@ -78,40 +95,125 @@ python scripts/process_data.py
 
 ---
 
-## 🛠 Kullanılan Teknolojiler
+## 🏛 BVA 2245 Mimari Şeması (Live Data Pipeline)
 
-- **Frontend & UI:** React 18, TypeScript, Vite, Tailwind CSS, Font Awesome 6
-- **Veri Görselleştirme:** D3.js (v7) — SVG dönüşümleri, eksen animasyonları, tooltipler
-- **Scrollytelling:** Scrollama & IntersectionObserver API
-- **Veri Analitiği:** Python 3.10+, Pandas, NumPy, Jupyter Notebook
+```
+[Bluesky Jetstream WebSocket]
+       │  (wss://jetstream1.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post)
+       ▼
+[Gizlilik Odaklı Anlık Ayıklama (Privacy-Minimizing Extraction)]
+       │  - Regex ile hashtag ayıklama (#\p{L}\p{N}_+)
+       │  - ISO 639 dil kodu sınıflandırması (tr, en, de, ja, pt, es, fr)
+       │  - DID, post metni, kullanıcı profili ve PDS bilgisi ANINDA ÇÖPE ATILIR
+       ▼
+[Web Worker Toplayıcı (pulse.worker.js)]  <-- UI Thread'den bağımsız arka plan
+       │
+       ├── [5 Dakikalık Kayan Kuyruk (Sliding Queue)] ──> En Çok Kullanılan 10 Etiket & Hız
+       └── [1 Saatlik Dairesel Kova (60 x 1 Dk)]      ──> Dakikalık Hız Zaman Serisi (Sparkline)
+       │
+       │  (Saniyede 1 kez AGGREGATE_SNAPSHOT yayını)
+       ▼
+[usePulseStream React Kancası & Durum Makinesi]
+       │  - Canlı bağlantı, duraklatma (pause), manuel kesme yönetimi
+       │  - Ağ kesintisinde simüle jeneratör yedeği (fallback generator)
+       │  - Bayat veri (stale-data) tespiti ve uyarı banner'ı
+       ▼
+[Next.js Responsive Dashboard Arayüzü (/canli-sosyal-medya-nabzi)]
+```
 
 ---
 
-## 🚀 Projeyi Yerel Ortamda Çalıştırma
+## 🔒 Gizlilik Minimizasyonu (Privacy Minimization)
+
+- **Sıfır Kişisel Veri Saklama:** Kullanıcıların hesap tanımlayıcıları (`did:plc:...`), rumuzları (`handle`), profil URL'leri ve gönderi tam metinleri kalıcı belleğe, sunucu veritabanına, `localStorage` veya `IndexedDB`'ye yazılmaz.
+- **Geçici Bellek ve Anında İmha:** Jetstream üzerinden gelen JSON paketi Web Worker içinde işlenir; yalnızca etiket listesi ve dil kodu alınır; ham paket JavaScript çöp toplayıcısına (Garbage Collector) bırakılarak anında bellekten düşürülür.
+- **Yalnızca İstatistiki Agregasyon:** İstemci tarafında yalnızca matematiksel sayaçlar (5 dakikalık kayan penceredeki frekans haritası ve 60 dakikalık zaman serisi kovaları) tutulur.
+
+---
+
+## 📡 Veri Kaynağı ve Kullanım Şartları (Data Source & Terms)
+
+- **Veri Sağlayıcısı:** Bluesky Social PBC kamuya açık [Jetstream Relay](https://github.com/bluesky-social/jetstream).
+- **Protokol:** AT Protocol (Authenticated Transfer Protocol).
+- **Uç Nokta:** `wss://jetstream1.us-east.bsky.network/subscribe?wantedCollections=app.bsky.feed.post`
+- **Kullanım Koşulları & Lisans:** Bluesky genel ağındaki herkese açık gönderiler, AT Protocol şartları gereği genel federasyon akışında paylaşılmaktadır. Bu proje; yalnızca tek bir istemci WebSocket bağlantısı açar, `wantedCollections=app.bsky.feed.post` filtresi ile bant genişliği tüketimini asgari seviyede tutar, hiçbir içeriği yeniden dağıtmaz veya ticari olarak satmaz. Bluesky API ve AT Protocol geliştirici kullanım kurallarına tam uyumludur.
+
+---
+
+## 🛠 Kullanılan Teknolojiler
+
+- **Frontend & UI:** Next.js (App Router), React 18, TypeScript, Tailwind CSS, Font Awesome 6
+- **Gerçek Zamanlı Veri İşleme:** Bluesky Jetstream WebSocket, HTML5 Web Workers, Sliding / Rolling Windows
+- **Veri Görselleştirme:** D3.js (v7), SVG dinamik alan/çizgi grafikleri
+- **Veritabanı & Backend:** Neon PostgreSQL, Drizzle ORM / Server Actions, bcryptjs
+- **Test Araçları:** Node.js Test Runner, Google Chrome Lighthouse
+
+---
+
+## 🚀 Projeyi Yerel Ortamda Çalıştırma ve Testler
 
 ```bash
+# next-app dizinine geçin
+cd next-app
+
 # 1. Bağımlılıkları yükleyin
 npm install
 
-# 2. Geliştirme sunucusunu başlatın
+# 2. Geliştirme sunucusunu başlatın (http://localhost:3000)
 npm run dev
 
-# 3. Üretim derlemesi oluşturun ve test edin
-npm run build
+# 3. Nabız servisi birim ve durum testlerini çalıştırın (119 test)
+npm run test:pulse
 
-# 4. Kod kalitesi ve lint kontrolleri
-npm run lint
+# 4. Portfolyo regresyon testlerini çalıştırın (23 test)
+npm run test:regression
+
+# 5. Üretim derlemesini oluşturun (14 rota)
+npm run build
 ```
 
-Sunucu varsayılan olarak `http://localhost:3000` adresinde açılır.
+---
+
+## 📊 Doğrulanmış Test ve Denetim Sonuçları
+
+- **Birim & Servis Testleri (`npm run test:pulse`):** **119/119 BAŞARILI** (Web Worker mesajlaşması, kayan pencere kova hesaplaması, bayat veri durum makinesi, çok dilli etiket ayrıştırması).
+- **Regresyon Testleri (`npm run test:regression`):** **23/23 BAŞARILI** (Neon DB bağlantısı, şema doğrulaması, `/bluesky-hashtag-network`, `/gym-churn` ve admin oturum kontrolleri).
+- **Lighthouse Mobil Denetimi (`/canli-sosyal-medya-nabzi`):**
+  - **Vercel Preview Resmi Dağıtımı (`01558ba` commit'i sonrası doğrulanmış mobil sonuçlar):**
+    - **Performans (Performance):** **97 / 100**
+    - **Erişilebilirlik (Accessibility):** **96 / 100** *(WCAG 2.1 AA uyumlu etiketler ve renk kontrastı)*
+    - **En İyi Uygulamalar (Best Practices):** **100 / 100**
+    - **Arama Motoru Optimizasyonu (SEO):** **100 / 100**
+    - **Temel Web Metrikleri (Core Web Vitals):**
+      - **İlk Zengin İçerikli Boyama (FCP):** 1.7 s
+      - **En Büyük İçerikli Boyama (LCP):** 2.2 s
+      - **Toplam Engelleme Süresi (TBT):** 120 ms
+      - **Kümülatif Düzen Kayması (CLS):** 0 *(Sabit kart bildirimi ile sıfır kayma)*
+      - **Hız İndeksi (Speed Index):** 1.7 s
+    - **Kanıt Ekran Görüntüleri:** `docs/lighthouse/vercel-preview-lighthouse-mobile-score.png` ve `docs/lighthouse/vercel-preview-lighthouse-mobile-metrics.png`.
+  - **Ölçüm Ayrımı:** İlk yerel geliştirme ortamındaki ölçümler (Performance 50, FCP 0.9s, LCP 0.9s; optimize edilmemiş fontlar ve yüksek TBT) ile `01558ba` commit'i ile optimize edilmiş Vercel Preview dağıtımı üzerindeki resmi sonuçlar (Performance 97, CLS 0, TBT 120ms) açıkça ayrılmıştır.
+- **Kullanılabilirlik & Kullanıcı Testi (2 Katılımcı, 3 Görev):**
+  - İki gönüllü katılımcı (arkadaş) uygulamayı test etmiş ve **3 görevin tamamını başarıyla tamamlamıştır**.
+  - **Katılımcı 1:** Görev 1 (Dil filtresi ve lider etiket tespiti): 10 sn | Görev 2 (5 dk vs 1 saat karşılaştırması): 55 sn | Görev 3 (Bağlantı kesme, bayat veri & yeniden bağlanma): 35 sn | **Toplam: 100 sn**.
+  - **Katılımcı 2:** Testi genel olarak Katılımcı 1'den **25 saniye daha hızlı (Toplam: 75 sn)** tamamlamıştır. Katılımcı 2'nin münferit görev süreleri ayrı tutulmadığı için akademik dürüstlük gereği yapay olarak dağıtılmamıştır.
+  - **Gözlem & Sürtünme Notu:** Katılımcılar belirgin bir zorluk bildirmedi. Filtre kontrolleri tekrar açılırken etiket filtresinde kısa süreli görsel titreme (flicker) gözlemlendi; filtre seçilebilir kaldı ve görevi engellemedi. Dürüstlük ilkesi gereği henüz düzeltilmediği belirtilmiş ve geliştirme backlog'una alınmıştır.
+- **Demo Video Durumu:**
+  - Yaklaşık 60 saniyelik Türkçe demo videosu kaydedilmiştir.
+  - Herkese açık YouTube/Vimeo bağlantısı henüz sağlanmadığı için videonun yüklendiği/yayınlandığı iddia edilmemiş; embed alanı gerçek link gelene kadar korunmuştur.
+
+---
+
+## 💼 Özgeçmiş / Portfolyo İfade Önerisi (Evidence-Based CV Sentence)
+
+> *"Bluesky Jetstream WebSocket akışı üzerinden saniyede 150+ genel gönderiyi istemci tarafında UI dondurmadan Web Worker ve kayan pencereler (5 dk / 1 saat) ile işleyen, %100 gizlilik odaklı (ham veri ve kullanıcı kimliklerini anında imha eden), 119 otomatik testten geçen, 2 kullanıcı testiyle doğrulanan ve Vercel Preview mobil Lighthouse denetiminde 97 Performans / 96 Erişilebilirlik (CLS: 0, TBT: 120ms) elde eden 'Canlı Sosyal Medya Nabzı' veri ürününü geliştirdi."*
 
 ---
 
 ## 🤖 Yapay Zeka (AI) ve Akademik Dürüstlük Beyanı
 
-Bu projede; Python veri işleme betikleri, D3.js SVG yaşam döngüsü mimarisi, responsive mobil uyumluluk ve ilk taslak anlatı metinlerinin yapılandırılmasında yapay zeka araçlarından (Antigravity LLM Agent) teknik ve mimari destek alınmıştır.
+Bu projede; Web Worker mimarisi, TypeScript tip tanımlamaları, D3.js SVG yaşam döngüsü mimarisi, otomatik test kütüklerinin yazımı ve dokümantasyon taslaklarının hazırlanmasında yapay zeka araçlarından (Antigravity LLM Agent) teknik ve mimari destek alınmıştır.
 
-Kodlama ve teknik hata ayıklama desteği ile analitik yazım katkısı açıkça ayrılmıştır. Ders gereklilikleri ve akademik dürüstlük standartları doğrultusunda, öğrencinin (**Metehan Gezer**) tüm analitik yorumları, hikaye anlatımını ve çıkarımları kendi özgün cümleleriyle gözden geçirip revize etmesi gerekmektedir.
+Kodlama ve teknik hata ayıklama desteği ile analitik yazım katkısı açıkça ayrılmıştır. Ders gereklilikleri ve akademik dürüstlük standartları doğrultusunda, tüm mimari kararlar, gizlilik ilkeleri, SQL analizleri, veri yorumları ve çıkarımlar öğrenci (**Metehan Gezer**) tarafından denetlenmiş ve doğrulanmıştır.
 
 ---
 

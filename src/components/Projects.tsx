@@ -603,14 +603,26 @@ export const Projects: React.FC = () => {
                 <i className="fa-solid fa-arrow-up-right-from-square text-[10px]" />
               </a>
 
-              <a
-                href="/canli-sosyal-medya-nabzi"
-                className="btn btn-sm text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 px-4 py-2 sm:py-1.5 rounded-lg border border-emerald-400/40 shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:shadow-[0_0_20px_rgba(16,185,129,0.6)] inline-flex items-center justify-center gap-1.5 transition-all w-full sm:w-auto"
-              >
-                <i className="fa-solid fa-bolt" />
-                <span>Canlı Ürünü Aç</span>
-                <i className="fa-solid fa-arrow-right text-[10px]" />
-              </a>
+              <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 w-full sm:w-auto">
+                {/* Case Study */}
+                <Link
+                  to={livePulseProject.caseStudyRoute}
+                  className="btn btn-sm text-xs font-semibold text-emerald-300 bg-emerald-950/60 hover:bg-emerald-900/80 px-3 py-2 sm:py-1.5 rounded-lg border border-emerald-500/40 shadow-sm inline-flex items-center justify-center gap-1.5 transition-all w-full sm:w-auto"
+                >
+                  <i className="fa-solid fa-book-open text-xs text-emerald-400" />
+                  <span>Vaka Analizi</span>
+                </Link>
+
+                {/* Primary Action: Live Product */}
+                <a
+                  href={livePulseProject.route}
+                  className="btn btn-sm text-xs font-bold text-white bg-emerald-600 hover:bg-emerald-500 px-3.5 py-2 sm:py-1.5 rounded-lg border border-emerald-400/40 shadow-[0_0_15px_rgba(16,185,129,0.4)] hover:shadow-[0_0_20px_rgba(16,185,129,0.6)] inline-flex items-center justify-center gap-1.5 transition-all w-full sm:w-auto"
+                >
+                  <i className="fa-solid fa-bolt" />
+                  <span>Canlı Ürünü Aç</span>
+                  <i className="fa-solid fa-arrow-right text-[10px]" />
+                </a>
+              </div>
             </div>
           </div>
 

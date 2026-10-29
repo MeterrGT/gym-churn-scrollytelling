@@ -73,6 +73,7 @@ export interface LivePulseProjectData {
   };
   tools: ProjectTool[];
   route: string;
+  caseStudyRoute: string;
   githubUrl: string;
 }
 
@@ -321,6 +322,7 @@ export const PORTFOLIO_DATA = {
       { name: "React & SVG Charts", icon: "fa-brands fa-react" },
     ],
     route: "/canli-sosyal-medya-nabzi",
+    caseStudyRoute: "/canli-sosyal-medya-nabzi/vaka-analizi",
     githubUrl: "https://github.com/MeterrGT/gym-churn-scrollytelling",
   } as LivePulseProjectData,
 
