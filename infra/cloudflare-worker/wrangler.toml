@@ -1,0 +1,32 @@
+# Cloudflare Workers Configuration - Canlı Sosyal Medya Nabzı Edge Aggregator
+# Hedef Maliyet: 0 TRY / 0 USD (Cloudflare Free Tier)
+# Öğrenci: Metehan Gezer (Öğrenci No: 2516016026)
+# Ders: Bulut Bilişim ve Siber Güvenlik - Güvenli Bulut Yayını
+
+name = "pulse-edge-aggregator"
+main = "src/index.ts"
+compatibility_date = "2024-01-01"
+workers_dev = true
+
+[placement]
+mode = "smart"
+
+# Cloudflare KV Namespace - Yalnızca agregasyon istatistikleri tutulur, 1 saatlik TTL ile otomatik silinir
+# KESİNLİKLE kişisel veri (PII), ham metin, kullanıcı adı veya DID barındırmaz.
+[[kv_namespaces]]
+binding = "PULSE_AGGREGATES_KV"
+id = "pulse_aggregates_kv_production"
+preview_id = "pulse_aggregates_kv_preview"
+
+[vars]
+ENVIRONMENT = "production"
+MAX_WINDOW_MINUTES = 60
+ENABLE_LOG_REDACTION = "true"
+ALLOWED_ORIGIN = "https://metehan-gezer.vercel.app"
+
+[triggers]
+crons = ["*/5 * * * *"] # Her 5 dakikada bir eski pencere temizliği tetiklenir
+
+[observability]
+enabled = true
+head_sampling_rate = 1 # %100 hata ve erişim telemetrisi

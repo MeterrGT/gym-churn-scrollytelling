@@ -32,3 +32,6 @@ venv/
 **/gym_members_dataset.csv
 
 data/raw/gym_churn_us.csv
+
+# Archives and binaries
+*.zip
