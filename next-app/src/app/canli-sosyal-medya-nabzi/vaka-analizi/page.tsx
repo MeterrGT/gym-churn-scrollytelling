@@ -607,10 +607,18 @@ export default function LivePulseCaseStudyPage() {
 
           <div className="p-6 rounded-2xl bg-[#110e1c] border border-white/10 space-y-4 text-xs font-mono">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-2">
-              <span className="text-slate-400">Format: 1080p MP4 • Dil: Türkçe</span>
+              <span className="text-slate-400">Format: 1080p MP4 • Dil: Türkçe • Süre: ~60 sn</span>
               <div className="flex items-center gap-2">
-                <span className="px-2 py-0.5 rounded bg-blue-500/20 text-blue-300 border border-blue-500/30 font-bold">Kayıt: Tamamlandı (~60 sn)</span>
-                <span className="px-2 py-0.5 rounded bg-amber-500/20 text-amber-300 border border-amber-500/30 font-bold">Genel URL: Bekleniyor</span>
+                <span className="px-2 py-0.5 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 font-bold">✓ YouTube Yayında (Liste Dışı)</span>
+                <a
+                  href="https://youtu.be/3Xz3kawRV9M"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-2 py-0.5 rounded bg-red-500/20 text-red-300 hover:text-white hover:bg-red-500/30 border border-red-500/40 font-bold inline-flex items-center gap-1 transition-colors"
+                >
+                  <i className="fa-brands fa-youtube" />
+                  <span>İzle (3Xz3kawRV9M)</span>
+                </a>
               </div>
             </div>
 
@@ -656,13 +664,44 @@ export default function LivePulseCaseStudyPage() {
               </div>
             </div>
 
-            {/* Gerçek Video Gömme Konteyneri (Dürüst Durum Koruması) */}
-            <div className="p-6 rounded-xl bg-black/60 border border-dashed border-white/20 text-center space-y-2 mt-4">
-              <i className="fa-brands fa-youtube text-3xl text-red-500 mb-1" />
-              <strong className="text-white block text-sm">Gerçek Video Gömme Alanı (Public URL Bekleniyor)</strong>
-              <p className="text-slate-300 text-xs font-sans max-w-lg mx-auto m-0">
-                Yaklaşık 60 saniyelik Türkçe demo videosu öğrenci <strong>Metehan Gezer</strong> tarafından yukarıdaki çekim senaryosuna göre kaydedilmiştir. Herkese açık bir YouTube veya Vimeo bağlantısı henüz sağlanmadığı için videonun yüklendiği ya da gömüldüğü iddia edilmemiştir. Genel bağlantı temin edildiğinde iframe bu alana yerleştirilecektir.
-              </p>
+            {/* Canlı YouTube Video Gömme Konteyneri (16:9 Responsive & Accessible) */}
+            <div className="mt-6 rounded-2xl overflow-hidden bg-black/80 border border-red-500/30 shadow-2xl shadow-red-950/20">
+              <div className="p-3 bg-[#171226] border-b border-white/10 flex items-center justify-between text-xs font-mono">
+                <div className="flex items-center gap-2 text-white">
+                  <i className="fa-brands fa-youtube text-red-500 text-sm" />
+                  <strong className="text-xs">BVA 2245 — Canlı Sosyal Medya Nabzı 60sn Demo Videosu</strong>
+                </div>
+                <a
+                  href="https://youtu.be/3Xz3kawRV9M"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-slate-400 hover:text-white transition-colors inline-flex items-center gap-1 text-[11px]"
+                >
+                  <span>YouTube&apos;da Aç</span>
+                  <i className="fa-solid fa-arrow-up-right-from-square text-[10px]" />
+                </a>
+              </div>
+
+              {/* 16:9 Responsive Wrapper */}
+              <div className="relative w-full aspect-video bg-black">
+                <iframe
+                  src="https://www.youtube-nocookie.com/embed/3Xz3kawRV9M"
+                  title="BVA 2245 Canlı Sosyal Medya Nabzı 60 Saniyelik Türkçe Demo Videosu - Metehan Gezer"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowFullScreen
+                  loading="lazy"
+                  className="absolute inset-0 w-full h-full border-0"
+                />
+              </div>
+
+              <div className="p-3 bg-[#0d0d12] border-t border-white/5 text-[11px] font-sans text-slate-400 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2">
+                <span>
+                  <strong>Video ID:</strong> <code className="text-red-300 font-mono">3Xz3kawRV9M</code> • <strong>Görünürlük:</strong> Liste Dışı (Unlisted)
+                </span>
+                <span className="text-slate-500">
+                  Öğrenci: <strong className="text-slate-300">Metehan Gezer (2516016026)</strong>
+                </span>
+              </div>
             </div>
           </div>
         </section>

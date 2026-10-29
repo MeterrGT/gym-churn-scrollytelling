@@ -6,6 +6,7 @@ Bu depo, **Manisa Celal Bayar Üniversitesi Büyük Veri Analistliği** öğrenc
   *(Eski alan adı yönlendirmesi: `https://metehan-gym-churn.vercel.app`)*
 - **BVA 2245 Canlı Veri Ürünü (Live Pulse):** [https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi](https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi)
 - **BVA 2245 Vaka Analizi (Case Study):** [https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi/vaka-analizi](https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi/vaka-analizi)
+- **BVA 2245 Demo Videosu (YouTube):** [https://youtu.be/3Xz3kawRV9M](https://youtu.be/3Xz3kawRV9M) *(Video ID: 3Xz3kawRV9M - Liste Dışı)*
 - **Tarihsel Bluesky Ağ Analizi (SNA):** [https://metehan-gezer.vercel.app/bluesky-hashtag-network](https://metehan-gezer.vercel.app/bluesky-hashtag-network)
 - **Gym Churn Veri Hikayesi:** [https://metehan-gezer.vercel.app/gym-churn](https://metehan-gezer.vercel.app/gym-churn)
 - **GitHub Deposu:** [https://github.com/MeterrGT/gym-churn-scrollytelling](https://github.com/MeterrGT/gym-churn-scrollytelling)
@@ -198,8 +199,9 @@ npm run build
   - **Katılımcı 2:** Testi genel olarak Katılımcı 1'den **25 saniye daha hızlı (Toplam: 75 sn)** tamamlamıştır. Katılımcı 2'nin münferit görev süreleri ayrı tutulmadığı için akademik dürüstlük gereği yapay olarak dağıtılmamıştır.
   - **Gözlem & Sürtünme Notu:** Katılımcılar belirgin bir zorluk bildirmedi. Filtre kontrolleri tekrar açılırken etiket filtresinde kısa süreli görsel titreme (flicker) gözlemlendi; filtre seçilebilir kaldı ve görevi engellemedi. Dürüstlük ilkesi gereği henüz düzeltilmediği belirtilmiş ve geliştirme backlog'una alınmıştır.
 - **Demo Video Durumu:**
-  - Yaklaşık 60 saniyelik Türkçe demo videosu kaydedilmiştir.
-  - Herkese açık YouTube/Vimeo bağlantısı henüz sağlanmadığı için videonun yüklendiği/yayınlandığı iddia edilmemiş; embed alanı gerçek link gelene kadar korunmuştur.
+  - Yaklaşık 60 saniyelik Türkçe demo videosu öğrenci Metehan Gezer tarafından başarıyla kaydedilmiş ve YouTube'a Liste Dışı (Unlisted) olarak yüklenmiştir.
+  - **Video Bağlantısı:** [https://youtu.be/3Xz3kawRV9M](https://youtu.be/3Xz3kawRV9M) (Video ID: `3Xz3kawRV9M`).
+  - Vaka analizi sayfasına (`/canli-sosyal-medya-nabzi/vaka-analizi`) 16:9 responsive oranında ve `youtube-nocookie.com` üzerinden gizlilik odaklı olarak başarıyla gömülmüştür.
 
 ---
 

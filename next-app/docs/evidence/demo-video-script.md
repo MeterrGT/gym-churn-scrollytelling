@@ -2,14 +2,17 @@
 ## 60-90 Saniyelik Türkçe Demo Video Senaryosu & Çekim Planı (Shot List)
 
 > **⚠️ BİLGİLENDİRME & DÜRÜSTLÜK BEYANI:**  
-> Akademik dürüstlük standartları uyarınca, **yaklaşık 60 saniyelik gerçek demo videosu öğrenci tarafından başarıyla kaydedilmiştir**, ancak henüz herkese açık bir YouTube/Vimeo bağlantısı sağlanmamıştır. Videonun yüklendiği, yayınlandığı veya gömüldüğü yönünde asılsız beyanda bulunulmamış; gerçek URL temin edilene kadar mevcut video gömme alanı ve dokümantasyonu dürüstçe korunmuştur.
+> Akademik dürüstlük standartları uyarınca, **yaklaşık 60 saniyelik gerçek demo videosu öğrenci Metehan Gezer tarafından başarıyla kaydedilmiş ve YouTube platformuna Liste Dışı (Unlisted) olarak yüklenmiştir**. Video, portfolyo vaka analizi sayfasına (`/canli-sosyal-medya-nabzi/vaka-analizi`) gizlilik ve erişilebilirlik standartlarına uygun responsive `youtube-nocookie.com` iframe'i ile yerleştirilmiştir.
 
 ---
 
-### 1. Video Genel Özellikleri
+### 1. Video Genel Özellikleri & Yayın Bağlantıları
 
-- **Kayıt Durumu:** Kaydedildi (~60 saniye, MP4 formatında; genel URL bekleniyor)
-- **Hedef Süre:** ~60 Saniye
+- **Kayıt ve Yayın Durumu:** Tamamlandı & YouTube'a Yüklendi (Liste Dışı / Unlisted)
+- **Doğrudan Video URL:** [https://youtu.be/3Xz3kawRV9M](https://youtu.be/3Xz3kawRV9M)
+- **YouTube Video ID:** `3Xz3kawRV9M`
+- **Gömme (Embed) URL:** `https://www.youtube-nocookie.com/embed/3Xz3kawRV9M`
+- **Süre:** ~60 Saniye
 - **Dil:** Türkçe (Net, profesyonel ve tempolu anlatım)
 - **Çözünürlük & Format:** 1080p, 60 FPS, MP4
 
@@ -44,8 +47,7 @@
 
 ---
 
-### 3. Kayıt Sonrası Video Yerleştirme Talimatı
+### 3. Video Yerleştirme ve Doğrulama Durumu
 
-Videoyu kaydettikten sonra:
-1. Videoyu YouTube'a **"Liste Dışı" (Unlisted)** veya Vimeo'ya yükleyin.
-2. `next-app/src/app/canli-sosyal-medya-nabzi/vaka-analizi/page.tsx` dosyasındaki video embed konteynerindeki `IFRAME_SRC` yerine YouTube video embed URL'nizi (`https://www.youtube.com/embed/VIDEO_ID`) yapıştırın.
+1. Video YouTube üzerine Liste Dışı olarak yüklenmiştir: [https://youtu.be/3Xz3kawRV9M](https://youtu.be/3Xz3kawRV9M) (Video ID: `3Xz3kawRV9M`).
+2. `next-app/src/app/canli-sosyal-medya-nabzi/vaka-analizi/page.tsx` sayfasına 16:9 oranında responsive, erişilebilir başlık (`title`) etiketine sahip ve `youtube-nocookie.com` üzerinden gizlilik odaklı iframe olarak gömülmüştür.

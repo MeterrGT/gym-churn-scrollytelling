@@ -9,6 +9,7 @@ Bu proje, **Manisa Celal Bayar Üniversitesi Büyük Veri Analistliği** program
 
 - **Canlı Veri Ürünü (Live Product):** [https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi](https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi)
 - **Vaka Analizi & Mimari Raporu (Case Study):** [https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi/vaka-analizi](https://metehan-gezer.vercel.app/canli-sosyal-medya-nabzi/vaka-analizi)
+- **Demo Videosu (YouTube):** [https://youtu.be/3Xz3kawRV9M](https://youtu.be/3Xz3kawRV9M) *(Video ID: 3Xz3kawRV9M - Liste Dışı)*
 - **Tarihsel Sosyal Ağ Analizi (SNA - 48 Saatlik Arşiv):** [https://metehan-gezer.vercel.app/bluesky-hashtag-network](https://metehan-gezer.vercel.app/bluesky-hashtag-network)
 - **Kişisel Portfolyo & Gym Churn Hikayesi:** [https://metehan-gezer.vercel.app](https://metehan-gezer.vercel.app)
 - **GitHub Deposu:** [https://github.com/MeterrGT/gym-churn-scrollytelling](https://github.com/MeterrGT/gym-churn-scrollytelling)
@@ -115,8 +116,9 @@ npm run build
   - **Katılımcı 2:** Testi genel olarak Katılımcı 1'den **25 saniye daha hızlı (Toplam: 75 sn)** tamamlamıştır. Katılımcı 2'nin görev düzeyindeki münferit süreleri ayrı tutulmadığı için akademik dürüstlük gereği yapay olarak dağıtılmamıştır.
   - **Gözlem & Sürtünme Notu:** Hiçbir katılımcı belirgin bir zorluk bildirmedi. Filtre kontrolleri tekrar açılırken etiket filtresinde kısa süreli görsel titreme (flicker) gözlemlendi; filtre seçilebilir kaldı ve görevi engellemedi. Dürüstlük ilkesi gereği henüz düzeltilmediği belirtilmiş ve geliştirme backlog'una alınmıştır.
 - **Demo Video Durumu:**
-  - Yaklaşık 60 saniyelik Türkçe demo videosu öğrenci tarafından başarıyla kaydedilmiştir.
-  - Herkese açık YouTube/Vimeo bağlantısı henüz sağlanmadığı için videonun yüklendiği/yayınlandığı iddia edilmemiş; embed alanı gerçek link gelene kadar korunmuştur.
+  - Yaklaşık 60 saniyelik Türkçe demo videosu öğrenci Metehan Gezer tarafından başarıyla kaydedilmiş ve YouTube'a Liste Dışı (Unlisted) olarak yüklenmiştir.
+  - **Video Bağlantısı:** [https://youtu.be/3Xz3kawRV9M](https://youtu.be/3Xz3kawRV9M) (Video ID: `3Xz3kawRV9M`).
+  - Vaka analizi sayfasına (`/canli-sosyal-medya-nabzi/vaka-analizi`) 16:9 responsive oranında ve `youtube-nocookie.com` üzerinden gizlilik odaklı olarak başarıyla gömülmüştür.
 
 ---
 
