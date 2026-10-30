@@ -1,0 +1,39 @@
+# Gitleaks Configuration - Canlı Sosyal Medya Nabzı
+# Depo: MeterrGT/gym-churn-scrollytelling
+# Öğrenci: Metehan Gezer (2516016026)
+
+title = "Canlı Sosyal Medya Nabzı - Güvenlik ve Gizli Anahtar Tarama Kuralları"
+
+[extend]
+useDefault = true
+
+[allowlist]
+description = "Test senaryoları, dokümantasyon ve sentetik PII fikstürleri için istisnalar"
+paths = [
+  '''next-app/scripts/test-privacy-minimization\.mjs''',
+  '''docs/security/.*''',
+  '''\.tempmediaStorage/.*''',
+  '''\.system_generated/.*''',
+  '''package-lock\.json''',
+]
+regexes = [
+  '''did:plc:[a-zA-Z0-9_-]+''',
+  '''dummy_cf_[a-zA-Z0-9_]+''',
+  '''3Xz3kawRV9M''', # YouTube demo video ID
+  '''postgres://build_user:[^@]+@127\.0\.0\.1.*''',
+  '''postgres://dummy_build:dummy_build@ep-dummy-build\.neon\.tech/dummy''', # Commit 129a346 sentetik CI derleme yer tutucusu (gecersiz/sahte Neon baglanti sabiti)
+]
+
+[[rules]]
+id = "neon-database-url"
+description = "Neon Serverless Postgres Veritabanı Bağlantı Dizesi"
+regex = '''postgres://[a-zA-Z0-9_\-]+:[a-zA-Z0-9_\-]+@[a-zA-Z0-9_\-\.]+\.neon\.tech/[a-zA-Z0-9_\-]+'''
+secretGroup = 0
+keywords = ["neon.tech", "postgres://"]
+
+[[rules]]
+id = "cloudflare-api-token"
+description = "Cloudflare API Belirteci Tespiti"
+regex = '''(?i)(?:cloudflare|cf)[-_]?(?:api)?[-_]?(?:token|key)\s*[:=]\s*["']?([a-zA-Z0-9_\-]{40})["']?'''
+secretGroup = 1
+keywords = ["cloudflare", "cf_token"]

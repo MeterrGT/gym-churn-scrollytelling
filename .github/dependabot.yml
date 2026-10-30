@@ -1,0 +1,47 @@
+# Dependabot Yapılandırması - Canlı Sosyal Medya Nabzı
+# Depo: MeterrGT/gym-churn-scrollytelling
+# Öğrenci: Metehan Gezer (2516016026)
+
+version: 2
+updates:
+  # Next.js Uygulama Bağımlılıkları
+  - package-ecosystem: "npm"
+    directory: "/next-app"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:00"
+      timezone: "Europe/Istanbul"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+      - "security"
+    reviewers:
+      - "MeterrGT"
+    commit-message:
+      prefix: "chore(deps-next)"
+      include: "scope"
+
+  # Kök Dizin Bağımlılıkları (Legacy Scripts/Tools)
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "06:30"
+      timezone: "Europe/Istanbul"
+    open-pull-requests-limit: 3
+    labels:
+      - "dependencies"
+      - "root"
+    reviewers:
+      - "MeterrGT"
+
+  # GitHub Actions İş Akışı Güncellemeleri
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "monthly"
+    labels:
+      - "ci"
+      - "security"

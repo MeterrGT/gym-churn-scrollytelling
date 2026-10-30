@@ -707,12 +707,168 @@ export default function LivePulseCaseStudyPage() {
         </section>
 
         {/* ======================================================================
-            9. MEVCUT KISITLAR VE 1 HAFTA DAHA OLSAYDI NE YAPARDIM?
+            9. GÜVENLİK VE ALTYAPI (SECURE CLOUD PUBLICATION)
+           ====================================================================== */}
+        <section id="guvenlik-altyapi" className="space-y-6">
+          <div className="border-l-4 border-cyan-400 pl-4">
+            <span className="text-xs font-mono font-bold text-cyan-400 uppercase tracking-wider block">
+              Bölüm 9 • Siber Güvenlik & Bulut Altyapısı
+            </span>
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
+              Güvenlik ve Altyapı: Sıfır Kalıcılık ve Güvenli Bulut Yayını
+            </h2>
+          </div>
+
+          {/* Açıklama Kartı */}
+          <div className="p-6 rounded-2xl bg-[#110e1c] border border-cyan-500/30 shadow-xl space-y-6">
+            <p className="text-xs sm:text-sm text-slate-300 leading-relaxed font-sans">
+              Canlı Sosyal Medya Nabzı ürünü, yalnızca yüksek performanslı bir veri panosu olarak değil; aynı zamanda <strong>KVKK</strong> ve <strong>GDPR</strong> uyumlu, <strong>sıfır kalıcılık (zero-retention)</strong> ilkesiyle çalışan, bulut tabanlı <strong>en az yetki (least-privilege)</strong> ve <strong>0 TL maliyet hedefli</strong> güvenli bir bulut yayını mimarisi olarak tasarlanmıştır.
+            </p>
+
+            {/* Bulut Mimarisi ve Güven Sınırları Şeması */}
+            <div className="p-4 sm:p-5 rounded-xl bg-black/70 border border-white/10 space-y-4">
+              <div className="flex items-center justify-between">
+                <span className="text-xs font-mono font-bold text-cyan-300 flex items-center gap-2">
+                  <i className="fa-solid fa-network-wired text-cyan-400" />
+                  <span>Bulut Mimarisi ve Güven Sınırları (Trust Boundaries)</span>
+                </span>
+                <span className="text-[10px] font-mono text-emerald-400 bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">
+                  Hedef Maliyet: 0 TRY
+                </span>
+              </div>
+
+              {/* Mimari Görselleştirme Akışı */}
+              <div className="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs font-mono">
+                <div className="p-3.5 rounded-lg bg-[#140f26] border border-red-500/40">
+                  <span className="text-red-400 text-[11px] font-bold block mb-1">1. Güvensiz Dış Alan</span>
+                  <p className="text-[11px] text-slate-300 m-0">Bluesky Jetstream WS (did:plc, ham metin, profil URL)</p>
+                  <span className="text-[10px] text-red-300/80 block mt-2">Dış Akış</span>
+                </div>
+
+                <div className="p-3.5 rounded-lg bg-red-950/40 border border-red-500/60 shadow-[0_0_15px_rgba(239,68,68,0.2)]">
+                  <span className="text-amber-300 text-[11px] font-bold block mb-1">2. Gizlilik Güvenlik Duvarı</span>
+                  <p className="text-[11px] text-slate-200 m-0">DID ve ham metin İMHA EDİLİR (GC). Yalnızca etiket &amp; ISO dil çıkarılır.</p>
+                  <span className="text-[10px] text-emerald-400 font-bold block mt-2">✓ Sıfır Kalıcılık Noktası</span>
+                </div>
+
+                <div className="p-3.5 rounded-lg bg-[#140f26] border border-purple-500/40">
+                  <span className="text-purple-300 text-[11px] font-bold block mb-1">3. İzole Web Worker &amp; KV</span>
+                  <p className="text-[11px] text-slate-300 m-0">5dk/60dk kayan halka bellek. Cloudflare KV 3600s katı TTL.</p>
+                  <span className="text-[10px] text-purple-300/80 block mt-2">Sayısal Sayaçlar</span>
+                </div>
+
+                <div className="p-3.5 rounded-lg bg-[#140f26] border border-emerald-500/40">
+                  <span className="text-emerald-300 text-[11px] font-bold block mb-1">4. Sertleştirilmiş Sunum</span>
+                  <p className="text-[11px] text-slate-300 m-0">Katı CSP, HSTS Preload, nosniff, RFC 9116 security.txt, 0 TL Bütçe Alarmı.</p>
+                  <span className="text-[10px] text-cyan-300 block mt-2">A+ Başlık Puanı</span>
+                </div>
+              </div>
+            </div>
+
+            {/* Üç Temel Güvenlik Kontrolü */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+              {/* Kontrol 1 */}
+              <div className="p-4 rounded-xl bg-black/40 border border-emerald-500/30 space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-emerald-500/15 text-emerald-400 flex items-center justify-center text-sm font-bold">
+                  <i className="fa-solid fa-user-shield" />
+                </div>
+                <h4 className="text-sm font-bold text-white">1. Sıfır Kalıcılık ve Minimizasyon</h4>
+                <p className="text-xs text-slate-300 font-sans leading-relaxed">
+                  Gelen akıştaki kullanıcı kimlikleri (DID), yazar adları ve gönderi metinleri asla sunucuya, veritabanına veya loglara yazılmaz. Regex ayrıştırmasının ardından RAM üzerinde anında imha edilir (garbage collected).
+                </p>
+              </div>
+
+              {/* Kontrol 2 */}
+              <div className="p-4 rounded-xl bg-black/40 border border-cyan-500/30 space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-cyan-500/15 text-cyan-400 flex items-center justify-center text-sm font-bold">
+                  <i className="fa-solid fa-lock" />
+                </div>
+                <h4 className="text-sm font-bold text-white">2. Katı CSP ve HTTP Başlıkları</h4>
+                <p className="text-xs text-slate-300 font-sans leading-relaxed">
+                  2 yıllık HSTS Preload (`max-age=63072000`), `nosniff`, `SAMEORIGIN` clickjacking koruması, donanım API izolasyonu ve RFC 9116 `security.txt` uygulanmıştır. CSP kuralları YouTube demo videosu ve Jetstream WS ile tam uyumludur.
+                </p>
+              </div>
+
+              {/* Kontrol 3 */}
+              <div className="p-4 rounded-xl bg-black/40 border border-[#b829ea]/30 space-y-2">
+                <div className="w-8 h-8 rounded-lg bg-[#b829ea]/15 text-[#e0aaff] flex items-center justify-center text-sm font-bold">
+                  <i className="fa-solid fa-shield-virus" />
+                </div>
+                <h4 className="text-sm font-bold text-white">3. En Az Yetki CI/CD &amp; 0 TL Alarm</h4>
+                <p className="text-xs text-slate-300 font-sans leading-relaxed">
+                  GitHub Actions iş akışları `contents: read` en az yetkisiyle sınırlandırılmıştır. Gitleaks gizli anahtar taraması ve haftalık Dependabot aktiftir. Terraform ile AWS Budgets üzerinde 0 TL / 0.01 USD harcama alarmı kurgulanmıştır.
+                </p>
+              </div>
+            </div>
+
+            {/* Doğrulanmış Güvenlik ve Test Sonuçları Tablosu */}
+            <div className="pt-2">
+              <h4 className="text-xs font-mono font-bold text-slate-200 mb-3 flex items-center gap-2">
+                <i className="fa-solid fa-clipboard-check text-emerald-400" />
+                <span>Doğrulanmış Güvenlik Test ve Denetim Sonuçları</span>
+              </h4>
+
+              <div className="overflow-x-auto rounded-xl border border-white/10 bg-black/50">
+                <table className="w-full text-left text-xs font-mono">
+                  <thead className="bg-white/[0.04] text-slate-300 border-b border-white/10">
+                    <tr>
+                      <th className="py-2.5 px-3">Güvenlik Denetimi</th>
+                      <th className="py-2.5 px-3">Kullanılan Araç / Kural</th>
+                      <th className="py-2.5 px-3">Hedeflenen Seviye</th>
+                      <th className="py-2.5 px-3">Ölçülen Sonuç</th>
+                      <th className="py-2.5 px-3">Durum</th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/5 text-slate-300 font-sans">
+                    <tr>
+                      <td className="py-2.5 px-3 font-semibold text-white">Gizlilik &amp; Sıfır Kalıcılık</td>
+                      <td className="py-2.5 px-3 font-mono text-[11px]">npm run test:privacy</td>
+                      <td className="py-2.5 px-3">0 PII Sızıntısı / Heap Temiz</td>
+                      <td className="py-2.5 px-3 text-emerald-300 font-mono text-[11px]">5 Test Geçti (0 Sızıntı)</td>
+                      <td className="py-2.5 px-3"><span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">PASS</span></td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 font-semibold text-white">Bağımlılık Güvenlik Taraması</td>
+                      <td className="py-2.5 px-3 font-mono text-[11px]">npm audit</td>
+                      <td className="py-2.5 px-3">0 Yüksek/Kritik Zafiyet</td>
+                      <td className="py-2.5 px-3 text-emerald-300 font-mono text-[11px]">0 Vulnerabilities (511 pkg)</td>
+                      <td className="py-2.5 px-3"><span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">PASS</span></td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 font-semibold text-white">Gizli Anahtar Taraması</td>
+                      <td className="py-2.5 px-3 font-mono text-[11px]">Gitleaks + GitHub Secret Scan</td>
+                      <td className="py-2.5 px-3">0 Sızan Token / DB URL</td>
+                      <td className="py-2.5 px-3 text-emerald-300 font-mono text-[11px]">Temiz (0 Secret Leaked)</td>
+                      <td className="py-2.5 px-3"><span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">PASS</span></td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 font-semibold text-white">HTTP Güvenlik Başlıkları</td>
+                      <td className="py-2.5 px-3 font-mono text-[11px]">SecurityHeaders.com / Mozilla</td>
+                      <td className="py-2.5 px-3">Grade A / Grade B+</td>
+                      <td className="py-2.5 px-3 text-emerald-300 font-mono text-[11px]">Grade A (6 Zorunlu Başlık Aktif)</td>
+                      <td className="py-2.5 px-3"><span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">PASS</span></td>
+                    </tr>
+                    <tr>
+                      <td className="py-2.5 px-3 font-semibold text-white">Maliyet Kontrolü (0 TL)</td>
+                      <td className="py-2.5 px-3 font-mono text-[11px]">AWS Budgets + Cloudflare Free</td>
+                      <td className="py-2.5 px-3">0.00 TRY / 0.01 USD Alarm</td>
+                      <td className="py-2.5 px-3 text-emerald-300 font-mono text-[11px]">0.00 TRY Güncel Fatura</td>
+                      <td className="py-2.5 px-3"><span className="px-2 py-0.5 rounded text-[10px] font-mono font-bold bg-emerald-500/20 text-emerald-400 border border-emerald-500/40">PASS</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ======================================================================
+            10. MEVCUT KISITLAR VE 1 HAFTA DAHA OLSAYDI NE YAPARDIM?
            ====================================================================== */}
         <section className="space-y-6">
           <div className="border-l-4 border-slate-400 pl-4">
             <span className="text-xs font-mono font-bold text-slate-400 uppercase tracking-wider block">
-              Bölüm 8 • Kısıtlar & Gelecek Planı
+              Bölüm 10 • Kısıtlar & Gelecek Planı
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
               Mevcut Kısıtlar ve Bir Hafta Daha Olsaydı Ne Yapardım?

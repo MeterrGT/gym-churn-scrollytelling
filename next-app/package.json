@@ -12,8 +12,11 @@
     "test:stage2": "node scripts/test-stage2.mjs",
     "test:stage3-4": "node scripts/test-stage3-4.mjs",
     "test:regression": "node scripts/test-regression.mjs",
-    "test:pulse": "node scripts/test-pulse-service.mjs",
-    "test:all": "node scripts/test-auth-flow.mjs && node scripts/test-stage2.mjs && node scripts/test-stage3-4.mjs && node scripts/test-regression.mjs && node scripts/test-pulse-service.mjs"
+    "test:pulse": "tsx scripts/test-pulse-service.mjs",
+    "test:privacy": "tsx scripts/test-privacy-minimization.mjs",
+    "pdf:security": "node scripts/generate-security-pdf.mjs",
+    "security:audit": "npm audit",
+    "test:all": "node scripts/test-auth-flow.mjs && node scripts/test-stage2.mjs && node scripts/test-stage3-4.mjs && node scripts/test-regression.mjs && tsx scripts/test-pulse-service.mjs && tsx scripts/test-privacy-minimization.mjs"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.2.0",
@@ -29,11 +32,14 @@
     "@tailwindcss/turbopack": "^4",
     "@types/d3": "^7.4.3",
     "@types/node": "^20",
+    "@types/pdfkit": "^0.17.7",
     "@types/react": "^19",
     "@types/react-dom": "^19",
     "eslint": "^9",
     "eslint-config-next": "16.4.2",
+    "pdfkit": "^0.20.2",
     "tailwindcss": "^4",
+    "tsx": "^4.23.15",
     "typescript": "^5"
   }
 }

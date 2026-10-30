@@ -207,7 +207,11 @@ npm run build
 
 ## 💼 Özgeçmiş / Portfolyo İfade Önerisi (Evidence-Based CV Sentence)
 
+### 📊 Büyük Veri & Canlı Ürün Odaklı (BVA 2245):
 > *"Bluesky Jetstream WebSocket akışı üzerinden saniyede 150+ genel gönderiyi istemci tarafında UI dondurmadan Web Worker ve kayan pencereler (5 dk / 1 saat) ile işleyen, %100 gizlilik odaklı (ham veri ve kullanıcı kimliklerini anında imha eden), 119 otomatik testten geçen, 2 kullanıcı testiyle doğrulanan ve Vercel Preview mobil Lighthouse denetiminde 97 Performans / 96 Erişilebilirlik (CLS: 0, TBT: 120ms) elde eden 'Canlı Sosyal Medya Nabzı' veri ürününü geliştirdi."*
+
+### 🛡️ Bulut Bilişim ve Siber Güvenlik Odaklı (Secure Cloud Publication):
+> *"Büyük veri akış işleme mimarisinde sıfır kalıcılık (zero-retention) prensibiyle PII veri sızıntılarını engelleyen, RFC 9116 güvenlik bildirimi ve katı CSP/HSTS başlıkları içeren, Terraform ve Cloudflare Workers/KV ile 0 TL maliyet hedefli en az yetkili (least-privilege) güvenli bulut mimarisi tasarladı, otomasyonlu gizlilik testleri ve Gitleaks/npm audit denetimleriyle doğruladı."*
 
 ---
 
