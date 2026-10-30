@@ -21,6 +21,7 @@ regexes = [
   '''dummy_cf_[a-zA-Z0-9_]+''',
   '''3Xz3kawRV9M''', # YouTube demo video ID
   '''postgres://build_user:[^@]+@127\.0\.0\.1.*''',
+  '''postgres://dummy_build:dummy_build@ep-dummy-build\.neon\.tech/dummy''', # Commit 129a346 sentetik CI derleme yer tutucusu (gecersiz/sahte Neon baglanti sabiti)
 ]
 
 [[rules]]
