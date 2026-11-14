@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { PORTFOLIO_DATA, ProjectTool } from '@/data/portfolio';
+import { FEATURES } from '@/config/features';
 import { GymChurnWidget } from './GymChurnWidget';
 
 interface CurrentTermProjectProps {
@@ -105,7 +106,7 @@ export const CurrentTermProject: React.FC<CurrentTermProjectProps> = ({ onEaster
             </div>
 
             {/* Interactive Member Churn Risk Simulator */}
-            <GymChurnWidget />
+            {FEATURES.gymChurnQuickSimulator && <GymChurnWidget />}
           </div>
 
           <div className="project-card-bottom">

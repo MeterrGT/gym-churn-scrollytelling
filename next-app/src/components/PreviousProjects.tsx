@@ -1,6 +1,7 @@
 'use client';
 import React from 'react';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
+import { FEATURES } from '@/config/features';
 import { MotorMinigame } from './MotorMinigame';
 import { PriceSimulator } from './PriceSimulator';
 
@@ -68,7 +69,7 @@ export const PreviousProjects: React.FC = () => {
               </div>
 
               {/* Fully functional Motor Temperature & Failure Risk Simulation UI */}
-              <MotorMinigame />
+              {FEATURES.predictiveMaintenanceSimulator && <MotorMinigame />}
             </div>
 
             <div className="project-card-bottom">
@@ -131,7 +132,7 @@ export const PreviousProjects: React.FC = () => {
               </div>
 
               {/* Fully functional RAM / CPU / GPU slider & OLS regression price simulator UI */}
-              <PriceSimulator />
+              {FEATURES.laptopPriceSimulator && <PriceSimulator />}
             </div>
 
             <div className="project-card-bottom">

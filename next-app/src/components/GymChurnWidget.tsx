@@ -1,5 +1,6 @@
 'use client';
 import React, { useState } from 'react';
+import { FEATURES } from '@/config/features';
 
 // Lookup table based on Kaggle Gym Customers Features and Churn (4,000 observations)
 const CHURN_LOOKUP: Record<string, Record<string, { pct: number; rate: number; label: string }>> = {
@@ -38,6 +39,10 @@ export const GymChurnWidget: React.FC = () => {
   const handleApplyAction = () => {
     setActionApplied(true);
   };
+
+  if (!FEATURES.gymChurnQuickSimulator) {
+    return null;
+  }
 
   const handleReset = () => {
     setActionApplied(false);
