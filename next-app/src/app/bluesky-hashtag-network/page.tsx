@@ -1,16 +1,40 @@
 'use client';
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
 import { CyberCanvas } from '@/components/CyberCanvas';
 import { PORTFOLIO_DATA } from '@/data/portfolio';
 
 export default function BlueskyNetworkPage() {
   const { blueskyProject } = PORTFOLIO_DATA;
+  const iframeRef = useRef<HTMLIFrameElement | null>(null);
+  const [iframeLoaded, setIframeLoaded] = useState(false);
+  const [iframeError, setIframeError] = useState(false);
+  const [iframeRetryKey, setIframeRetryKey] = useState(0);
 
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  useEffect(() => {
+    const iframeEl = iframeRef.current;
+    if (!iframeEl) return;
+    const handleLoad = () => {
+      setIframeLoaded(true);
+      setIframeError(false);
+    };
+    iframeEl.addEventListener('load', handleLoad);
+    try {
+      if (iframeEl.contentDocument?.readyState === 'complete' && iframeEl.contentDocument?.body?.children.length) {
+        queueMicrotask(handleLoad);
+      }
+    } catch {
+      // Ignore cross-origin access check if any
+    }
+    return () => {
+      iframeEl.removeEventListener('load', handleLoad);
+    };
+  }, [iframeRetryKey]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -158,12 +182,21 @@ export default function BlueskyNetworkPage() {
             </div>
             <div className="p-4 sm:p-5 rounded-xl bg-[#140f26]/80 border border-[#b829ea]/30 text-center shadow-lg">
               <span className="block text-2xl sm:text-3xl md:text-4xl font-extrabold text-[#c77dff] font-mono">7.092</span>
-              <span className="text-xs text-slate-400 font-sans mt-1 block">Ağ Düğümü (Tekil Hashtag)</span>
+              <span className="text-xs text-slate-400 font-sans mt-1 block">Tam Analiz Ağı Düğümü (Tekil Hashtag)</span>
             </div>
             <div className="p-4 sm:p-5 rounded-xl bg-[#140f26]/80 border border-[#b829ea]/30 text-center shadow-lg">
               <span className="block text-2xl sm:text-3xl md:text-4xl font-extrabold text-emerald-400 font-mono">37.206</span>
-              <span className="text-xs text-slate-400 font-sans mt-1 block">Ağ Kenarı (Eş-oluşum Bağlantısı)</span>
+              <span className="text-xs text-slate-400 font-sans mt-1 block">Tam Analiz Ağı Kenarı (Eş-oluşum)</span>
             </div>
+          </div>
+
+          <div className="mt-4 px-4 py-2.5 rounded-xl bg-white/[0.03] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-2 text-xs font-mono text-slate-300">
+            <span>
+              <strong className="text-white">Tam analiz edilen ağ (Full analyzed network):</strong> 7.092 düğüm, 37.206 kenar
+            </span>
+            <span className="text-[#c77dff]">
+              <strong className="text-white">İnteraktif görselleştirme (Interactive visualization):</strong> 378 düğüm, 5.825 kenar
+            </span>
           </div>
         </div>
       </section>
@@ -368,11 +401,20 @@ export default function BlueskyNetworkPage() {
                 İnteraktif Ağ Görselleştirmesi
               </h2>
               <p className="text-xs sm:text-sm text-slate-400 mt-1 max-w-2xl">
-                Düğümleri fare ile sürükleyebilir, tekerlek ile yakınlaşıp uzaklaşabilir ve etiket kümelerinin bağlantı ağırlıklarını doğrudan keşfedebilirsiniz.
+                Düğümleri fare ile sürükleyebilir, tekerlek ile yakınlaşıp uzaklaşabilir ve etiket kümelerinin bağlantı ağırlıklarını doğrudan keşfedebilirsiniz. Tarayıcı performansı ve görsel okunabilirlik için interaktif çizge, öne çıkan <strong>378 düğüm ve 5.825 kenarı</strong> içerir (tam analiz edilen ağ: <strong>7.092 düğüm, 37.206 kenar</strong>).
               </p>
             </div>
 
-            <div className="flex items-center gap-3 shrink-0">
+            <div className="flex flex-wrap items-center gap-3 shrink-0">
+              <a
+                href="/embeds/bluesky-hashtag-network/outputs/hashtags.graphml"
+                download="hashtags.graphml"
+                className="inline-flex items-center gap-2 px-3.5 py-2.5 rounded-xl text-xs font-mono font-semibold text-slate-200 hover:text-white bg-white/[0.05] hover:bg-white/[0.1] border border-white/15 transition-all"
+                title="Tam Analiz Edilen Ağ Veri Seti (7.092 düğüm, 37.206 kenar - GraphML)"
+              >
+                <i className="fa-solid fa-download text-[#c77dff]" />
+                <span>Tam Ağ (GraphML)</span>
+              </a>
               <a
                 href={blueskyProject.deliverables.interactive}
                 target="_blank"
@@ -387,23 +429,83 @@ export default function BlueskyNetworkPage() {
 
           {/* Responsive Embedded Iframe Container (At least 800px on desktop) */}
           <div className="w-full bg-[#110e1c] border border-[#b829ea]/40 shadow-[0_20px_50px_rgba(0,0,0,0.85),0_0_35px_rgba(184,41,234,0.2)] rounded-2xl overflow-hidden">
-            <div className="px-5 py-3 bg-[#140f26]/90 border-b border-white/10 flex items-center justify-between text-xs font-mono text-slate-300">
+            <div className="px-4 sm:px-5 py-3 bg-[#140f26]/90 border-b border-white/10 flex flex-col sm:flex-row sm:items-center justify-between gap-1.5 text-xs font-mono text-slate-300">
               <span className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400" />
-                <span>Kaynak: meterrgt.github.io/sosyal-ag-hashtag-analizi/interactive.html</span>
+                <span className="w-2 h-2 rounded-full bg-emerald-400 shrink-0" />
+                <span>İnteraktif görselleştirme: <strong className="text-white">378 düğüm, 5.825 kenar</strong></span>
               </span>
-              <span className="text-slate-400 hidden sm:inline">
-                7.092 Düğüm • 37.206 Kenar
+              <span className="text-slate-400">
+                Tam analiz edilen ağ: <strong className="text-slate-200">7.092 düğüm, 37.206 kenar</strong>
               </span>
             </div>
 
             <div className="w-full relative bg-[#0a0a0f] min-h-[500px] sm:min-h-[650px] md:min-h-[800px] h-[500px] sm:h-[650px] md:h-[800px] lg:h-[860px]">
+              {!iframeLoaded && !iframeError && (
+                <div
+                  className="absolute inset-0 z-10 flex flex-col items-center justify-center bg-[#0a0a0f]/95 text-center px-4 pointer-events-none transition-opacity duration-300"
+                  aria-live="polite"
+                >
+                  <div className="w-10 h-10 rounded-full border-2 border-[#b829ea]/30 border-t-[#c77dff] animate-spin mb-3" />
+                  <p className="text-xs sm:text-sm font-mono text-slate-200 font-semibold">
+                    İnteraktif ağ görselleştirmesi yükleniyor…
+                  </p>
+                  <p className="text-[11px] font-mono text-slate-400 mt-1">
+                    İnteraktif alt-çizge: 378 düğüm, 5.825 kenar • Tam ağ: 7.092 düğüm, 37.206 kenar
+                  </p>
+                </div>
+              )}
+
+              {iframeError && (
+                <div
+                  className="absolute inset-0 z-20 flex flex-col items-center justify-center bg-[#0a0a0f] text-center px-6"
+                  role="alert"
+                >
+                  <i className="fa-solid fa-triangle-exclamation text-amber-400 text-2xl mb-3" />
+                  <p className="text-sm font-bold text-white mb-1">
+                    İnteraktif görselleştirme yüklenemedi
+                  </p>
+                  <p className="text-xs text-slate-400 max-w-md mb-4">
+                    Ağ çizgesi gömülü alanda başlatılamadı. Tekrar deneyebilir veya görselleştirmeyi doğrudan yeni sekmede açabilirsiniz.
+                  </p>
+                  <div className="flex flex-wrap items-center justify-center gap-3">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setIframeError(false);
+                        setIframeLoaded(false);
+                        setIframeRetryKey((k) => k + 1);
+                      }}
+                      className="px-4 py-2 rounded-xl text-xs font-mono font-bold text-white bg-white/10 hover:bg-white/20 border border-white/20 transition-all cursor-pointer"
+                    >
+                      Tekrar Dene
+                    </button>
+                    <a
+                      href={blueskyProject.deliverables.interactive}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="px-4 py-2 rounded-xl text-xs font-mono font-bold text-white bg-[#b829ea] hover:bg-[#9d17cb] border border-[#e0aaff]/40 transition-all"
+                    >
+                      Yeni Sekmede Aç
+                    </a>
+                  </div>
+                </div>
+              )}
+
               <iframe
+                key={iframeRetryKey}
+                ref={iframeRef}
                 src={blueskyProject.deliverables.interactive}
-                title="Bluesky Turkish Hashtag Network İnteraktif Çizgesi"
+                title="Bluesky Turkish Hashtag Network İnteraktif Çizgesi (378 düğüm, 5.825 kenar)"
                 className="w-full h-full border-0 block"
                 loading="lazy"
                 allow="fullscreen"
+                onLoad={() => {
+                  setIframeLoaded(true);
+                  setIframeError(false);
+                }}
+                onError={() => {
+                  setIframeError(true);
+                }}
               />
             </div>
 

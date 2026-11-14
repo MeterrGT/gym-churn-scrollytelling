@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import { PORTFOLIO_DATA, ProjectTool } from '@/data/portfolio';
+import { FEATURES } from '@/config/features';
 import { MotorMinigame } from './MotorMinigame';
 import { PriceSimulator } from './PriceSimulator';
 import { SectionLabel } from './SectionLabel';
@@ -123,15 +124,17 @@ export const Projects: React.FC = () => {
             {/* Card Bottom / Footer Actions */}
             <div className="project-card-bottom flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 px-4 sm:px-5 py-3.5 bg-[#140f26]/80 border-t border-white/10 shrink-0">
               {/* Secondary: Kaggle Veri Seti */}
-              <a
-                href="https://www.kaggle.com/datasets"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-sm btn-outline-purple text-xs px-3 py-2 sm:py-1.5 rounded-lg border border-[#b829ea]/40 text-[#e0aaff] hover:bg-[#b829ea]/15 inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
-              >
-                <i className="fa-brands fa-kaggle text-sm" />
-                <span>Kaggle Veri Seti</span>
-              </a>
+              {project.datasetUrl && (
+                <a
+                  href={project.datasetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-sm btn-outline-purple text-xs px-3 py-2 sm:py-1.5 rounded-lg border border-[#b829ea]/40 text-[#e0aaff] hover:bg-[#b829ea]/15 inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
+                >
+                  <i className="fa-brands fa-kaggle text-sm" />
+                  <span>Kaggle Veri Seti</span>
+                </a>
+              )}
 
               {/* Primary: Scrollytelling Sayfasına Git */}
               <Link
@@ -206,35 +209,39 @@ export const Projects: React.FC = () => {
                         <i className={`${tool.icon} text-[#b829ea]`} /> {tool.name}
                       </span>
                     ))}
-                    <span className="tag-item inline-flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-mono bg-[#b829ea]/15 text-[#e0aaff] border border-[#b829ea]/30">
-                      <i className="fa-solid fa-sliders text-[#b829ea]" /> IoT Simülatörü
-                    </span>
+                    {FEATURES.predictiveMaintenanceSimulator && (
+                      <span className="tag-item inline-flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-mono bg-[#b829ea]/15 text-[#e0aaff] border border-[#b829ea]/30">
+                        <i className="fa-solid fa-sliders text-[#b829ea]" /> IoT Simülatörü
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
 
               {/* Trigger Full-Width Simulator Area Button */}
-              <div className="mt-5 pt-3 border-t border-white/10">
-                <button
-                  type="button"
-                  onClick={() => setActiveSimulation((prev) => (prev === 'motor' ? null : 'motor'))}
-                  className={`w-full py-2.5 px-4 rounded-xl text-xs font-mono font-bold transition-all duration-200 flex items-center justify-between group/btn cursor-pointer ${
-                    activeSimulation === 'motor'
-                      ? 'bg-[#b829ea]/25 text-white border border-[#b829ea] shadow-[0_0_15px_rgba(184,41,234,0.4)]'
-                      : 'bg-[#140f26]/80 hover:bg-[#b829ea]/20 text-[#e0aaff] hover:text-white border border-[#b829ea]/40 hover:border-[#b829ea] shadow-[0_2px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_0_15px_rgba(184,41,234,0.3)]'
-                  }`}
-                >
-                  <span className="flex items-center gap-2">
-                    <i className="fa-solid fa-gamepad text-[#b829ea] group-hover/btn:scale-110 transition-transform" />
-                    <span>{activeSimulation === 'motor' ? 'Simülasyonu Kapat' : 'Simülasyonu Aç'}</span>
-                  </span>
-                  <i
-                    className={`fa-solid ${
-                      activeSimulation === 'motor' ? 'fa-chevron-up' : 'fa-chevron-down'
-                    } text-xs text-[#b829ea] transition-transform`}
-                  />
-                </button>
-              </div>
+              {FEATURES.predictiveMaintenanceSimulator && (
+                <div className="mt-5 pt-3 border-t border-white/10">
+                  <button
+                    type="button"
+                    onClick={() => setActiveSimulation((prev) => (prev === 'motor' ? null : 'motor'))}
+                    className={`w-full py-2.5 px-4 rounded-xl text-xs font-mono font-bold transition-all duration-200 flex items-center justify-between group/btn cursor-pointer ${
+                      activeSimulation === 'motor'
+                        ? 'bg-[#b829ea]/25 text-white border border-[#b829ea] shadow-[0_0_15px_rgba(184,41,234,0.4)]'
+                        : 'bg-[#140f26]/80 hover:bg-[#b829ea]/20 text-[#e0aaff] hover:text-white border border-[#b829ea]/40 hover:border-[#b829ea] shadow-[0_2px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_0_15px_rgba(184,41,234,0.3)]'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <i className="fa-solid fa-gamepad text-[#b829ea] group-hover/btn:scale-110 transition-transform" />
+                      <span>{activeSimulation === 'motor' ? 'Simülasyonu Kapat' : 'Simülasyonu Aç'}</span>
+                    </span>
+                    <i
+                      className={`fa-solid ${
+                        activeSimulation === 'motor' ? 'fa-chevron-up' : 'fa-chevron-down'
+                      } text-xs text-[#b829ea] transition-transform`}
+                    />
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Card Bottom / Footer Actions */}
@@ -317,35 +324,39 @@ export const Projects: React.FC = () => {
                         <i className={`${tool.icon} text-[#b829ea]`} /> {tool.name}
                       </span>
                     ))}
-                    <span className="tag-item inline-flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-mono bg-[#b829ea]/15 text-[#e0aaff] border border-[#b829ea]/30">
-                      <i className="fa-solid fa-calculator text-[#b829ea]" /> Fiyat Simülatörü
-                    </span>
+                    {FEATURES.laptopPriceSimulator && (
+                      <span className="tag-item inline-flex items-center gap-1 px-2.5 py-1 rounded text-[11px] font-mono bg-[#b829ea]/15 text-[#e0aaff] border border-[#b829ea]/30">
+                        <i className="fa-solid fa-calculator text-[#b829ea]" /> Fiyat Simülatörü
+                      </span>
+                    )}
                   </div>
                 </div>
               </div>
 
               {/* Trigger Full-Width Simulator Area Button */}
-              <div className="mt-5 pt-3 border-t border-white/10">
-                <button
-                  type="button"
-                  onClick={() => setActiveSimulation((prev) => (prev === 'laptop' ? null : 'laptop'))}
-                  className={`w-full py-2.5 px-4 rounded-xl text-xs font-mono font-bold transition-all duration-200 flex items-center justify-between group/btn cursor-pointer ${
-                    activeSimulation === 'laptop'
-                      ? 'bg-[#b829ea]/25 text-white border border-[#b829ea] shadow-[0_0_15px_rgba(184,41,234,0.4)]'
-                      : 'bg-[#140f26]/80 hover:bg-[#b829ea]/20 text-[#e0aaff] hover:text-white border border-[#b829ea]/40 hover:border-[#b829ea] shadow-[0_2px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_0_15px_rgba(184,41,234,0.3)]'
-                  }`}
-                >
-                  <span className="flex items-center gap-2">
-                    <i className="fa-solid fa-calculator text-[#b829ea] group-hover/btn:scale-110 transition-transform" />
-                    <span>{activeSimulation === 'laptop' ? 'Simülasyonu Kapat' : 'Simülasyonu Aç'}</span>
-                  </span>
-                  <i
-                    className={`fa-solid ${
-                      activeSimulation === 'laptop' ? 'fa-chevron-up' : 'fa-chevron-down'
-                    } text-xs text-[#b829ea] transition-transform`}
-                  />
-                </button>
-              </div>
+              {FEATURES.laptopPriceSimulator && (
+                <div className="mt-5 pt-3 border-t border-white/10">
+                  <button
+                    type="button"
+                    onClick={() => setActiveSimulation((prev) => (prev === 'laptop' ? null : 'laptop'))}
+                    className={`w-full py-2.5 px-4 rounded-xl text-xs font-mono font-bold transition-all duration-200 flex items-center justify-between group/btn cursor-pointer ${
+                      activeSimulation === 'laptop'
+                        ? 'bg-[#b829ea]/25 text-white border border-[#b829ea] shadow-[0_0_15px_rgba(184,41,234,0.4)]'
+                        : 'bg-[#140f26]/80 hover:bg-[#b829ea]/20 text-[#e0aaff] hover:text-white border border-[#b829ea]/40 hover:border-[#b829ea] shadow-[0_2px_10px_rgba(0,0,0,0.3)] hover:shadow-[0_0_15px_rgba(184,41,234,0.3)]'
+                    }`}
+                  >
+                    <span className="flex items-center gap-2">
+                      <i className="fa-solid fa-calculator text-[#b829ea] group-hover/btn:scale-110 transition-transform" />
+                      <span>{activeSimulation === 'laptop' ? 'Simülasyonu Kapat' : 'Simülasyonu Aç'}</span>
+                    </span>
+                    <i
+                      className={`fa-solid ${
+                        activeSimulation === 'laptop' ? 'fa-chevron-up' : 'fa-chevron-down'
+                      } text-xs text-[#b829ea] transition-transform`}
+                    />
+                  </button>
+                </div>
+              )}
             </div>
 
             {/* Card Bottom / Footer Actions */}
@@ -355,16 +366,23 @@ export const Projects: React.FC = () => {
                 <span>R² = 0.88 Doğruluk</span>
               </span>
 
-              {/* Action Button: Kaggle Veri Seti */}
-              <a
-                href="https://www.kaggle.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-sm btn-outline-purple text-xs px-3.5 py-2 sm:py-1.5 rounded-lg border border-[#b829ea]/40 text-[#e0aaff] hover:bg-[#b829ea]/15 inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
-              >
-                <i className="fa-brands fa-kaggle text-sm" />
-                <span>Kaggle Veri Seti</span>
-              </a>
+              {/* Action Button: Kaggle Veri Seti (rendered only when a verified external dataset URL exists) */}
+              {laptopProject.datasetUrl ? (
+                <a
+                  href={laptopProject.datasetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-sm btn-outline-purple text-xs px-3.5 py-2 sm:py-1.5 rounded-lg border border-[#b829ea]/40 text-[#e0aaff] hover:bg-[#b829ea]/15 inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
+                >
+                  <i className="fa-brands fa-kaggle text-sm" />
+                  <span>Kaggle Veri Seti</span>
+                </a>
+              ) : (
+                <span className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10 w-full sm:w-auto">
+                  <i className="fa-solid fa-database text-[#b829ea] text-xs" />
+                  <span>Sentetik Örneklem Veri Seti (n = 10)</span>
+                </span>
+              )}
             </div>
           </div>
 
@@ -597,10 +615,11 @@ export const Projects: React.FC = () => {
                 href={livePulseProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Canlı Sosyal Medya Nabzı GitHub Kaynak Kodu"
                 className="btn btn-sm btn-outline-purple text-xs px-3 py-2 sm:py-1.5 rounded-lg border border-white/20 text-slate-300 hover:text-white hover:bg-white/[0.08] inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
               >
                 <i className="fa-brands fa-github text-xs" />
-                <span>GitHub</span>
+                <span>GitHub Kaynak Kodu</span>
                 <i className="fa-solid fa-arrow-up-right-from-square text-[10px]" />
               </a>
 
@@ -632,7 +651,8 @@ export const Projects: React.FC = () => {
         {/* ========================================================
             Full-Width Dashboard Expansion Area BELOW the Grid
            ======================================================== */}
-        {activeSimulation && (
+        {((activeSimulation === 'motor' && FEATURES.predictiveMaintenanceSimulator) ||
+          (activeSimulation === 'laptop' && FEATURES.laptopPriceSimulator)) && (
           <div
             ref={simContainerRef}
             className="mt-8 w-full bg-[#100c1e]/95 border border-[#b829ea] shadow-[0_0_35px_rgba(184,41,234,0.35),0_15px_45px_rgba(0,0,0,0.85)] rounded-2xl overflow-hidden transition-all duration-300 animate-fadeIn"
@@ -674,8 +694,8 @@ export const Projects: React.FC = () => {
 
             {/* Expanded Area Simulator Body (Full horizontal layout) */}
             <div className="p-4 sm:p-6 md:p-8 bg-[#0d0d0d] [&_.price-simulator-widget]:mt-0 [&_.motor-minigame-widget]:mt-0 overflow-x-hidden">
-              {activeSimulation === 'motor' && <MotorMinigame />}
-              {activeSimulation === 'laptop' && <PriceSimulator />}
+              {FEATURES.predictiveMaintenanceSimulator && activeSimulation === 'motor' && <MotorMinigame />}
+              {FEATURES.laptopPriceSimulator && activeSimulation === 'laptop' && <PriceSimulator />}
             </div>
           </div>
         )}
