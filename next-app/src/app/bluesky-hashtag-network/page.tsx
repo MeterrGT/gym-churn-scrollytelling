@@ -19,13 +19,21 @@ export default function BlueskyNetworkPage() {
   useEffect(() => {
     const iframeEl = iframeRef.current;
     if (!iframeEl) return;
+    const handleLoad = () => {
+      setIframeLoaded(true);
+      setIframeError(false);
+    };
+    iframeEl.addEventListener('load', handleLoad);
     try {
       if (iframeEl.contentDocument?.readyState === 'complete' && iframeEl.contentDocument?.body?.children.length) {
-        setIframeLoaded(true);
+        queueMicrotask(handleLoad);
       }
     } catch {
       // Ignore cross-origin access check if any
     }
+    return () => {
+      iframeEl.removeEventListener('load', handleLoad);
+    };
   }, [iframeRetryKey]);
 
   const scrollToSection = (id: string) => {

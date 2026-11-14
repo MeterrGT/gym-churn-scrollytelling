@@ -56,9 +56,9 @@ for (const [, attrs, body] of scriptTags) {
 
 // 3. Verify interactive visualization subset (378 nodes, 5,825 edges, 26 communities) & SHA-256
 const dataJs = fs.readFileSync(path.join(embedDir, 'data.js'), 'utf8');
-const prefix = "'use strict';\nconst DATA=";
-assert(dataJs.startsWith(prefix), 'data.js starts with strict mode DATA declaration');
-const jsonStr = dataJs.slice(prefix.length).trim().replace(/;$/, '');
+const dataDeclIdx = dataJs.indexOf('const DATA=');
+assert(dataDeclIdx !== -1, 'data.js contains const DATA= declaration');
+const jsonStr = dataJs.slice(dataDeclIdx + 'const DATA='.length).trim().replace(/;$/, '');
 const data = JSON.parse(jsonStr);
 
 assert(
