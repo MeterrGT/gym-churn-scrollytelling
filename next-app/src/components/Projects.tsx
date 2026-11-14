@@ -124,15 +124,17 @@ export const Projects: React.FC = () => {
             {/* Card Bottom / Footer Actions */}
             <div className="project-card-bottom flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-2.5 px-4 sm:px-5 py-3.5 bg-[#140f26]/80 border-t border-white/10 shrink-0">
               {/* Secondary: Kaggle Veri Seti */}
-              <a
-                href="https://www.kaggle.com/datasets"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-sm btn-outline-purple text-xs px-3 py-2 sm:py-1.5 rounded-lg border border-[#b829ea]/40 text-[#e0aaff] hover:bg-[#b829ea]/15 inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
-              >
-                <i className="fa-brands fa-kaggle text-sm" />
-                <span>Kaggle Veri Seti</span>
-              </a>
+              {project.datasetUrl && (
+                <a
+                  href={project.datasetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-sm btn-outline-purple text-xs px-3 py-2 sm:py-1.5 rounded-lg border border-[#b829ea]/40 text-[#e0aaff] hover:bg-[#b829ea]/15 inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
+                >
+                  <i className="fa-brands fa-kaggle text-sm" />
+                  <span>Kaggle Veri Seti</span>
+                </a>
+              )}
 
               {/* Primary: Scrollytelling Sayfasına Git */}
               <Link
@@ -364,16 +366,23 @@ export const Projects: React.FC = () => {
                 <span>R² = 0.88 Doğruluk</span>
               </span>
 
-              {/* Action Button: Kaggle Veri Seti */}
-              <a
-                href="https://www.kaggle.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="btn btn-sm btn-outline-purple text-xs px-3.5 py-2 sm:py-1.5 rounded-lg border border-[#b829ea]/40 text-[#e0aaff] hover:bg-[#b829ea]/15 inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
-              >
-                <i className="fa-brands fa-kaggle text-sm" />
-                <span>Kaggle Veri Seti</span>
-              </a>
+              {/* Action Button: Kaggle Veri Seti (rendered only when a verified external dataset URL exists) */}
+              {laptopProject.datasetUrl ? (
+                <a
+                  href={laptopProject.datasetUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-sm btn-outline-purple text-xs px-3.5 py-2 sm:py-1.5 rounded-lg border border-[#b829ea]/40 text-[#e0aaff] hover:bg-[#b829ea]/15 inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
+                >
+                  <i className="fa-brands fa-kaggle text-sm" />
+                  <span>Kaggle Veri Seti</span>
+                </a>
+              ) : (
+                <span className="inline-flex items-center justify-center gap-1.5 px-3 py-1.5 rounded-lg text-[11px] font-mono bg-white/[0.04] text-slate-300 border border-white/10 w-full sm:w-auto">
+                  <i className="fa-solid fa-database text-[#b829ea] text-xs" />
+                  <span>Sentetik Örneklem Veri Seti (n = 10)</span>
+                </span>
+              )}
             </div>
           </div>
 
@@ -606,10 +615,11 @@ export const Projects: React.FC = () => {
                 href={livePulseProject.githubUrl}
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Canlı Sosyal Medya Nabzı GitHub Kaynak Kodu"
                 className="btn btn-sm btn-outline-purple text-xs px-3 py-2 sm:py-1.5 rounded-lg border border-white/20 text-slate-300 hover:text-white hover:bg-white/[0.08] inline-flex items-center justify-center gap-1.5 transition-colors w-full sm:w-auto"
               >
                 <i className="fa-brands fa-github text-xs" />
-                <span>GitHub</span>
+                <span>GitHub Kaynak Kodu</span>
                 <i className="fa-solid fa-arrow-up-right-from-square text-[10px]" />
               </a>
 

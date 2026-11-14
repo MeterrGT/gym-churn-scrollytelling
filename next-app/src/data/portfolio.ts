@@ -32,6 +32,7 @@ export interface ProjectData {
   tools: ProjectTool[];
   bottomStatus: string;
   contactMailSubject: string;
+  datasetUrl?: string | null;
 }
 
 export interface BlueskyProjectData {
@@ -219,31 +220,33 @@ export const PORTFOLIO_DATA = {
   previousProjects: [
     {
       id: "predictive-maintenance",
-      badge: "Kestirimci Bakım & IoT Simülasyonu",
+      badge: "Kestirimci Bakım & IoT Anomali Analizi",
       title: "Kestirimci Bakım Sistemleri ile Endüstride Arıza Önleme",
       subtitle: "(Motor Sıcaklığı & Arıza Riski Erken Uyarı Modeli)",
       description:
-        "Endüstriyel motor sensör verileri üzerinde termal aşınma ve anomali tespiti. Kritik sıcaklık eşiklerini izleyerek arızaları önleyen makine öğrenmesi erken müdahale simülasyonu.",
+        "Endüstriyel motor sensör verileri üzerinde termal aşınma ve anomali tespiti. Kritik sıcaklık eşiklerini izleyerek arızaları önleyen makine öğrenmesi erken müdahale modeli.",
       tools: [
         { name: "Python", icon: "fa-brands fa-python" },
         { name: "Pandas", icon: "fa-solid fa-table" },
         { name: "Scikit-learn", icon: "fa-solid fa-brain" },
         { name: "Jupyter", icon: "fa-solid fa-book" },
       ],
+      datasetUrl: null as string | null,
     },
     {
       id: "laptop-price-regression",
       badge: "Ekonometri & Çok Değişkenli Regresyon",
       title: "Laptop Fiyat Tahmini ve Ekonometrik Regresyon Analizi",
-      subtitle: "(OLS En Küçük Kareler Regresyon Fiyat Simülatörü)",
+      subtitle: "(OLS En Küçük Kareler Regresyon Modeli • Sentetik Örneklem Veri Seti)",
       description:
-        "Donanım bileşenlerinin (RAM, CPU Tier, GPU Tier) piyasa fiyatı üzerindeki marjinal etkilerini tahmin eden OLS regresyon modeli ve interaktif donanım simülatörü.",
+        "Sentetik örneklem donanım veri seti (n = 10) üzerinde bileşenlerin (RAM, CPU Tier, GPU Tier) piyasa fiyatı üzerindeki marjinal etkilerini tahmin eden çok değişkenli OLS regresyon modeli.",
       tools: [
         { name: "Python", icon: "fa-brands fa-python" },
         { name: "Statsmodels", icon: "fa-solid fa-chart-line" },
         { name: "Pandas", icon: "fa-solid fa-table" },
         { name: "React + Vite", icon: "fa-brands fa-react" },
       ],
+      datasetUrl: null as string | null,
     },
   ],
 
@@ -269,6 +272,7 @@ export const PORTFOLIO_DATA = {
     ],
     bottomStatus: "Kaggle Gym Customers Features and Churn veri seti başarıyla incelendi, aggregate edildi ve modellendi.",
     contactMailSubject: "Gym Churn Projesi Hakkında",
+    datasetUrl: "https://www.kaggle.com/datasets/adrianvinueza/gym-customers-features-and-churn",
   } as ProjectData,
 
   blueskyProject: {
@@ -323,7 +327,7 @@ export const PORTFOLIO_DATA = {
     ],
     route: "/canli-sosyal-medya-nabzi",
     caseStudyRoute: "/canli-sosyal-medya-nabzi/vaka-analizi",
-    githubUrl: "https://github.com/MeterrGT/gym-churn-scrollytelling",
+    githubUrl: "https://github.com/MeterrGT/gym-churn-scrollytelling/tree/main/next-app/src/app/canli-sosyal-medya-nabzi",
   } as LivePulseProjectData,
 
   socialLinks: [
