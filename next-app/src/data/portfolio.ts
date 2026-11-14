@@ -292,7 +292,7 @@ export const PORTFOLIO_DATA = {
       { name: "Gephi & D3.js", icon: "fa-solid fa-share-nodes" },
     ],
     deliverables: {
-      interactive: "https://meterrgt.github.io/sosyal-ag-hashtag-analizi/interactive.html",
+      interactive: "/embeds/bluesky-hashtag-network/interactive.html",
       report: "https://github.com/MeterrGT/sosyal-ag-hashtag-analizi/blob/main/deliverables/2516016026_METEHAN_GEZER_Rapor.pdf",
       poster: "https://github.com/MeterrGT/sosyal-ag-hashtag-analizi/blob/main/deliverables/hashtag_network_poster_A3.pdf",
       presentation: "https://github.com/MeterrGT/sosyal-ag-hashtag-analizi/blob/main/deliverables/2516016026_METEHAN_GEZER_Sunum.pdf",

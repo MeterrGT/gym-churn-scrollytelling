@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101d31">
+<title>Bluesky Türkçe Hashtag Ağı — Etkileşimli</title>
+<link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+<header><h1>Bluesky Türkçe Hashtag Ağı</h1><p>Düğüm = hashtag · Kenar = aynı gönderide birlikte geçme. Hashtag'e tıklayarak ayrıntıları gör; ara, topluluğa göre filtrele, yakınlaştır ve grafiği sürükle.</p></header>
+<div class="toolbar"><input id="search" type="search" placeholder="Hashtag ara (örn. #haber)" aria-label="Hashtag ara"><select id="community" aria-label="Topluluk filtresi"><option value="all">Tüm topluluklar</option></select><button id="reset" type="button">Sıfırla / sığdır</button><span class="count" id="count">Ağ yükleniyor…</span></div>
+<main class="layout"><section class="graph-wrap"><div class="graph"><canvas id="network" aria-label="Etkileşimli hashtag ağı"></canvas></div><p class="hint">Gösterim, okunabilirlik ve hız için 378 öne çıkan hashtag düğümü ile bunlar arasındaki 5.825 bağlantıyı içerir; tüm ağ için depodaki <code>outputs/hashtags.graphml</code> dosyasına bakın. Fare tekerleği yakınlaştırır, sürükleme görünümü taşır.</p></section><aside id="details" class="panel"><h2>Düğüm ayrıntısı</h2><p>Grafikte bir düğüme tıkla.</p><p class="muted">Düğüm büyüklüğü dereceye göre ölçeklenir. Kenarlar aynı gönderide birlikte görülme ilişkisini temsil eder; nedensellik göstermez.</p></aside></main>
+<script src="./data.js"></script>
+<script src="./app.js"></script>
+</body>
+</html>
